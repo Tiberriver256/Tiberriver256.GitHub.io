@@ -5,31 +5,59 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>sitename </title>
+  <title>Nitro: A quick and simple profiler for Go  &middot; sitename</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="description" content="" />
+<meta name="description" content="Nitro is a simple profiler for your Golang applications" />
 
-<meta name="keywords" content="">
+<meta name="keywords" content="Development, Go, profiling, ">
 
 
-<meta property="og:title" content="sitename ">
+<meta property="og:title" content="Nitro: A quick and simple profiler for Go  &middot; sitename ">
 <meta property="og:site_name" content="sitename"/>
-<meta property="og:url" content="http://www.example.com/" />
+<meta property="og:url" content="http://www.example.com/2013/06/21/nitro/" />
 <meta property="og:locale" content="en-EN">
 
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Nitro is a simple profiler for your Golang applications"/>
+<meta property="og:article:published_time" content="2013-06-21T11:27:27-04:00" />
+<meta property="og:article:modified_time" content="2013-06-21T11:27:27-04:00" />
+
+  
+    
+<meta property="og:article:tag" content="Development">
+    
+<meta property="og:article:tag" content="Go">
+    
+<meta property="og:article:tag" content="profiling">
+    
+  
+
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Nitro: A quick and simple profiler for Go",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2013-06-21",
+    "description": "Nitro is a simple profiler for your Golang applications",
+    "wordCount":  86 
+  }
+</script>
 
 
 
-<link href="http://www.example.com/index.xml" rel="alternate" type="application/rss+xml" title="sitename" />
-
-<link rel="canonical" href="http://www.example.com/" />
+<link rel="canonical" href="http://www.example.com/2013/06/21/nitro/" />
 
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.example.com/touch-icon-144-precomposed.png">
 <link href="http://www.example.com/favicon.png" rel="icon">
@@ -121,50 +149,109 @@
 </header>
 
 
-<section id="main-content" class="container main_content homepage">
-  <header class="container header">
-    <h1>sitename
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Nitro: A quick and simple profiler for Go
 </h1>
 
-    <span>last update: <time datetime="2015-11-28T08:24:05-05:00">28 November at 8:24am</time>
-</span>
+  <div class="metas">
+<time datetime="2013-06-21">21 Jun, 2013</time>
 
-  </header>
-  
-  
-    <article class="container content summary">
-  <div class="container hat">
-  <h2><a href="http://www.example.com/2013/06/21/nitro/">Nitro: A quick and simple profiler for Go
-</a>
-</h2>
 
-  <time datetime="2013-06-21">21 Jun, 2013</time>
+  
+  &middot; Read in about 1 min
+  &middot; (86 Words)
+  <br>
+  
+<a class="label" href="http://www.example.com/tags/development">Development</a>
+
+<a class="label" href="http://www.example.com/tags/go">Go</a>
+
+<a class="label" href="http://www.example.com/tags/profiling">profiling</a>
+
+
 
 </div>
 
-  <p class="container content">
+</header>
+
+  <div class="container content">
   
-  
-    Nitro is a simple profiler for your Golang applications
-  
 
+<h1 id="nitro:e8fb9c67eba912c72729806db31eaa1b">Nitro</h1>
 
-</p>
+<p>Quick and easy performance analyzer library for <a href="http://golang.org/">Go</a>.</p>
 
+<h2 id="overview:e8fb9c67eba912c72729806db31eaa1b">Overview</h2>
 
-  <div class="container readlink">
-  <a href="http://www.example.com/2013/06/21/nitro/">Read more &rarr;</a>
+<p>Nitro is a quick and easy performance analyzer library for Go.
+It is useful for comparing A/B against different drafts of functions
+or different functions.</p>
+
+<h2 id="implementing-nitro:e8fb9c67eba912c72729806db31eaa1b">Implementing Nitro</h2>
+
+<p>Using Nitro is simple. First, use <code>go get</code> to install the latest version
+of the library.</p>
+
+<pre><code class="language-powershell">$syncHash = [hashtable]::Synchronized(@{})
+$newRunspace =[runspacefactory]::CreateRunspace()
+$newRunspace.ApartmentState = &quot;STA&quot;
+$newRunspace.ThreadOptions = &quot;ReuseThread&quot;
+
+function HelloWorld($World) {
+    
+    Write-Host &quot;Hello $World&quot;
+
+}
+
+HelloWorld -World &quot;Micah&quot;
+</code></pre>
+
+<pre><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;Hello World!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre>
+
+<p>Next, include nitro in your application.</p>
 
 </div>
 
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//your_disqus_shortname.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
 
 </article>
-
-  
-  
-
-</section>
-
       <footer id="main-footer" class="container main_footer">
   
 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on sitename</title>
+    <link>http://www.example.com/tags/development/</link>
+    <description>Recent content in Development on sitename</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>yourname@example.com (yourname)</managingEditor>
+    <webMaster>yourname@example.com (yourname)</webMaster>
+    <copyright>(c) 2015 yourname.</copyright>
+    <lastBuildDate>Fri, 21 Jun 2013 11:27:27 -0400</lastBuildDate>
+    <atom:link href="http://www.example.com/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Nitro: A quick and simple profiler for Go</title>
+      <link>http://www.example.com/2013/06/21/nitro/</link>
+      <pubDate>Fri, 21 Jun 2013 11:27:27 -0400</pubDate>
+      <author>yourname@example.com (yourname)</author>
+      <guid>http://www.example.com/2013/06/21/nitro/</guid>
+      <description>
+
+&lt;h1 id=&#34;nitro:e8fb9c67eba912c72729806db31eaa1b&#34;&gt;Nitro&lt;/h1&gt;
+
+&lt;p&gt;Quick and easy performance analyzer library for &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;overview:e8fb9c67eba912c72729806db31eaa1b&#34;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;Nitro is a quick and easy performance analyzer library for Go.
+It is useful for comparing A/B against different drafts of functions
+or different functions.&lt;/p&gt;
+
+&lt;h2 id=&#34;implementing-nitro:e8fb9c67eba912c72729806db31eaa1b&#34;&gt;Implementing Nitro&lt;/h2&gt;
+
+&lt;p&gt;Using Nitro is simple. First, use &lt;code&gt;go get&lt;/code&gt; to install the latest version
+of the library.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;$syncHash = [hashtable]::Synchronized(@{})
+$newRunspace =[runspacefactory]::CreateRunspace()
+$newRunspace.ApartmentState = &amp;quot;STA&amp;quot;
+$newRunspace.ThreadOptions = &amp;quot;ReuseThread&amp;quot;
+
+function HelloWorld($World) {
+    
+    Write-Host &amp;quot;Hello $World&amp;quot;
+
+}
+
+HelloWorld -World &amp;quot;Micah&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;html&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;Hello World!&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, include nitro in your application.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
