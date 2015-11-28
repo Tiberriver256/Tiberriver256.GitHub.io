@@ -6,7 +6,7 @@ words_per_minute: 200
 logo:             images/logo.png
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
-# url: http://aronbordin.com/neo-hpstr-jekyll-theme
+ url: http://tiberriver256.github.io
 
 menu:
   - title: 'Home'
@@ -28,38 +28,38 @@ menu:
 
 # Owner/author information
 owner:
-  name:           Your name
-  site:           http://aronbordin.com
+  name:           Micah Rairdon
+  site:           http://tiberriver256.github.io
   avatar:         images/avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  bio:            "Christian, husband, father, all around haver of fun related to IT."
+  email:          Jun(Real Email: Micah.Rairdon [GMail])k@JunkMail.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter: aron_bordin
-  facebook:
-  github: aron-bordin
-  stackexchange:
-  linkedin:
-  instagram:
-  flickr:
-  tumblr:
+  twitter: tiberriver256
+  # facebook:
+  github: tiberriver256
+  # stackexchange:
+  linkedin: tiberriver256
+  # instagram:
+  # flickr:
+  # tumblr:
   # google plus id, include the '+', eg +AronBordin
-  google_plus:    +yourid
+  # google_plus:    +yourid
 
 social:
   - title: "github"
-    url: "https://github.com/aron-bordin"
+    url: "https://github.com/tiberriver256"
   - title: "linkedin"
-    url: "https://br.linkedin.com/in/aronbordin"
-  - title: "youtube"
-    url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
+    url: "https://br.linkedin.com/in/tiberriver256"
+ # - title: "youtube"
+ #   url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
 # Background image to be tiled on all pages
 background:
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:
-google_verify:
+google_analytics: UA-70751453-1
+# google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+# bing_verify:
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
