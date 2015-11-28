@@ -20,7 +20,7 @@
       <guid>http://tiberriver256.github.io/about/</guid>
       <description>
 
-&lt;h2 id=&#34;a-headline&#34;&gt;A headline&lt;/h2&gt;
+&lt;h2 id=&#34;a-headline:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;A headline&lt;/h2&gt;
 
 &lt;p&gt;Some Content&lt;/p&gt;
 </description>
@@ -34,17 +34,17 @@
       <guid>http://tiberriver256.github.io/2013/06/21/nitro/</guid>
       <description>
 
-&lt;h1 id=&#34;nitro:e8fb9c67eba912c72729806db31eaa1b&#34;&gt;Nitro&lt;/h1&gt;
+&lt;h1 id=&#34;nitro&#34;&gt;Nitro&lt;/h1&gt;
 
 &lt;p&gt;Quick and easy performance analyzer library for &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;overview:e8fb9c67eba912c72729806db31eaa1b&#34;&gt;Overview&lt;/h2&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 
 &lt;p&gt;Nitro is a quick and easy performance analyzer library for Go.
 It is useful for comparing A/B against different drafts of functions
 or different functions.&lt;/p&gt;
 
-&lt;h2 id=&#34;implementing-nitro:e8fb9c67eba912c72729806db31eaa1b&#34;&gt;Implementing Nitro&lt;/h2&gt;
+&lt;h2 id=&#34;implementing-nitro&#34;&gt;Implementing Nitro&lt;/h2&gt;
 
 &lt;p&gt;Using Nitro is simple. First, use &lt;code&gt;go get&lt;/code&gt; to install the latest version
 of the library.&lt;/p&gt;
