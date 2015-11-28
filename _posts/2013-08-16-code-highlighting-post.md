@@ -57,45 +57,8 @@ end
 {% endhighlight %}
 
 
-### Standard Code Block
-
-    {% raw %}
-    <nav class="pagination" role="navigation">
-        {% if page.previous %}
-            <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-        {% endif %}
-        {% if page.next %}
-            <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-        {% endif %}
-    </nav><!-- /.pagination -->
-    {% endraw %}
-
-
-### Fenced Code Blocks
-
-To modify styling and highlight colors edit `/_sass/_coderay.scss`. Line numbers and a few other things can be modified in `_config.yml`. Consult [Jekyll's documentation](http://jekyllrb.com/docs/configuration/) for more information.
-
-~~~ css
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
-}
-~~~
-
-~~~ html
-{% raw %}<nav class="pagination" role="navigation">
-    {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-    {% endif %}
-    {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-    {% endif %}
-</nav><!-- /.pagination -->{% endraw %}
-~~~
-
-~~~ powershell
-{% raw %}############################################################### 
+{% highlight powershell %}
+############################################################### 
 # Get_User Last_Logon_v1.1.ps1 
 # Version 1.1 
 # Changelog : n/a 
@@ -137,7 +100,49 @@ foreach ($DomainController in $DomainControllers)
 "The last logon occured the " + $RealUserLastLogon + "" 
 "It was done against " + $LastusedDC + "" 
 $mesage = "............." 
-$exit = Read-Host $mesage{% endraw %}
+$exit = Read-Host $mesage
+{% endhighlight %}
+
+
+### Standard Code Block
+
+    {% raw %}
+    <nav class="pagination" role="navigation">
+        {% if page.previous %}
+            <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
+        {% endif %}
+        {% if page.next %}
+            <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
+        {% endif %}
+    </nav><!-- /.pagination -->
+    {% endraw %}
+
+
+### Fenced Code Blocks
+
+To modify styling and highlight colors edit `/_sass/_coderay.scss`. Line numbers and a few other things can be modified in `_config.yml`. Consult [Jekyll's documentation](http://jekyllrb.com/docs/configuration/) for more information.
+
+~~~ css
+#container {
+    float: left;
+    margin: 0 -240px 0 0;
+    width: 100%;
+}
+~~~
+
+~~~ html
+{% raw %}<nav class="pagination" role="navigation">
+    {% if page.previous %}
+        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
+    {% endif %}
+    {% if page.next %}
+        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
+    {% endif %}
+</nav><!-- /.pagination -->{% endraw %}
+~~~
+
+~~~ powershell
+{% raw %}{% endraw %}
 ~~~
 
 ~~~ ruby
