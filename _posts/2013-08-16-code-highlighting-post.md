@@ -57,7 +57,7 @@ end
 {% endhighlight %}
 
 
-{% highlight powershell linenos=table %}
+{% highlight powershell %}
 ############################################################### 
 # Get_User Last_Logon_v1.1.ps1 
 # Version 1.1 
