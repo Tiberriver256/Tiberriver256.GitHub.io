@@ -9,8 +9,16 @@
 		margin: 0;
 		padding: 1em;
 	}
- .c { color: #408080; font-style: italic } /* Comment */
+	
+ .language-powershell {background-color: #ffffff;}
+ .language-powershell .n { Color: #000000 } 
+ .language-powershell .nv { Color: #FF4500 } 
+ .language-powershell .s2 .s1 { Color: #8B0000 } 
+ .language-powershell .nb { Color: #0000FF } 
+ .language-powershell .no { Color: #008080 } 
+ .language-powershell .p .o { Color: #A9A9A9 }
  .language-powershell .c {color: #006400; font-style: italic }
+ .c { color: #408080; font-style: italic } /* Comment */
  .err { border: 1px solid #FF0000 } /* Error */
  .k { color: #008000; font-weight: bold } /* Keyword */
  .o { color: #666666 } /* Operator */
