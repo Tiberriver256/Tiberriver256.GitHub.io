@@ -1,3 +1,9 @@
+.linenos pre code {
+    position: relative;
+    bottom: 8px;
+    z-index: 99999;
+}
+
 .highlight {
 	margin-bottom: 1.5em;
 	@include font(12);
