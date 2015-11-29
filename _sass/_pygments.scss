@@ -2,15 +2,13 @@
 	margin-bottom: 1.5em;
 	@include font(12);
 	border: 1px solid darken($body-color, 5);
-	background-color: #f8f8f8;
+	background-color: #012456;
 	@include rounded(3px);
 	pre {
 		position: relative;
 		margin: 0;
 		padding: 1em;
 	}
-	
- .language-powershell {background-color: #ffffff;}
  .language-powershell .n { Color: #000000 } 
  .language-powershell .nv { Color: #FF4500 } 
  .language-powershell .s2 .s1 { Color: #8B0000 } 
