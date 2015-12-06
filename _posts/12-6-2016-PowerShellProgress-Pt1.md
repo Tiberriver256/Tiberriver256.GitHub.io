@@ -1,5 +1,14 @@
 ---
 published: false
+layout: post
+title: PowerShell ProgressBar Pt 1
+description: Showing how to create a progress bar in PowerShell using XAML and runspaces.
+modified: 2016-12-06T00:00:00.000Z
+tags: 
+  - PowerShell
+  - ProgressBar
+categories: 
+  - PowerShell
 ---
 
 Making PowerShell progress bars has always been a handy feature of PowerShell. End users and admins alike love to see that bar progressing just so they know the script is going somewhere. **Write-Progress** is a great tool built into Windows but sometimes you want to hide that black scary screen and surface a beautiful shiny bar of progress that will make your end user oooo and ahhhhh and your PowerShell prowess.
