@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: PowerShell ProgressBar Pt 1
 description: Showing how to create a progress bar in PowerShell using XAML and runspaces.
