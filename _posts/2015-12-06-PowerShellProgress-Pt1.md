@@ -3,7 +3,7 @@ published: true
 layout: post
 title: PowerShell ProgressBar Pt 1
 description: Showing how to create a progress bar in PowerShell using XAML and runspaces.
-modified: 2016-12-06T00:00:00.000Z
+modified: 2015-12-06T00:00:00.000Z
 tags: [PowerShell, ProgressBar]
 categories: [PowerShell]
 ---
@@ -164,7 +164,7 @@ function Write-ProgressBar
 
     Param (
         [Parameter(Mandatory=$true)]
-        [System.Collections.Hashtable]$ProgressBar,
+        [System.Object[]]$ProgressBar,
         [Parameter(Mandatory=$true)]
         [String]$Activity,
         [int]$PercentComplete
@@ -201,7 +201,7 @@ function Close-ProgressBar
 
     Param (
         [Parameter(Mandatory=$true)]
-        [System.Collections.Hashtable]$ProgressBar
+        [System.Object[]]$ProgressBar
     )
 
     $ProgressBar.Window.Dispatcher.Invoke([action]{ 
@@ -213,4 +213,135 @@ function Close-ProgressBar
 }
 {% endhighlight %}
 
-Hope you enjoy! The next posting we will get into replicating the exact functionality of the write-progress function. The third we will get into styling our progress bars.
+Hope you enjoy! The next posting we will get into replicating the exact functionality of the write-progress function as well as dealing with some of the performance issues you will see when running the below demo. The third we will get into styling our progress bars.
+
+Below is the full code so far and a demo:
+
+## Full Code
+{% highlight powershell %}
+
+# Function to facilitate updates to controls within the window 
+Function New-ProgressBar {
+ 
+    [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework') 
+    $syncHash = [hashtable]::Synchronized(@{})
+    $newRunspace =[runspacefactory]::CreateRunspace()
+    $syncHash.Runspace = $newRunspace
+    $newRunspace.ApartmentState = "STA" 
+    $newRunspace.ThreadOptions = "ReuseThread"           
+    $newRunspace.Open() 
+    $newRunspace.SessionStateProxy.SetVariable("syncHash",$syncHash)           
+    $PowerShellCommand = [PowerShell]::Create().AddScript({    
+        [xml]$xaml = @" 
+        <Window 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+            Name="Window" Title="Progress..." WindowStartupLocation = "CenterScreen" 
+            Width = "300" Height = "100" ShowInTaskbar = "True"> 
+            <StackPanel Margin="20">
+               <ProgressBar Name="ProgressBar" />
+               <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel> 
+        </Window> 
+"@ 
+  
+        $reader=(New-Object System.Xml.XmlNodeReader $xaml) 
+        $syncHash.Window=[Windows.Markup.XamlReader]::Load( $reader ) 
+        #===========================================================================
+        # Store Form Objects In PowerShell
+        #===========================================================================
+        $xaml.SelectNodes("//*[@Name]") | %{ $SyncHash."$($_.Name)" = $SyncHash.Window.FindName($_.Name)}
+
+
+        $syncHash.Window.ShowDialog() | Out-Null 
+        $syncHash.Error = $Error 
+
+    }) 
+    $PowerShellCommand.Runspace = $newRunspace 
+    $data = $PowerShellCommand.BeginInvoke() 
+   
+    
+    Register-ObjectEvent -InputObject $SyncHash.Runspace `
+            -EventName 'AvailabilityChanged' `
+            -Action { 
+                
+                    if($Sender.RunspaceAvailability -eq "Available")
+                    {
+                        $Sender.Closeasync()
+                        $Sender.Dispose()
+                    } 
+                
+                } 
+
+    return [System.Collections.Hashtable]$SyncHash
+
+}
+ 
+
+function Write-ProgressBar
+{
+
+    Param (
+        [Parameter(Mandatory=$true)]
+        [System.Object[]]$ProgressBar,
+        [Parameter(Mandatory=$true)]
+        [String]$Activity,
+        [String]$Status,
+        [int]$Id,
+        [int]$PercentComplete,
+        [int]$SecondsRemaining,
+        [String]$CurrentOperation,
+        [int]$ParentId,
+        [Switch]$Completed,
+        [int]$SourceID
+    ) 
+   
+   # This updates the control based on the parameters passed to the function 
+   $ProgressBar.Window.Dispatcher.Invoke([action]{ 
+      
+      $ProgressBar.Window.Title = $Activity
+
+   }, "Normal")
+
+   if($PercentComplete)
+   {
+
+       $ProgressBar.Window.Dispatcher.Invoke([action]{ 
+      
+          $ProgressBar.ProgressBar.Value = $PercentComplete
+
+       }, "Normal")
+
+   }
+
+}
+
+
+function Close-ProgressBar
+{
+
+    Param (
+        [Parameter(Mandatory=$true)]
+        [System.Object[]]$ProgressBar
+    )
+
+    $ProgressBar.Window.Dispatcher.Invoke([action]{ 
+      
+      $ProgressBar.Window.Close()
+
+    }, "Normal")
+ 
+}
+{% endhighlight %}
+
+## Demo
+
+*Run this after creating the above functions*
+
+{% highlight powershell %}
+$ProgressBar = New-ProgressBar
+
+1..100 | foreach {Write-ProgressBar -ProgressBar $ProgressBar -Activity "Counting $_ out of 100" -PercentComplete $_; Start-Sleep -Milliseconds 250}
+
+Close-ProgressBar $ProgressBar
+{% endhighlight %}
