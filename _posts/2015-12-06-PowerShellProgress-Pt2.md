@@ -19,7 +19,7 @@ If you attempted to run the demo at the end of [PowerShell ProgressBar -- Part 1
 
 Here are the stats just running the following progress bar demo code (**Start-Sleep** removed):
 
-{% highlight powershell %)
+{% highlight powershell %}
 1..100 | foreach {Write-ProgressBar -ProgressBar $ProgressBar -Activity "Counting $_ out of 100" -PercentComplete $_ }
 {% endhighlight %}
 
