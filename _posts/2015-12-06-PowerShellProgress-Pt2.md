@@ -24,7 +24,7 @@ Here are the stats just running the following progress bar demo code (**Start-Sl
 {% endhighlight %}
 
 <figure>
-	<img src="{{ site.url }}/images/PowerProgress/SlowPerformance.jpg">
+	<img src="{{ site.url }}/images/PowerProgress/SlowPerformance.JPG">
 	<figcaption>50 seconds to count to 100!</figcaption>
 </figure>
 
@@ -110,7 +110,7 @@ function Write-ProgressBar
 
 The end results in performance are... Drumroll please!!!
 <figure>
-	<img src="{{ site.url }}/images/PowerProgress/RockinPerformance.jpg">
+	<img src="{{ site.url }}/images/PowerProgress/RockinPerformance.JPG">
 	<figcaption>68 milliseconds to complete the same code!</figcaption>
 </figure>
 
