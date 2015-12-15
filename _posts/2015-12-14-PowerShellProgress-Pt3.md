@@ -75,10 +75,7 @@ if($SecondsRemaining)
 
 Now if I run the demo provided at the end of this article we get the following:
 
-<figure>
-	<img src="{{ site.url }}/images/PowerProgress/TheDetails.JPG">
-	<figcaption>Give me alllll the deets!</figcaption>
-</figure>
+
 
 Nice eh!?
 
