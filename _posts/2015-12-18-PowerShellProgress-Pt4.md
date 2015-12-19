@@ -127,7 +127,9 @@ There are three different methods we could use for building out the necessary XA
 $xaml = Get-Content ".\src\$Theme_$Color_$ProgressBarStyle_$SizeVariation.xaml"
 {% endhighlight %}
 
- 2. We could use the build the string as you go method with something like the following:
+<ol start="2">
+  <li>We could use the build the string as you go method with something like the following:</li>
+</ol>
 
 {% highlight powershell %}
 $xaml = @"
@@ -153,7 +155,9 @@ if($Theme -eq "Dark")
 }
 {% endhighlight %}
 
- 3. We could use dynamically created here-strings.
+<ol start="3">
+  <li>We could use dynamically created here-strings.</li>
+</ol>
 
 What is a dynamically created herestring? It may be a term I made up. There are two types of here-strings ([Read up on them here]("https://technet.microsoft.com/en-us/library/ee692792.aspx" 'Windows PowerShell Tip: Using Windows PowerShell “Here-Strings”')).
 
