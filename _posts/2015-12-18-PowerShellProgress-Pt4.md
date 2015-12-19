@@ -26,8 +26,8 @@ Does this mean I made my own XAML templates? Heck no. There are free ones out th
 
 If you have not heard of Material Design yet, it is a design spec published by Google you can read about here[^1]. Basically Google sharing with us lower peeps what good looks like. Let's take a look and see what it takes to apply ButchersBoy's Material Design in XAML Toolkit[^2] to our progressbar.
 
-[^1]: https://www.google.com/design/spec/material-design/introduction.html "Material Design"
-[^2]: http://materialdesigninxaml.net/        "Material Design in XAML"
+[^1]: https://www.google.com/design/spec/material-design/introduction.html
+[^2]: http://materialdesigninxaml.net/
 
 ## Adding in the magic
 
@@ -46,7 +46,7 @@ Import-Module .\src\MaterialDesignThemes.Wpf.dll -ErrorAction Stop
 
 Now, per ButchersBoy's getting started guide[^3], we need to add the proper resource dictionaries to our prior XAML code. Resource dictionaries, in case you haven't read the MSDN article above (*and you should*), are similar to css libraries in my mind. They hold the magic styling sauce for your XAML GUI.
 
-[^3]: https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/wiki/Getting-Started "Material Design in XAML -- Gettings Started"
+[^3]: https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/wiki/Getting-Started
 
 Since my top level element is Window, I want to add the resource dictionaries into the following XML block:
 
