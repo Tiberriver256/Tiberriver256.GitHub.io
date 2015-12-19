@@ -159,7 +159,7 @@ if($Theme -eq "Dark")
   <li>We could use dynamically created here-strings.</li>
 </ol>
 
-What is a dynamically created herestring? It may be a term I made up. There are two types of here-strings ([Read up on them here]("https://technet.microsoft.com/en-us/library/ee692792.aspx" 'Windows PowerShell Tip: Using Windows PowerShell “Here-Strings”')).
+How do we dynamically create a here-string? There are two types of here-strings ([Read up on them here]("https://technet.microsoft.com/en-us/library/ee692792.aspx" 'Windows PowerShell Tip: Using Windows PowerShell “Here-Strings”')).
 
  1. Those that start with @" and end with "@
  2. Those that start with @' and end with '@
