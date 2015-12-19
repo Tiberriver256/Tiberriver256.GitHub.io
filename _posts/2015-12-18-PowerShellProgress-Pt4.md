@@ -20,7 +20,7 @@ It looks decent, how about let's make it look good and add a few color options? 
 
 So, one of the reason I love hacking stuff together in HTML is that you can Google for 5 seconds and find a million awesome looking css frameworks that you can <LINK href=> into your page and it makes you look like you are good with colors or something like that.
 
-The same thing exists (although not quite as prevalent) in XAML.You can spec out designs for a XAML textbox, save that as a separate xaml, reference it at the beginning of your XAML and it automagically makes copies in the styling that you defined previously [(MSDN Walkthrough)]("https://msdn.microsoft.com/en-us/library/cc189093(VS.95).aspx" "Customizing the Appearance of an Existing Control by Using a ControlTemplate").
+The same thing exists (although not quite as prevalent) in XAML.You can spec out designs for a XAML textbox, save that as a separate xaml, reference it at the beginning of your XAML and it automagically makes copies in the styling that you defined previously [(MSDN Walkthrough)](https://msdn.microsoft.com/en-us/library/cc189093(VS.95).aspx "Customizing the Appearance of an Existing Control by Using a ControlTemplate").
 
 Does this mean I made my own XAML templates? Heck no. There are free ones out there that are way better than anything I could ever come up with.
 
@@ -33,7 +33,7 @@ If you have not heard of Material Design yet, it is a design spec published by G
 
 ### Step 1 -- Import DLLs
 
-You can download the compiled DLLs for his project from the github source page [here (1.68 MB)]("https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip" ".NET 4.0 compatible"). The latest build he has posted there requires .NET 4.5. It does some cool stuff but we don't need super duper fancy for our progress bars, so I went with backwards compatibility.
+You can download the compiled DLLs for his project from the github source page [here (1.68 MB)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip ".NET 4.0 compatible"). The latest build he has posted there requires .NET 4.5. It does some cool stuff but we don't need super duper fancy for our progress bars, so I went with backwards compatibility.
 
 Unzip the DLLs into the folder of your choice and then import them using the **Import-Module** cmdlet as follows (Make sure to unblock them first):
 
@@ -76,7 +76,7 @@ Then we add the default xaml file in:
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
 {% endhighlight %}
 
-Then we pick our primary and accent colors. I picked blue for my primary and lightblue for my accent. You can see the full list of colors [here]("https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/tree/master/MaterialDesignColors.Wpf/Themes/Recommended").
+Then we pick our primary and accent colors. I picked blue for my primary and lightblue for my accent. You can see the full list of colors [here](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/tree/master/MaterialDesignColors.Wpf/Themes/Recommended).
 
 {% highlight xml %}
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
@@ -159,12 +159,12 @@ if($Theme -eq "Dark")
   <li>We could use dynamically created here-strings.</li>
 </ol>
 
-How do we dynamically create a "here-string"? There are two types of here-strings ([Read up on them here]("https://technet.microsoft.com/en-us/library/ee692792.aspx" 'Windows PowerShell Tip: Using Windows PowerShell “Here-Strings”')).
+How do we dynamically create a "here-string"? There are two types of here-strings ([Read up on them here](https://technet.microsoft.com/en-us/library/ee692792.aspx "Windows PowerShell Tip: Using Windows PowerShell Here-Strings")).
 
  1. Those that start with @" and end with "@
  2. Those that start with @' and end with '@
 
-The first type will expand any variables inside the here-string ([More on Variable Expansion in Strings]("http://blogs.msdn.com/b/powershell/archive/2006/07/15/variable-expansion-in-strings-and-herestrings.aspx" 'Variable Expansion in Strings')). The second will not. This means if we put an expression inside the here-string it will execute the expression and return the results directly into the string you are creating. So if I wanted to only add special properties to the window XAML element if someone uses a **-MaterialDesign** switch I could type a here-string like the following:
+The first type will expand any variables inside the here-string ([More on Variable Expansion in Strings](http://blogs.msdn.com/b/powershell/archive/2006/07/15/variable-expansion-in-strings-and-herestrings.aspx "Variable Expansion in Strings")). The second will not. This means if we put an expression inside the here-string it will execute the expression and return the results directly into the string you are creating. So if I wanted to only add special properties to the window XAML element if someone uses a **-MaterialDesign** switch I could type a here-string like the following:
 
 {% highlight powershell %}
 $syncHash.XAML = @" 
@@ -200,12 +200,12 @@ Check it out!
 	<figcaption>Behold Material Design Circlular Progress Bars in PowerShell</figcaption>
 </figure>
 
-The full code is getting pretty long to post right here so I threw it up on GitHub to [download]("https://github.com/Tiberriver256/PoshProgressBar", "PoshProgressBar"). 
+The full code is getting pretty long to post right here so I threw it up on GitHub to [download](https://github.com/Tiberriver256/PoshProgressBar "PoshProgressBar"). 
 
 
 ## Demo
 
-Don't forget to change the file path of the **Import-Module** function in the **New-ProgressBar** function to match the location of your [downloaded DLLs (Reference Step 1 of this blog posting)]("https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip" ".NET 4.0 compatible") otherwise it will default to using the basic styling.
+Don't forget to change the file path of the **Import-Module** function in the **New-ProgressBar** function to match the location of your [downloaded DLLs (Reference Step 1 of this blog posting)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip ".NET 4.0 compatible") otherwise it will default to using the basic styling.
 
 {% highlight powershell %}
 $Files = dir $env:USERPROFILE -Recurse
