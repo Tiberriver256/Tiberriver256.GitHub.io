@@ -11,10 +11,13 @@ categories:
   - PowerShell
 ---
 
-#The Series
-[Part 1](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt1/)
-[Part 3](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt3/)
-[Part 4](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/)
+## The Series
+[PowerShell ProgressBar -- Part 1](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt1/)
+
+[PowerShell ProgressBar -- Part 3](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt3/)
+
+[PowerShell ProgressBar -- Part 4](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/)
+
 [The Module Released](http://tiberriver256.github.io/powershell/PowerShellProgress-TheModule/)
 
 ----
