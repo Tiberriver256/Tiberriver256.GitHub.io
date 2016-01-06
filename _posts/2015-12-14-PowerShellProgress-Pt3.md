@@ -11,6 +11,13 @@ categories:
   - PowerShell
 ---
 
+#The Series
+[Part 1](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt1/)
+[Part 2](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt2/)
+[Part 4](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/)
+[The Module Released](http://tiberriver256.github.io/powershell/PowerShellProgress-TheModule/)
+
+----
 
 Okay, so we have a progress bar that shows percentage. Big whoop, who cares!? I need all the details! I need to show all the things! Well.... the time has come. Behold, details being added...
 

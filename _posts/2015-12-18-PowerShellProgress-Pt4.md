@@ -11,6 +11,13 @@ categories:
   - PowerShell
 ---
 
+#The Series
+[Part 1](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt1/)
+[Part 2](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt2/)
+[Part 3](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt3/)
+[The Module Released](http://tiberriver256.github.io/powershell/PowerShellProgress-TheModule/)
+
+----
 
 Alright, so we have the details lined out that we want to see. We have decent performance so we know our progress bar is not going to crash anyones system or slow our awesome sauce PowerShell scripts down. Now what? 
 

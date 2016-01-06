@@ -11,6 +11,13 @@ categories:
   - PowerShell
 ---
 
+#The Series
+[Part 2](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt2/)
+[Part 3](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt3/)
+[Part 4](http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/)
+[The Module Released](http://tiberriver256.github.io/powershell/PowerShellProgress-TheModule/)
+
+----
 
 Making PowerShell progress bars has always been a handy feature of PowerShell. End users and admins alike love to see that bar progressing just so they know the script is going somewhere. **Write-Progress** is a great tool built into Windows but sometimes you want to hide that black scary screen and surface a beautiful shiny bar of progress that will make your end user oooo and ahhhhh and your PowerShell prowess.
 
