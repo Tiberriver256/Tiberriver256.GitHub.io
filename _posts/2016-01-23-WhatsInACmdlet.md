@@ -40,7 +40,7 @@ It should return any cmdlets that have the keyword "SQL" in them! COOL! WOW! AWE
 
 Check out how much info I can get on a simple command like **Read-Host**. You can see the **Parameters** property should fulfill our needs.
 
-{% highlight powershll %}
+{% highlight powershell %}
 
 Get-Command Read-Host | ConvertTo-Json
 
