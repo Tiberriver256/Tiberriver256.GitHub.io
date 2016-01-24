@@ -1,8 +1,8 @@
 ---
 published: true
 layout: post
-title: "Command Combinations -- Part 1"
-description: First release of the module.
+title: "Command Combinations"
+description: Gathering all the possible combinations of parameters that could be passed to your cmdlet.
 modified: {}
 tags: 
   - PowerShell
