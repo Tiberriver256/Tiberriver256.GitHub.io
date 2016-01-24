@@ -44,7 +44,7 @@ Check out how much info I can get on a simple command like **Read-Host**. You ca
 
 Get-Command Read-Host | ConvertTo-Json
 
-{% enhighlight %}
+{% endhighlight %}
 
 ## ALLLLL the info!
 
