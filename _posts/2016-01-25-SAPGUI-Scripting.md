@@ -56,6 +56,8 @@ $ScriptControl.AddCode($Login)
 
 {% endhighlight %}
 
+*Note the username and password are passed into the script using a here-string before the script is added to the script object.
+
 ## Returning text from SAPGUI to PowerShell
 
 {% highlight powershell %}
