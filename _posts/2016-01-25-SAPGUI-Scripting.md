@@ -79,3 +79,5 @@ Using this little chunk of code exposes the majorit of methods you would need to
 The real problem though is that particular COM object is only available in 32-bit PowerShell which means you have to either script for 32-bit or run **Start-Job -RunAs32 -ScriptBlock { [Code here] }** which isn't the funnest way to code.
 
 There ya have it though, I hope someone finds it useful. Like I said at the beginning of this post, there are better solutions out there for this. I know the community at AutoIT have made some nice tooling around SAPGUI scripting. It would be nice if we could bring more of it into PowerShell somehow.
+
+P.S. If you're looking for a better script recorder than the SAPGUI built-in tooling [http://tracker.stschnell.de/](http://tracker.stschnell.de/) is the best I've found.
