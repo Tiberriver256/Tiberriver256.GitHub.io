@@ -48,8 +48,7 @@ Check out how much info I can get on a simple command like **Read-Host**. You ca
 
 ## ALLLLL the info!
 
-<pre>
-<code class="json">
+{% highlight json %}
 
 {
     "Prompt":  {
