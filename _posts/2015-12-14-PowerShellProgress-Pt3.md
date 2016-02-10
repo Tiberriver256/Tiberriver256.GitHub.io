@@ -44,7 +44,7 @@ $syncHash.AdditionalInfo = ''
 
 We add the following textblock code to our XAML to create the label underneath the progress bar:
 
-{% highlight xml %}
+<pre> <code class="xml">
 <TextBlock Name="AdditionalInfoTextBlock" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" />
 </code> </pre>
 
