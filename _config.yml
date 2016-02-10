@@ -57,7 +57,10 @@ google_analytics: UA-70751453-1
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
 future:      true
-highlighter: rouge
+
+syntax-highlighting:
+  enabled : false
+  
 markdown:    kramdown
 gems:
   - jekyll-sitemap
