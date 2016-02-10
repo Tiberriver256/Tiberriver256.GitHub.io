@@ -44,6 +44,7 @@ Let's start with implementing the **New-ProgressBar** cmdlet and see what all th
 
 In order to have the progress bar run without interrupting the current process we need to create it in a separate runspace.
 
+<pre>
 <code class="ps">
     $SyncHash = [hashtable]::Synchronized(@{})
     $newRunspace =[runspacefactory]::CreateRunspace()
@@ -53,11 +54,13 @@ In order to have the progress bar run without interrupting the current process w
     $newRunspace.Open() 
     $newRunspace.SessionStateProxy.SetVariable("syncHash",$syncHash)
 </ code>
+</ pre>
 
 The **$SyncHash** variable is going to be used to manage the progress bar from the current thread as we'll see later in the **Write-Progress** cmdlet.
 
 The next step is to create the command that will run in this alternate runspace which creates a very basic xaml progress bar and adds the elements of the progressbar to the **$SyncHash** for later modificiation.
 
+<pre>
 <code class="ps">
     $PowerShellCommand = [PowerShell]::Create().AddScript({    
         [xml]$xaml = @" 
@@ -88,11 +91,13 @@ The next step is to create the command that will run in this alternate runspace 
     $PowerShellCommand.Runspace = $newRunspace 
     $data = $PowerShellCommand.BeginInvoke()
 </code>
+</pre>
 
 At this point we should have a progress bar running asynchronously in a separate runspace. Now all we have to do is wrap this in a function and return the **$SyncHash** as the result for future modification.
 
 I did, however, just in case someone sent it to the pipeline without storing it in a variable a sort of safeguard to close the runspace if it became orphaned or the progress bar was closed.
 
+<pre>
 <code class="ps">
 Register-ObjectEvent -InputObject $SyncHash.Runspace `
             -EventName 'AvailabilityChanged' `
@@ -106,10 +111,12 @@ Register-ObjectEvent -InputObject $SyncHash.Runspace `
                 
                 }
 </code>
+</pre>
 
 This will basically listen for when the availability (typically **busy** while the progress bar is running) to change and if it is **Available** go ahead and close out the runspace and dispose it.
 
 The full function appears here:
+<pre>
 <code class="ps">
 Function New-ProgressBar {
  
@@ -167,11 +174,13 @@ Function New-ProgressBar {
 
 }
 </ code>
+</ pre>
 
 ### Write-ProgressBar
 Now to build our starting **Write-ProgressBar** function. To start out we aren't going to want to mess with re-creating every functionality of **Write-Progress**, so we are just going to add the ability to pass in an updated **Activity** which will update the title of the progress bar window and **PercentComplete**.
 
 If you didn't read Boe's article you may have already attempted to update the progressbar using the **$SyncHash** Variable. This will sadly not work. Something about security or something. So what we are going to do is modify the properties in the second runspace by using the dispatcher which is exposed in our **$SyncHash** variable.
+<pre>
 <code class="ps">
 function Write-ProgressBar
 {
@@ -204,11 +213,13 @@ function Write-ProgressBar
 
 }
 </ code>
+</ pre>
 
 ### Close-ProgressBar
 
 The **Close-ProgressBar** function is going to be very similar.
 
+<pre>
 <code class="ps">
 function Close-ProgressBar
 {
@@ -226,12 +237,14 @@ function Close-ProgressBar
  
 }
 </ code>
+</ pre>
 
 Hope you enjoy! The next posting we will get into replicating the exact functionality of the write-progress function as well as dealing with some of the performance issues you will see when running the below demo. The third we will get into styling our progress bars.
 
 Below is the full code so far and a demo:
 
 ## Full Code
+<pre>
 <code class="ps">
 
 # Function to facilitate updates to controls within the window 
@@ -359,3 +372,4 @@ $ProgressBar = New-ProgressBar
 
 Close-ProgressBar $ProgressBar
 </ code>
+</ pre>
