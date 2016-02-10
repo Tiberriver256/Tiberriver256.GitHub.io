@@ -7,7 +7,7 @@ hljs.registerLanguage("powershell", function(e) {
     }
     , a= {
         cN:"string", b:/"/,e:/"/, c:[t, r, {
-            cN: "variable", b: /\$[A-z]/, e: /[^A-z]/
+            cN: "variable", b: /\$[\w\d][\w\d_: ]*/
         }
         ]
     }
@@ -22,9 +22,9 @@ hljs.registerLanguage("powershell", function(e) {
     }
     , t= {
         cN: "type", b: /\[.+\]/, c:[t, r, {
-            cN: "variable", b: /\$[A-z]/, e: /[^A-z]/
+            cN: "variable", b: /\$[\w\d][\w\d_: ]*/
         }
-        ]
+        ] 
     }
     ;
     return {
