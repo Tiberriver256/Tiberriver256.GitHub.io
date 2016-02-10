@@ -53,8 +53,8 @@ In order to have the progress bar run without interrupting the current process w
     $newRunspace.ThreadOptions = "ReuseThread"           
     $newRunspace.Open() 
     $newRunspace.SessionStateProxy.SetVariable("syncHash",$syncHash)
-</ code>
-</ pre>
+</code>
+</pre>
 
 The **$SyncHash** variable is going to be used to manage the progress bar from the current thread as we'll see later in the **Write-Progress** cmdlet.
 
@@ -173,8 +173,8 @@ Function New-ProgressBar {
     return $SyncHash
 
 }
-</ code>
-</ pre>
+</code>
+</pre>
 
 ### Write-ProgressBar
 Now to build our starting **Write-ProgressBar** function. To start out we aren't going to want to mess with re-creating every functionality of **Write-Progress**, so we are just going to add the ability to pass in an updated **Activity** which will update the title of the progress bar window and **PercentComplete**.
@@ -212,8 +212,8 @@ function Write-ProgressBar
    }
 
 }
-</ code>
-</ pre>
+</code>
+</pre>
 
 ### Close-ProgressBar
 
@@ -236,8 +236,8 @@ function Close-ProgressBar
     }, "Normal")
  
 }
-</ code>
-</ pre>
+</code>
+</pre>
 
 Hope you enjoy! The next posting we will get into replicating the exact functionality of the write-progress function as well as dealing with some of the performance issues you will see when running the below demo. The third we will get into styling our progress bars.
 
@@ -359,17 +359,19 @@ function Close-ProgressBar
     }, "Normal")
  
 }
-</ code>
+</code>
+</pre>
 
 ## Demo
 
 *Run this after creating the above functions*
 
+<pre>
 <code class="ps">
 $ProgressBar = New-ProgressBar
 
 1..100 | foreach {Write-ProgressBar -ProgressBar $ProgressBar -Activity "Counting $_ out of 100" -PercentComplete $_; Start-Sleep -Milliseconds 250}
 
 Close-ProgressBar $ProgressBar
-</ code>
-</ pre>
+</code>
+</pre>
