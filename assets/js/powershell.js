@@ -6,10 +6,7 @@ hljs.registerLanguage("powershell", function(e) {
         cN:"variable", b: /\$[\w\d][\w\d_: ]*/
     }
     , a= {
-        cN:"string", b:/"/,e:/"/, c:[t, r, {
-            cN: "variable", b: /\$[\w\d][\w\d_: ]*/
-        }
-        ]
+        cN:"string", b:/"/,e:/"/, c:[t, r, a]
     }
     , i= {
         cN: "string", b: /'/,e:/'/
@@ -21,10 +18,7 @@ hljs.registerLanguage("powershell", function(e) {
         cN: "params", b: /-[\d\w]+/
     }
     , t= {
-        cN: "type", b: /\[/, e:/\]/, c:[t, r, {
-            cN: "variable", b: /\$[\w\d][\w\d_: ]*/
-        }
-        ] 
+        cN: "type", b: /\[/, e:/.+\]/, c:[t, r, a ] 
     }
     ;
     return {
