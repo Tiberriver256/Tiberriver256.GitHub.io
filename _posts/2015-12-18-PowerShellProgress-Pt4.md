@@ -60,7 +60,8 @@ Now, per ButchersBoy's getting started guide[^3], we need to add the proper reso
 
 Since my top level element is Window, I want to add the resource dictionaries into the following XML block:
 
-{% highlight xml %}
+<pre>
+<code class="xml">
                     <Window.Resources>
                         <ResourceDictionary>
                             <ResourceDictionary.MergedDictionaries>
@@ -76,26 +77,30 @@ Since my top level element is Window, I want to add the resource dictionaries in
 
 He has a lot of dictionaries for us to choose from. We can choose either a dark or light theme by using the following line. I picked the Dark theme:
 
-{% highlight xml %}
+<pre>
+<code class="xml">
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
 </code> </pre>
 
 Then we add the default xaml file in:
 
-{% highlight xml %}
+<pre>
+<code class="xml">
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
 </code> </pre>
 
 Then we pick our primary and accent colors. I picked blue for my primary and lightblue for my accent. You can see the full list of colors [here](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/tree/master/MaterialDesignColors.Wpf/Themes/Recommended).
 
-{% highlight xml %}
+<pre>
+<code class="xml">
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightBlue.xaml" />
 </code> </pre>
 
 Lastly we add in some extra properties to the Window element as follows:
 
-{% highlight xml %}
+<pre>
+<code class="xml">
 <Window [...]
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -114,7 +119,8 @@ That's it! Now re-run the script from last week and it will look like this:
 
 Sweet! Now... what about one of those fancy circle progress bars? Wouldn't that be cool? Well... turns out... now that we have our framework in place all we have to change is our progress bar XAML line to look like this:
 
-{% highlight xml %}
+<pre>
+<code class="xml">
 <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Height="560" Width="560" Name="ProgressBar" />
 </code> </pre>
 

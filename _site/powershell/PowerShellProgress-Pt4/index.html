@@ -1,0 +1,583 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>PowerShell ProgressBar -- Part 4 &#8211; Tiberriver256</title>
+<meta name="description" content="XAML Templates -- Material Design.">
+<meta name="keywords" content="PowerShell, ProgressBar">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tiberriver256.github.io/images/images/logo.png">
+<meta name="twitter:title" content="PowerShell ProgressBar -- Part 4">
+<meta name="twitter:description" content="XAML Templates -- Material Design.">
+<meta name="twitter:creator" content="@tiberriver256">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PowerShell ProgressBar -- Part 4">
+<meta property="og:description" content="XAML Templates -- Material Design.">
+<meta property="og:url" content="http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/">
+<meta property="og:site_name" content="Tiberriver256">
+
+
+
+
+
+<link rel="canonical" href="http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/">
+<link href="http://tiberriver256.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Tiberriver256 Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://tiberriver256.github.io/assets/css/main.css">
+<link rel="stylesheet" href="http://tiberriver256.github.io/assets/css/jquery.mmenu.all.css">
+<link rel="stylesheet" href="http://tiberriver256.github.io/assets/css/jquery.floating-social-share.min.css">
+<link type="text/css" rel="stylesheet" href="http://tiberriver256.github.io/assets/css/style.css" media="screen,projection" />
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://tiberriver256.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://tiberriver256.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://tiberriver256.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://tiberriver256.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://tiberriver256.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://tiberriver256.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://tiberriver256.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+<div class="entry-header">
+  <div class="header-menu header-menu-top">
+    <ul>
+      <li class="header-item-title header-toggle "><a href="#menu"><h2><i class="fa fa-bars"></i></h2></a></li>
+      <li class="header-item-title">
+        <a href="http://tiberriver256.github.io/">
+          
+            <img class="logo" src="http://tiberriver256.github.io/images/logo.png" alt="Tiberriver256">
+          
+          <h2 class="title"> Tiberriver256</h2>
+        </a>
+      </li>
+      
+        
+        
+
+        
+          <li class="header-item "><a href="http://tiberriver256.github.io/categories"><h3>Categories</h3></a>
+            <ul class="header-submenu">
+              
+                
+                  <li class="sub-item"><a href="/categories/#PowerShell">PowerShell</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#QA Testing">QA Testing</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#SAP">SAP</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#Utility">Utility</a></li>
+              
+            </ul>
+          </li>
+        
+      
+        
+        
+
+        
+          <li class="header-item "><a href="http://tiberriver256.github.io/tags"><h3>Tags</h3></a></li>
+        
+      
+        
+        
+
+        
+          <li class="header-item "><a href="http://tiberriver256.github.io/about"><h3>About</h3></a></li>
+        
+      
+        
+        
+
+        
+          <li class="header-item "><a href="http://tiberriver256.github.io/"><h3>Home</h3></a></li>
+        
+      
+      <li class="header-item"><a href="http://tiberriver256.github.io/search"><h3><i class="fa fa-search"></i></h3></a></li>
+    </ul>
+  </div>
+  <div class="header-title">
+    <div class="header-title-wrap">
+      <h1>PowerShell ProgressBar -- Part 4</h1>
+      
+        <h2><span class="entry-date date published updated"><time datetime="2015-12-18T00:00:00+00:00">December 18, 2015</time></span></h2>
+      
+
+      
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~6 minutes
+        </p><!-- /.entry-reading-time -->
+      
+    </div><!-- /.header-title-wrap -->
+  </div><!-- /.header-title -->
+</div><!-- /.entry-header -->
+
+
+<nav id="menu" style="display: none">
+  <ul>
+    
+      
+        <li><a href="http://tiberriver256.github.io/"><h3>Home</h3></a></li>
+      
+    
+      
+        <li><a href="http://tiberriver256.github.io/about"><h3>About</h3></a></li>
+      
+    
+      
+        <li><a href="http://tiberriver256.github.io/tags"><h3>Tags</h3></a></li>
+      
+    
+      
+        <li><a href="http://tiberriver256.github.io/categories"><h3>Categories</h3></a>
+          <ul>
+            
+              
+                <li><a href="http://tiberriver256.github.io/categories/#PowerShell">PowerShell</a></li>
+            
+              
+                <li><a href="http://tiberriver256.github.io/categories/#QA Testing">QA Testing</a></li>
+            
+              
+                <li><a href="http://tiberriver256.github.io/categories/#SAP">SAP</a></li>
+            
+              
+                <li><a href="http://tiberriver256.github.io/categories/#Utility">Utility</a></li>
+            
+          </ul>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+
+  <a href="https://twitter.com/tiberriver256" class="btn btn-info button-twitter" data-show-count="false" data-size="large"><i class="fa fa-twitter"></i> <span> | Follow @tiberriver256</span></a>
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <div class="entry-content">
+      <h1 class="post-title entry-title">PowerShell ProgressBar -- Part 4</h1>
+      <h2 id="the-series">The Series</h2>
+<p><a href="http://tiberriver256.github.io/powershell/PowerShellProgress-Pt1/">PowerShell ProgressBar – Part 1</a></p>
+
+<p><a href="http://tiberriver256.github.io/powershell/PowerShellProgress-Pt2/">PowerShell ProgressBar – Part 2</a></p>
+
+<p><a href="http://tiberriver256.github.io/powershell/PowerShellProgress-Pt3/">PowerShell ProgressBar – Part 3</a></p>
+
+<p><a href="http://tiberriver256.github.io/powershell/PowerShellProgress-TheModule/">The Module Released</a></p>
+
+<hr />
+
+<p>Alright, so we have the details lined out that we want to see. We have decent performance so we know our progress bar is not going to crash anyones system or slow our awesome sauce PowerShell scripts down. Now what?</p>
+
+<p>It looks decent, how about let’s make it look good and add a few color options? Seems like a complicated task right? Enter… XAML templates.</p>
+
+<h2 id="xaml-templates">XAML Templates</h2>
+
+<p>So, one of the reason I love hacking stuff together in HTML is that you can Google for 5 seconds and find a million awesome looking css frameworks that you can &lt;LINK href=&gt; into your page and it makes you look like you are good with colors or something like that.</p>
+
+<p>The same thing exists (although not quite as prevalent) in XAML.You can spec out designs for a XAML textbox, save that as a separate xaml, reference it at the beginning of your XAML and it automagically makes copies in the styling that you defined previously <a href="https://msdn.microsoft.com/en-us/library/cc189093(VS.95).aspx" title="Customizing the Appearance of an Existing Control by Using a ControlTemplate">(MSDN Walkthrough)</a>.</p>
+
+<p>Does this mean I made my own XAML templates? Heck no. There are free ones out there that are way better than anything I could ever come up with.</p>
+
+<p>If you have not heard of Material Design yet, it is a design spec published by Google you can read about here<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>. Basically Google sharing with us lower peeps what good looks like. Let’s take a look and see what it takes to apply ButchersBoy’s Material Design in XAML Toolkit<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> to our progressbar.</p>
+
+<h2 id="adding-in-the-magic">Adding in the magic</h2>
+
+<h3 id="step-1----import-dlls">Step 1 – Import DLLs</h3>
+
+<p>You can download the compiled DLLs for his project from the github source page <a href="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip" title=".NET 4.0 compatible">here (1.68 MB)</a>. The latest build he has posted there requires .NET 4.5. It does some cool stuff but we don’t need super duper fancy for our progress bars, so I went with backwards compatibility.</p>
+
+<p>Unzip the DLLs into the folder of your choice and then import them using the <strong>Import-Module</strong> cmdlet as follows (Make sure to unblock them first):</p>
+
+<pre> <code class="ps">
+Import-Module .\src\MaterialDesignColors.dll -ErrorAction Stop
+Import-Module .\src\MaterialDesignThemes.Wpf.dll -ErrorAction Stop
+</code> </pre>
+
+<h3 id="step-2---referencing-the-resource-dictionaries">Step 2 - Referencing the Resource Dictionaries</h3>
+
+<p>Now, per ButchersBoy’s getting started guide<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>, we need to add the proper resource dictionaries to our prior XAML code. Resource dictionaries, in case you haven’t read the MSDN article above (<em>and you should</em>), are similar to css libraries in my mind. They hold the magic styling sauce for your XAML GUI.</p>
+
+<p>Since my top level element is Window, I want to add the resource dictionaries into the following XML block:</p>
+
+<pre>
+<code class="xml">
+                    <window.resources>
+                        <resourcedictionary>
+                            <resourcedictionary.mergeddictionaries>
+                            
+                            #####
+                            [Insert dictionary references here]
+                            #####
+                            
+                            </resourcedictionary.mergeddictionaries>            
+                        </resourcedictionary>
+                    </window.resources>
+</code> </pre>
+
+<p>He has a lot of dictionaries for us to choose from. We can choose either a dark or light theme by using the following line. I picked the Dark theme:</p>
+
+<pre>
+<code class="xml">
+<resourcedictionary source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+</code> </pre>
+
+<p>Then we add the default xaml file in:</p>
+
+<pre>
+<code class="xml">
+<resourcedictionary source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+</code> </pre>
+
+<p>Then we pick our primary and accent colors. I picked blue for my primary and lightblue for my accent. You can see the full list of colors <a href="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/tree/master/MaterialDesignColors.Wpf/Themes/Recommended">here</a>.</p>
+
+<pre>
+<code class="xml">
+<resourcedictionary source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+<resourcedictionary source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightBlue.xaml" />
+</code> </pre>
+
+<p>Lastly we add in some extra properties to the Window element as follows:</p>
+
+<pre>
+<code class="xml">
+&lt;Window [...]
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        [...] &gt;
+</code> </pre>
+
+<p>That’s it! Now re-run the script from last week and it will look like this:</p>
+
+<figure>
+	<img src="http://tiberriver256.github.io/images/PowerProgress/PowerShell ProgressBar - Material Design 1.gif" />
+	<figcaption>Behold Material Design in PowerShell</figcaption>
+</figure>
+
+<p>Sweet! Now… what about one of those fancy circle progress bars? Wouldn’t that be cool? Well… turns out… now that we have our framework in place all we have to change is our progress bar XAML line to look like this:</p>
+
+<pre>
+<code class="xml">
+<progressbar style="{StaticResource MaterialDesignCircularProgressBar}" height="560" width="560" name="ProgressBar" />
+</code> </pre>
+
+<p>Adjust the width on your window to be 630 to fit the width of the circular progressbar and voila!</p>
+
+<figure>
+	<img src="http://tiberriver256.github.io/images/PowerProgress/PowerShell ProgressBar - Material Design 2.gif" />
+	<figcaption>Behold Material Design Circlular Progress Bars in PowerShell</figcaption>
+</figure>
+
+<p>That wasn’t so bad right? Now, it’s still way too much work to edit and discover all that’s out there so with anything let’s build it into our function.</p>
+
+<h3 id="step-3---building-dynamic-xaml-with-powershell-herestrings">Step 3 - Building dynamic XAML with PowerShell herestrings</h3>
+
+<p>There are three different methods we could use for building out the necessary XAML to cover all possible variations of the xaml we have just looked at:</p>
+
+<ol>
+  <li>We could statically type out all of the possibilities, save them as individual XAML and then import them using something like the following:</li>
+</ol>
+
+<pre> <code class="ps">
+$xaml = Get-Content ".\src\$Theme_$Color_$ProgressBarStyle_$SizeVariation.xaml"
+</code> </pre>
+
+<ol start="2">
+  <li>We could use the build the string as you go method with something like the following:</li>
+</ol>
+
+<pre> <code class="ps">
+$xaml = @"
+<window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" name="Window" title="Progress..." windowstartuplocation="CenterScreen" width="630" height="130" sizetocontent="Height" showintaskbar="True" textelement.foreground="{DynamicResource MaterialDesignBody}" background="{DynamicResource MaterialDesignPaper}" textelement.fontweight="Medium" textelement.fontsize="14" fontfamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"> 
+            
+            <window.resources>
+                <resourcedictionary>
+                    <resourcedictionary.mergeddictionaries>
+"@
+
+if($Theme -eq "Dark")
+{
+    $xaml += '<resourcedictionary source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />'
+}
+ 
+
+<ol start="3">
+  <li>We could use dynamically created here-strings.</li>
+</ol>
+
+How do we dynamically create a "here-string"? There are two types of here-strings ([Read up on them here](https://technet.microsoft.com/en-us/library/ee692792.aspx "Windows PowerShell Tip: Using Windows PowerShell Here-Strings")).
+
+ 1. Those that start with @" and end with "@
+ 2. Those that start with @' and end with '@
+
+The first type will expand any variables inside the here-string ([More on Variable Expansion in Strings](http://blogs.msdn.com/b/powershell/archive/2006/07/15/variable-expansion-in-strings-and-herestrings.aspx "Variable Expansion in Strings")). The second will not. This means if we put an expression inside the here-string it will execute the expression and return the results directly into the string you are creating. So if I wanted to only add special properties to the window XAML element if someone uses a **-MaterialDesign** switch I could type a here-string like the following:
+
+<pre> <code class="ps">
+$syncHash.XAML = @" 
+        &lt;Window 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+            Name="Window" Title="Progress..." WindowStartupLocation = "CenterScreen" 
+            Width = "560"
+            $(
+                if($MaterialDesign)
+                {
+                    @'
+                        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                        Background="{DynamicResource MaterialDesignPaper}"
+                        TextElement.FontWeight="Medium"
+                        TextElement.FontSize="14"
+                        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+    '@
+                }
+            )
+            &gt;
+"@
+</code> </pre>
+
+The middle string only gets added if the switch is present. This does make the code a bit more difficult to read but, for me at least, speeds up the development process and is a little bit of a personal preference.
+
+I was able to code out a full function **New-ProgressBar** in a pretty short time that gives all the possible options and I think it is decently maintainable as long as you know how here-strings work.
+
+Check it out!
+
+<figure>
+	<img src="http://tiberriver256.github.io/images/PowerProgress/PowerShell ProgressBar - Material Design 3.gif" />
+	<figcaption>Behold Material Design Circlular Progress Bars in PowerShell</figcaption>
+</figure>
+
+The full code is getting pretty long to post right here so I threw it up on GitHub to [download](https://github.com/Tiberriver256/PoshProgressBar "PoshProgressBar"). 
+
+
+## Demo
+
+Don't forget to change the file path of the **Import-Module** function in the **New-ProgressBar** function to match the location of your [downloaded DLLs (Reference Step 1 of this blog posting)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip ".NET 4.0 compatible") otherwise it will default to using the basic styling.
+
+<pre> <code class="ps">
+$Files = dir $env:USERPROFILE -Recurse
+
+
+$ProgressBars = @()
+
+$ProgressBars += New-ProgressBar -MaterialDesign -IsIndeterminate $true -Type Circle -PrimaryColor Green -AccentColor DeepPurple -Size Large -Theme Dark
+$ProgressBars += New-ProgressBar -MaterialDesign -Type Horizontal -PrimaryColor Red -AccentColor LightBlue -Size Medium -Theme Light
+$ProgressBars += New-ProgressBar -MaterialDesign -Type Vertical -PrimaryColor Amber -AccentColor DeepOrange -Size Large -Theme Dark
+$ProgressBars += New-ProgressBar -MaterialDesign -Type Circle -PrimaryColor Blue -AccentColor Cyan -Size Small -Theme Light
+
+Start-Sleep -Seconds 2
+
+$i = 0
+foreach ($File in $Files) { 
+                    $i++
+                    Start-Sleep -Milliseconds 2
+                    foreach ($ProgressBar in $ProgressBars) {
+    
+    
+                        Write-ProgressBar `
+                                -ProgressBar $ProgressBar `
+                                -Activity "Viewing Files" `
+                                -PercentComplete (($i/$Files.count) * 100) `
+                                -CurrentOperation $File.FullName `
+                                -Status $File.Name `
+                                -SecondsRemaining ($Files.Count - $i)
+
+                    }
+
+                }
+</code> </pre>
+
+ 
+</resourcedictionary.mergeddictionaries></resourcedictionary></window.resources></window></code></pre>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>https://www.google.com/design/spec/material-design/introduction.html <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>http://materialdesigninxaml.net/ <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/wiki/Getting-Started <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://tiberriver256.github.io/tags#PowerShell" title="Pages tagged PowerShell" class="tag"><span class="term">PowerShell</span></a><a href="http://tiberriver256.github.io/tags#ProgressBar" title="Pages tagged ProgressBar" class="tag"><span class="term">ProgressBar</span></a></span>
+        <span>Updated on <span class="entry-date date updated"><time datetime="{}">{}</time></span></span>
+        
+        <span class="author vcard"><span class="fn">Micah Rairdon</span></span>
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=http://tiberriver256.github.io/powershell/PowerShellProgress-Pt4/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  <div class="read-more-header">
+    <a href="http://tiberriver256.github.io" class="read-more-btn">About the Author</a>
+  </div><!-- /.read-more-header -->
+  <div class="read-more-content author-info">
+    <h3>Micah Rairdon</h3>
+    <div class="author-container">
+      <img class="author-img" src="http://tiberriver256.github.io/images/avatar.jpg" alt="Micah Rairdon" />
+      <div class="author-bio">Christian, husband, father, all around haver of fun related to IT.</div>
+    </div>
+    <div class="author-share">
+      <ul class="list-inline social-buttons">
+        
+          <li><a href="https://github.com/tiberriver256" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+        
+          <li><a href="https://br.linkedin.com/in/tiberriver256" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+        
+      </ul>
+      
+        <a aria-label="Follow @tiberriver256 on GitHub" data-style="mega" href="https://github.com/tiberriver256" class="github-button">Follow @tiberriver256</a>
+      
+      <br>
+      
+        <a href="https://twitter.com/tiberriver256" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @tiberriver256</a>
+      
+    </div>
+  </div>
+</div>
+
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://tiberriver256.github.io/powershell/PowerShellProgress-Pt3/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://tiberriver256.github.io/powershell/sap/SAPGUI-Scripting/" title="SAPGUI Scripting with PowerShell">SAPGUI Scripting with PowerShell</a></h3>
+      <p>Just some brief notes on a technique for SAPGUI scripting from PowerShell. <a href="http://tiberriver256.github.io/powershell/sap/SAPGUI-Scripting/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://tiberriver256.github.io/powershell/utility/qa%20testing/WhatsInACmdlet/" title="What's in a cmdlet?">What's in a cmdlet?</a></h4>
+        <span>Published on January 23, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://tiberriver256.github.io/powershell/utility/qa%20testing/CommandCombinations/" title="Command Combinations">Command Combinations</a></h4>
+        <span>Published on January 20, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://tiberriver256.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://tiberriver256.github.io/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script type="text/javascript" src="http://tiberriver256.github.io/assets/js/powershell.js"></script>
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70751453-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tiberriver256'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2016 Micah Rairdon. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://github.com/aron-bordin/neo-hpstr-jekyll-theme" rel="nofollow">Neo-HPSTR Theme</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+</body>
+</html>

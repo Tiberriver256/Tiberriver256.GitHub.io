@@ -38,15 +38,19 @@ The typical **Write-Progress** cmdlet takes the following three parameters and m
 
 On the cmdlet side it helps to have these split out to make calling the cmdlet easier. On the UI side though it just complicates things unnecessarily, so I simply added a single variable to my **New-ProgressBar** cmdlet called *AdditionalInfo* on my synchash:
 
-<pre> <code class="ps">
+<pre>
+<code class="ps">
 $syncHash.AdditionalInfo = ''
-</code> </pre>
+</code>
+</pre>
 
 We add the following textblock code to our XAML to create the label underneath the progress bar:
 
-{% highlight xml %}
+<pre>
+<code class="xml"
 <TextBlock Name="AdditionalInfoTextBlock" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" />
-</code> </pre>
+</code>
+</pre>
 
 Making all three variables squished into one makes the addition to my update block a single line of code:
 
