@@ -47,10 +47,10 @@ You can download the compiled DLLs for his project from the github source page [
 
 Unzip the DLLs into the folder of your choice and then import them using the **Import-Module** cmdlet as follows (Make sure to unblock them first):
 
-{% highlight powershell %}
+<pre> <code class="ps">
 Import-Module .\src\MaterialDesignColors.dll -ErrorAction Stop
 Import-Module .\src\MaterialDesignThemes.Wpf.dll -ErrorAction Stop
-{% endhighlight %}
+</code> </pre>
 
 ### Step 2 - Referencing the Resource Dictionaries
 
@@ -72,26 +72,26 @@ Since my top level element is Window, I want to add the resource dictionaries in
                             </ResourceDictionary.MergedDictionaries>            
                         </ResourceDictionary>
                     </Window.Resources>
-{% endhighlight %}
+</code> </pre>
 
 He has a lot of dictionaries for us to choose from. We can choose either a dark or light theme by using the following line. I picked the Dark theme:
 
 {% highlight xml %}
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
-{% endhighlight %}
+</code> </pre>
 
 Then we add the default xaml file in:
 
 {% highlight xml %}
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-{% endhighlight %}
+</code> </pre>
 
 Then we pick our primary and accent colors. I picked blue for my primary and lightblue for my accent. You can see the full list of colors [here](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/tree/master/MaterialDesignColors.Wpf/Themes/Recommended).
 
 {% highlight xml %}
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightBlue.xaml" />
-{% endhighlight %}
+</code> </pre>
 
 Lastly we add in some extra properties to the Window element as follows:
 
@@ -103,7 +103,7 @@ Lastly we add in some extra properties to the Window element as follows:
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         [...] >
-{% endhighlight %}
+</code> </pre>
 
 That's it! Now re-run the script from last week and it will look like this:
 
@@ -116,7 +116,7 @@ Sweet! Now... what about one of those fancy circle progress bars? Wouldn't that 
 
 {% highlight xml %}
 <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Height="560" Width="560" Name="ProgressBar" />
-{% endhighlight %}
+</code> </pre>
 
 Adjust the width on your window to be 630 to fit the width of the circular progressbar and voila!
 
@@ -133,15 +133,15 @@ There are three different methods we could use for building out the necessary XA
 
  1. We could statically type out all of the possibilities, save them as individual XAML and then import them using something like the following:
 
-{% highlight powershell %}
+<pre> <code class="ps">
 $xaml = Get-Content ".\src\$Theme_$Color_$ProgressBarStyle_$SizeVariation.xaml"
-{% endhighlight %}
+</code> </pre>
 
 <ol start="2">
   <li>We could use the build the string as you go method with something like the following:</li>
 </ol>
 
-{% highlight powershell %}
+<pre> <code class="ps">
 $xaml = @"
 <Window 
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
@@ -163,7 +163,7 @@ if($Theme -eq "Dark")
 {
     $xaml += '<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />'
 }
-{% endhighlight %}
+</code> </pre>
 
 <ol start="3">
   <li>We could use dynamically created here-strings.</li>
@@ -176,7 +176,7 @@ How do we dynamically create a "here-string"? There are two types of here-string
 
 The first type will expand any variables inside the here-string ([More on Variable Expansion in Strings](http://blogs.msdn.com/b/powershell/archive/2006/07/15/variable-expansion-in-strings-and-herestrings.aspx "Variable Expansion in Strings")). The second will not. This means if we put an expression inside the here-string it will execute the expression and return the results directly into the string you are creating. So if I wanted to only add special properties to the window XAML element if someone uses a **-MaterialDesign** switch I could type a here-string like the following:
 
-{% highlight powershell %}
+<pre> <code class="ps">
 $syncHash.XAML = @" 
         <Window 
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
@@ -197,7 +197,7 @@ $syncHash.XAML = @"
             )
             >
 "@
-{% endhighlight %}
+</code> </pre>
 
 The middle string only gets added if the switch is present. This does make the code a bit more difficult to read but, for me at least, speeds up the development process and is a little bit of a personal preference.
 
@@ -217,7 +217,7 @@ The full code is getting pretty long to post right here so I threw it up on GitH
 
 Don't forget to change the file path of the **Import-Module** function in the **New-ProgressBar** function to match the location of your [downloaded DLLs (Reference Step 1 of this blog posting)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip ".NET 4.0 compatible") otherwise it will default to using the basic styling.
 
-{% highlight powershell %}
+<pre> <code class="ps">
 $Files = dir $env:USERPROFILE -Recurse
 
 
@@ -248,6 +248,6 @@ foreach ($File in $Files) {
                     }
 
                 }
-{% endhighlight %}
+</code> </pre>
 
  

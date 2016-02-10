@@ -29,9 +29,9 @@ If you attempted to run the demo at the end of [PowerShell ProgressBar -- Part 1
 
 Here are the stats just running the following progress bar demo code (**Start-Sleep** removed):
 
-{% highlight powershell %}
+<pre> <code class="ps">
 1..100 | foreach {Write-ProgressBar -ProgressBar $ProgressBar -Activity "Counting $_ out of 100" -PercentComplete $_ }
-{% endhighlight %}
+</code> </pre>
 
 <figure>
 	<img src="{{ site.url }}/images/PowerProgress/SlowPerformance.JPG">
@@ -50,25 +50,25 @@ What the dispatchertimer allows us to do is tell our GUI to run some code on a s
 
 So, to walk it through. We added a property for the activity and a property to for the percentcomplete to our **$Synchash**
 
-{% highlight powershell %}
+<pre> <code class="ps">
 $syncHash.Activity = ''
 $syncHash.PercentComplete = 0
-{% endhighlight %}
+</code> </pre>
 
 We then created a scriptblock to that we wanted to run at the set interval which will update the GUI.
 
-{% highlight powershell %}
+<pre> <code class="ps">
 $updateBlock = {            
             
     $SyncHash.Window.Title = $SyncHash.Activity
     $SyncHash.ProgressBar.Value = $SyncHash.PercentComplete
                        
  }
-{% endhighlight %}
+</code> </pre>
 
 Then we will create the dispatchtimer which will call the code and set the interval to be 10 milliseconds.
 
-{% highlight powershell %}
+<pre> <code class="ps">
 
 $syncHash.Window.Add_SourceInitialized( {            
             ## Before the window's even displayed ...            
@@ -88,11 +88,11 @@ $syncHash.Window.Add_SourceInitialized( {
             }            
   } )
 
-{% endhighlight %}
+</code> </pre>
 
 This makes my **Write-ProgressBar** cmdlet as simple as changing a property on the variable.
 
-{% highlight powershell %}
+<pre> <code class="ps">
 
 function Write-ProgressBar
 {
@@ -116,7 +116,7 @@ function Write-ProgressBar
 
 }
 
-{% endhighlight %}
+</code> </pre>
 
 The end results in performance are... Drumroll please!!!
 <figure>
@@ -129,7 +129,7 @@ The end results in performance are... Drumroll please!!!
 
 ##Full Code
 
-{% highlight powershell %}
+<pre> <code class="ps">
 
 Function New-ProgressBar {
  
@@ -253,11 +253,11 @@ function Close-ProgressBar
  
 }
 
-{% endhighlight %}
+</code> </pre>
 
 ## Demo
 
-{% highlight powershell %}
+<pre> <code class="ps">
  #Put a Start-Sleep back in if you actually want to see the progress bar up.
 $ProgressBar = New-ProgressBar
 Measure-Command -Expression {
@@ -265,7 +265,7 @@ Measure-Command -Expression {
 }
 Close-ProgressBar $ProgressBar
 
-{% endhighlight %}
+</code> </pre>
 
 
 [^1]: <https://social.msdn.microsoft.com/Forums/vstudio/en-US/080f7b59-38ec-4a45-944d-e538b08f525b/why-is-the-dispatcher-so-slow?forum=wpf>

@@ -23,7 +23,7 @@ By default SAP GUI scripts are recorded in VBScript. The very first thing that i
 
 ## Running SAPGUI scripts
 
-{% highlight powershell %}
+<pre> <code class="ps">
 
 $ScriptControl = New-Object -comobject MSScriptControl.ScriptControl
 $ScriptControl.language = "vbscript"
@@ -54,27 +54,27 @@ $Login = @"
 
 $ScriptControl.AddCode($Login)
 
-{% endhighlight %}
+</code> </pre>
 
 *Note the username and password are passed into the script using a here-string before the script is added to the script object.
 
 ## Returning text from SAPGUI to PowerShell
 
-{% highlight powershell %}
+<pre> <code class="ps">
 
 $UserNameFromSAP = $ScriptControl.Eval('session.findById("wnd[0]/usr/txtRSYST-BNAME").text')
 
-{% endhighlight %}
+</code> </pre>
 
 I have used AddCode to script / automate the GUI up to the point where I would need to pull data to SAP then at that point I would extract the data using the **Eval** method, run the PowerShell code, then feed it back in using a here-string built vbscript using the result of the PowerShell script.
 
 Kind of clunky but it works. The scripting object is actually really cool. It can return entire objects from vbscriptland to PowerShell. You can almost fully bring it out of vbscript into PowerShell with this oneliner
 
-{% highlight powershell %}
+<pre> <code class="ps">
 
 $SAPGUI = $ScriptControl.Eval('(GetObject("SAPGUI")).GetScriptingEngine.Children(0).Children(0)')
 
-{% endhighlight %}
+</code> </pre>
 
 Using this little chunk of code exposes the majorit of methods you would need to automate SAPGUI (i.e. **$SAPGUI.FindByID("wnd[0]/usr/txtRSYST-BNAME").text** would actually return the text value of that field, but I ran into areas where I would be needing to use reflection for certain methods so I dropped it.
 

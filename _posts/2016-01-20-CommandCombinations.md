@@ -45,7 +45,7 @@ One screenshot a second though... this is going to take awhile...
 
 ## Check out the code
 
-{% highlight powershell %}
+<pre> <code class="ps">
 
 function Get-StringCombinations
 {
@@ -169,4 +169,4 @@ function Get-AllParameters ($Command)
 $AllParameters = Get-AllParameters -Command "New-ProgressBar"
 $AllPossibleCommandlines = Get-StringCombinations $AllParameters
 
-{% endhighlight %}
+</code> </pre>
