@@ -21,7 +21,7 @@ hljs.registerLanguage("powershell", function(e) {
         cN: "params", b: /-[\d\w]+/
     }
     , t= {
-        cN: "type", b: /\[/, e:/\]/, c:[t, r, {
+        cN: "type", b: /\[/, e:/\]/, c:[r, {
             cN: "variable", b: /\$[\w\d][\w\d_: ]*/
         }
         ] 
