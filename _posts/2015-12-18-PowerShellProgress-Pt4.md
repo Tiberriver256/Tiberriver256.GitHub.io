@@ -60,7 +60,7 @@ Now, per ButchersBoy's getting started guide[^3], we need to add the proper reso
 
 Since my top level element is Window, I want to add the resource dictionaries into the following XML block:
 
-{% highlight xml %}
+<pre><code class="language-xml">
                     <Window.Resources>
                         <ResourceDictionary>
                             <ResourceDictionary.MergedDictionaries>
@@ -72,7 +72,8 @@ Since my top level element is Window, I want to add the resource dictionaries in
                             </ResourceDictionary.MergedDictionaries>            
                         </ResourceDictionary>
                     </Window.Resources>
-{% endhighlight %}
+</code></pre>
+
 
 He has a lot of dictionaries for us to choose from. We can choose either a dark or light theme by using the following line. I picked the Dark theme:
 
