@@ -20,14 +20,12 @@ So I decided I wanted to add in a new feature to the PoshProgressBar module. It 
 I didn't want to clutter up the window with an extra button that said *hide* or something like that so I wanted to just have it hide to the notification tray when you click **X** on the window. It turns out that wasn't so bad.
 
 <pre> <code class="ps">
-
 $Synchash.window.Add_Closing({
                 
                 $SyncHash.Window.Hide()
                 $_.Cancel = $true
          
          })
-
 </code> </pre>
 
 The *hide()* method on the window will make it disappear. Setting the **Cancel** property of the closing event will then cancel out of the closing event. Nice!
@@ -39,7 +37,6 @@ I looked at a few methods of adding a notification icon with wpf and XAML but I 
 I decided I was going to go with WinForms NotifyIcon. Getting them to play nicely was actually not difficult at all.
 
 <pre> <code class="ps">
-
 $syncHash.Window=[Windows.Markup.XamlReader]::parse( $SyncHash.XAML )
 
 ...
@@ -54,7 +51,6 @@ $SyncHash.NotifyIcon.Visible = $true
 
 $syncHash.Window.Show() | Out-Null
 $appContext = [System.Windows.Forms.ApplicationContext]::new()
-
 </code> </pre>
 
 Changing from using the *ShowDialog()* method to using the *Show()* method prevented the Window object from hogging up the whole thread. The application context allows two forms to run and will not continue the script until both are closed or the application context is exited.
@@ -66,7 +62,6 @@ Now that I have my exit button magically used to just hide the progress bar. How
 Adding a menu item to the notification icon seemed the easiest and most sensible method.
 
 <pre> <code class="ps">
-
 $menuitem = New-Object System.Windows.Forms.MenuItem
 $menuitem.Text = "Exit"
 
@@ -85,7 +80,6 @@ $menuitem.add_Click({
     [System.Windows.Forms.Application]::Exit()
 
 })
-
 </code> </pre>
 
 Note the addition of the **Closing** property. This is used to allow the window to actually close, as we had overridden this event to solve problem #2.
@@ -93,7 +87,6 @@ Note the addition of the **Closing** property. This is used to allow the window 
 Our closing event now looks like this.
 
 <pre> <code class="ps">
-
 $Synchash.window.Add_Closing({
 
     if($SyncHash.Closing -eq $True)
@@ -112,13 +105,11 @@ $Synchash.window.Add_Closing({
     }
 
 })
-
 </code> </pre>
 
 Not too bad. Of course, you can still close the progress bar from within the script using the **Close-ProgressBar** cmdlet. Which sets the **Closing** variable to *True*. The closing variable is checked inside the update block of the progress bar and used to close it as follows.
 
 <pre> <code class="ps">
-
 $updateBlock = {            
             
             
@@ -133,8 +124,7 @@ $updateBlock = {
             
             ...
                      
-        }
-        
+        } 
 </code> </pre>
 
 That's all folks! Get the updated module.
