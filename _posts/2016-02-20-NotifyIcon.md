@@ -13,6 +13,10 @@ categories:
   - ProgressBar
 ---
 
+<figure>
+	<img src="{{ site.url }}/images/PowerProgress/NotifyIcon.jpg">
+</figure>
+
 So I decided I wanted to add in a new feature to the PoshProgressBar module. It is always handy to be able to close out of a window but still be able to monitor progress via the notification area, so I decided an icon in the notification tray would be a good next step.
 
 ## Problem #1 - Override the default close action of the PoshProgressBar window.
