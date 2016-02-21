@@ -131,7 +131,9 @@ $updateBlock = {
         } 
 </code> </pre>
 
-That's all folks! Get the updated module.
+That's all folks! 
+
+# [Get the updated module](http://tiberriver256.github.io/PoshProgressBar/)
 
 ## More in This Series
 <article>
