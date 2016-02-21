@@ -140,7 +140,10 @@ $updateBlock = {
 That's all folks! Get the updated module.
 
 ## More in This Series
-
-{% for post in site.tags["ProgressBar"] %}{% if post.title != null %}
-      <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-{% endif %}{% endfor %}
+<article>
+    <ul>
+        {% for post in site.tags["ProgressBar"] %}{% if post.title != null %}
+            <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+        {% endif %}{% endfor %}
+    </ul>
+</article>
