@@ -1,8 +1,8 @@
 ---
 published: true
 layout: post
-title: "SAPGUI Scripting with PowerShell"
-description: Just some brief notes on a technique for SAPGUI scripting from PowerShell.
+title: "Adding a Notification Icon to PoshProgressBar"
+description: List of problems and solutions for adding a notification icon to the PoshProgressBar module
 modified: {}
 tags: 
   - PowerShell
@@ -12,8 +12,6 @@ categories:
   - PowerShell
   - ProgressBar
 ---
-
-## NotifyIcon
 
 So I decided I wanted to add in a new feature to the PoshProgressBar module. It is always handy to be able to close out of a window but still be able to monitor progress via the notification area, so I decided an icon in the notification tray would be a good next step.
 
