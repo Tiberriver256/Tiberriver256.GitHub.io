@@ -15,6 +15,10 @@ categories:
   - HTML
 ---
 
+<figure>
+	<img src="{{ site.url }}/images/AngularJS-PowerShellGUI.png">
+</figure>
+
 # The Concept
 
 I am going to cover in the next few blog posts a method I have developed for developing user interfaces for PowerShell scripts using HTML. This is not an HTA. This is all built from within PowerShell.
