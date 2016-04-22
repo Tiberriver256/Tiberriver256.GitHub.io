@@ -28,6 +28,7 @@ If all this sounds complicated... PowerShell makes it SUPER easy. Fear not, we a
 # The Reasoning
 
 There are a few reasons you would want to build a user interface in HTML.
+
 1. It is simple
 2. There are a lot of tutorials
 3. There are a lot of style libraries
@@ -48,23 +49,23 @@ Before I make the first post and start getting into the goodness it is important
 #### Step 1: Create HttpListener Object
 <pre> <code class="ps">
 $SimpleServer = New-Object Net.HttpListener
-</pre> </code>
+</code> </pre> 
 
 #### Step 2: Tell the HttpListener which port to listen on
 As long as we use localhost we don't need admin rights. To listen on externally accessible IP addresses we would need admin rights.
 <pre> <code class="ps">
 $SimpleServer.Prefixes.Add("http://localhost:8000/")
-</pre> </code>
+</code> </pre> 
 
 #### Step 3: Start up the server
 <pre> <code class="ps">
 $SimpleServer.Start()
-</pre> </code>
+</code> </pre> 
 
 #### Step 4: Tell the server to wait for a request to come in on that port.
 <pre> <code class="ps">
 $Context = $SimpleServer.GetContext()
-</pre> </code>
+</code> </pre> 
 
 Note your PowerShell session will hang at this point. It will wait until there is an HTTP request made on the port it is listening on to continue.
 
@@ -81,28 +82,28 @@ Once a request has been captured the details of the request and the template for
 #### Step 5: Send a response to the browser
 <pre> <code class="ps">
 $result = "<html><body> Hello World! </body></html>"
-</pre> </code>
+</code> </pre> 
 
 In order to send it to the browser we need to convert it from ASCII encoded text into bytes.
 
 <pre> <code class="ps">
 $buffer = [System.Text.Encoding]::ASCII.GetBytes($result)
-</pre> </code>
+</code> </pre> 
 
 We need to let the browser know how many bytes we are going to be sending
 <pre> <code class="ps">
 $context.Response.ContentLength64 = $buffer.Length
-</pre> </code>
+</code> </pre> 
 
 We then send the response back to the browser
 <pre> <code class="ps">
 $context.Response.OutputStream.Write($buffer, 0, $buffer.Length)
-</pre> </code>
+</code> </pre> 
 
 We close the response to let the browser know we are done sending the response
 <pre> <code class="ps">
 $Context.Response.Close()
-</pre> </code>
+</code> </pre> 
 
 We stop our server
 <pre> <code class="ps">
