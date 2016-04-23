@@ -24,6 +24,7 @@ We saw it responded fine when I went to http://localhost:8000 but what would I d
 
 We are going to use a simple if-then statement and the **$Context.Request** variable to set the value of **$Result** based on the value of **$Context.Request.Url.LocalPath**.
 
+{% raw %}
 <pre> <code class="ps">
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
@@ -38,6 +39,7 @@ else
 
 }
 </code> </pre>
+{% endraw %}
 
 The **localpath** property of url will remove any query strings (We'll cover those in a bit) and the beginning of the url so that you just get the path that user has requested.
 
@@ -107,6 +109,7 @@ There is a parameter called **action** for the HTML form element that tells the 
 
 So, if I re-write the code above I used to handle the URL like this:
 
+{% raw %}
 <pre> <code class="ps">
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
@@ -132,6 +135,7 @@ else
 
 }
 </code> </pre>
+{% endraw %}
 
 The first time I run my server and point my browser at http://localhost:8000, I will get a nice little HTML form that looks like the following:
 
