@@ -35,7 +35,7 @@ if($Context.Request.Url.LocalPath -eq "/getProcesses")
 else 
 {
 
-    $result = "<html><body>Hello World!</body></html>"
+    $result = "&lt;html&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;"
 
 }
 </code> </pre>
@@ -123,13 +123,13 @@ else
 {
 
     $result = @"
-<h1> List Running Processes </h1>
-<form action="/getProcesses">
-    <label for="Name">Process Name</label>
-    <input name="Name"></input>
-    <label for="ComputerName">Computer Name</label>
-    <input name="ComputerName" value="."></input>
-    <button type="Submit">Submit</button>
+&lt;h1&gt; List Running Processes &lt;/h1&gt;
+&lt;form action="/getProcesses"&gt;
+    &lt;label for="Name"&gt;Process Name&lt;/label&gt;
+    &lt;input name="Name"&gt;&lt;/input&gt;
+    &lt;label for="ComputerName"&gt;Computer Name&lt;/label&gt;
+    &lt;input name="ComputerName" value="."&gt;&lt;/input&gt;
+    &lt;button type="Submit"&gt;Submit&lt;/button&gt;
 </form>
 "@
 
