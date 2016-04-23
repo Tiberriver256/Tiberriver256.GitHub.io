@@ -14,6 +14,17 @@ categories:
   - HTML
 ---
 
+## The Series
+<article>
+    <ul>
+        {% for post in site.tags["HTML"] %}{% if post.title != null %}
+            <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+        {% endif %}{% endfor %}
+    </ul>
+</article>
+
+----
+
 <figure>
 	<img src="{{ site.url }}/images/AngularJS-PowerShellGUI.png">
 </figure>

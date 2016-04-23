@@ -14,6 +14,15 @@ categories:
   - HTML
 ---
 
+## The Series
+<article>
+    <ul>
+        {% for post in site.tags["HTML"] %}{% if post.title != null %}
+            <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+        {% endif %}{% endfor %}
+    </ul>
+</article>
+
 More boring stuff today. We are going to cover how to handle URLs in this PowerShell web server thingy and covering handling query strings. Stick with me on this though! I promise we will get to the good stuff soon.
 
 # Handling URLs
