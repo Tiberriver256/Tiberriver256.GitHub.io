@@ -139,7 +139,7 @@ else
     &lt;label for="ComputerName"&gt;Computer Name&lt;/label&gt;
     &lt;input name="ComputerName" value="."&gt;&lt;/input&gt;
     &lt;button type="Submit"&gt;Submit&lt;/button&gt;
-</form>
+&lt;/form&gt;
 "@
 
 }
@@ -159,3 +159,88 @@ Cool, and if I fill it out with Chrome as the process name, leave localhost as t
 </figure>
 
 Awesome! So, I built a PowerShell web server that can prompt for input and render a response in HTML to the end user. All in less than 100 lines of code. Now, stay tuned for the next blog posting where we are going to take this out of the Chrome browser and launch a PowerShell web browser that looks like a standard UI application, because when you are designing a UI for end users anyway you don't want to have them launching a browser to access what they would consider a desktop application. It would seem tacky I think.
+
+
+## Full Code
+
+{% raw %}
+<pre> <code class="ps">
+# Create HttpListener Object
+$SimpleServer = New-Object Net.HttpListener
+
+# Tell the HttpListener what port to listen on
+#    As long as we use localhost we don't need admin rights. To listen on externally accessible IP addresses we will need admin rights
+$SimpleServer.Prefixes.Add("http://localhost:8000/")
+
+# Start up the server
+$SimpleServer.Start()
+
+# Tell the server to wait for a request to come in on that port.
+$Context = $SimpleServer.GetContext()
+
+#Once a request has been captured the details of the request and the template for the response are created in our $context variable
+Write-Verbose "Context has been captured"
+
+# $Context.Request contains details about the request
+# $Context.Response is basically a template of what can be sent back to the browser
+# $Context.User contains information about the user who sent the request. This is useful in situations where authentication is necessary
+
+
+# Sometimes the browser will request the favicon.ico which we don't care about. We just drop that request and go to the next one.
+do
+{
+
+    $Context.Response.Close()
+    $Context = $SimpleServer.GetContext()
+
+}while($Context.Request.Url.LocalPath -eq "/favicon.ico")
+
+
+# Handling different URLs
+
+if($Context.Request.Url.LocalPath -eq "/getProcesses")
+{
+
+    $Name = $Context.Request.QueryString["Name"]
+    $ComputerName = $Context.Request.QueryString["ComputerName"]
+    $result = Get-Process -Name $Name -ComputerName $ComputerName | select name,cpu | ConvertTo-Html | Out-String
+
+}
+else 
+{
+
+    $result = @"
+&lt;h1&gt; List Running Processes &lt;/h1&gt;
+&lt;form action="/getProcesses"&gt;
+    &lt;label for="Name"&gt;Process Name&lt;/label&gt;
+    &lt;input name="Name"&gt;&lt;/input&gt;
+    &lt;label for="ComputerName"&gt;Computer Name&lt;/label&gt;
+    &lt;input name="ComputerName" value="."&gt;&lt;/input&gt;
+    &lt;button type="Submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+"@
+
+}
+
+
+
+
+
+
+
+# In order to send it to the browser we need to convert it from ASCII encoded text into bytes.
+$buffer = [System.Text.Encoding]::ASCII.GetBytes($result)
+
+# We need to let the browser know how many bytes we are going to be sending
+$context.Response.ContentLength64 = $buffer.Length
+
+# We send the response back to the browser
+$context.Response.OutputStream.Write($buffer, 0, $buffer.Length)
+
+# We close the response to let the browser know we are done sending the response
+$Context.Response.Close()
+
+# We stop our server
+$SimpleServer.Stop()
+</code> </pre>
+{% endraw %}
