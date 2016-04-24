@@ -66,7 +66,7 @@ Voila! We have our own PowerShell web browser displaying our simple form but doe
 
 Now with this we can do some pretty amazing things but we still have a few problems to solve.
 
-## How do we know when to shut down the web server?
+### How do we know when to shut down the web server?
 
 If you were just going to get a single request from the browser you can close it as soon as you receive and process the request from the browser. If not you can simply build in a URL that will stop the server for example:
 
@@ -91,7 +91,7 @@ while($SimpleServer.IsListening)
 }
 </code> </pre>
 
-## How do I eliminate the Start-Sleep and launch my GUI as soon as the server is ready?
+### How do I eliminate the Start-Sleep and launch my GUI as soon as the server is ready?
 
 You may come up with your own better method for doing this but I came up with this little function. Which will continually attempt to access the URL until it gets a response and then it will continue to load the xaml:
 
@@ -110,11 +110,11 @@ function Wait-ServerLaunch
 }
 </code> </pre>
 
-## How do I hide the PowerShell window so end users won't know it is there?
+### How do I hide the PowerShell window so end users won't know it is there?
 
 You would obviously want your PowerShell console showing when you are debugging but if you are using your script client-side you may not want them to know that it is there. DexterPosh had a great post on this awhile back. [Check it out here](http://www.dexterposh.com/2014/09/powershell-wpf-gui-hide-use-background.html).
 
-## How do I include modern web technologies in this GUI? It seem to work in IE8 by default.
+### How do I include modern web technologies in this GUI? It seem to work in IE8 by default.
 
 To make your GUI look pretty using magic like [materializecss](http://materializecss.com/) or [Office UI Fabric](http://dev.office.com/fabric/) you need the following meta tag in the header of your HTML:
 
@@ -124,7 +124,7 @@ To make your GUI look pretty using magic like [materializecss](http://materializ
 
 This will force it to use IE Edge. For more information on that magic line see [here](https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx).
 
-## How do I build a complete UI that collects input and returns / displays results using the UI?
+### How do I build a complete UI that collects input and returns / displays results using the UI?
 
 Here is my code for this solution. A usage example would be like this:
 
@@ -161,7 +161,7 @@ A not too bad chunk of code and we get this:
 
 Awesome Right!
 
-### Full code for Start-PoshWebGUI
+### Full code for *Start-PoshWebGUI*
 
 *NOTE: I do plan on putting this into a module fairly soon hopefully with help and examples. If you want to help out hit me up or fork [the repo on GitHub](https://github.com/Tiberriver256/New-PoshWebGUI).
 
