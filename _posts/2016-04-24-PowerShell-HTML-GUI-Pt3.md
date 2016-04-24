@@ -35,14 +35,14 @@ So, what if we take the code just below which launches a super simple XAML GUI w
     Start-Sleep -Seconds 15
     [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
     [xml]$XAML = @'
-    <Window
+    &lt;Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="PowerShell HTML GUI" WindowStartupLocation="CenterScreen">
+        Title="PowerShell HTML GUI" WindowStartupLocation="CenterScreen"&gt;
 
-            <WebBrowser Name="WebBrowser"></WebBrowser>
+            &lt;WebBrowser Name="WebBrowser"&gt;&lt;/WebBrowser&gt;
 
-    </Window>
+    &lt;/Window&gt;
 '@
 
     #Read XAML
@@ -188,14 +188,14 @@ Function Start-PoshWebGUI ($ScriptBlock)
             Wait-ServerLaunch
             [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
             [xml]$XAML = @'
-            <Window
+            &lt;Window
                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                Title="PowerShell HTML GUI" WindowStartupLocation="CenterScreen">
+                Title="PowerShell HTML GUI" WindowStartupLocation="CenterScreen"&gt;
 
-                    <WebBrowser Name="WebBrowser"></WebBrowser>
+                    &lt;WebBrowser Name="WebBrowser"&gt;&lt;/WebBrowser&gt;
 
-            </Window>
+            &lt;/Window&gt;
 '@
 
             #Read XAML
