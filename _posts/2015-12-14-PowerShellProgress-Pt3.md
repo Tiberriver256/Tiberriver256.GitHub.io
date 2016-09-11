@@ -109,17 +109,17 @@ Function New-ProgressBar {
     $newRunspace.SessionStateProxy.SetVariable("syncHash",$syncHash)           
     $PowerShellCommand = [PowerShell]::Create().AddScript({    
         [string]$xaml = @" 
-        <Window 
-            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-            Name="Window" Title="Progress..." WindowStartupLocation = "CenterScreen" 
-            Width = "560" Height="130" SizeToContent="Height" ShowInTaskbar = "True"> 
-            <StackPanel Margin="20">
-               <ProgressBar Width="560" Name="ProgressBar" />
-               <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-               <TextBlock Name="AdditionalInfoTextBlock" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </StackPanel> 
-        </Window> 
+        &lt;Window 
+            xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+            xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; 
+            Name=&quot;Window&quot; Title=&quot;Progress...&quot; WindowStartupLocation = &quot;CenterScreen&quot; 
+            Width = &quot;560&quot; Height=&quot;130&quot; SizeToContent=&quot;Height&quot; ShowInTaskbar = &quot;True&quot;&gt; 
+            &lt;StackPanel Margin=&quot;20&quot;&gt;
+               &lt;ProgressBar Width=&quot;560&quot; Name=&quot;ProgressBar&quot; /&gt;
+               &lt;TextBlock Text=&quot;{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0}%}&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+               &lt;TextBlock Name=&quot;AdditionalInfoTextBlock&quot; Text=&quot;&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+            &lt;/StackPanel&gt; 
+        &lt;/Window&gt;
 "@ 
    
         $syncHash.Window=[Windows.Markup.XamlReader]::parse( $xaml ) 

@@ -144,20 +144,20 @@ $xaml = Get-Content ".\src\$Theme_$Color_$ProgressBarStyle_$SizeVariation.xaml"
 
 <pre> <code class="ps">
 $xaml = @"
-<Window 
-            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-            Name="Window" Title="Progress..." WindowStartupLocation = "CenterScreen" 
-            Width = "630" Height="130" SizeToContent="Height" ShowInTaskbar = "True"
-            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-            Background="{DynamicResource MaterialDesignPaper}"
-            TextElement.FontWeight="Medium"
-            TextElement.FontSize="14"
-            FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"> 
+&lt;Window 
+            xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+            xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; 
+            Name=&quot;Window&quot; Title=&quot;Progress...&quot; WindowStartupLocation = &quot;CenterScreen&quot; 
+            Width = &quot;630&quot; Height=&quot;130&quot; SizeToContent=&quot;Height&quot; ShowInTaskbar = &quot;True&quot;
+            TextElement.Foreground=&quot;{DynamicResource MaterialDesignBody}&quot;
+            Background=&quot;{DynamicResource MaterialDesignPaper}&quot;
+            TextElement.FontWeight=&quot;Medium&quot;
+            TextElement.FontSize=&quot;14&quot;
+            FontFamily=&quot;pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto&quot;&gt; 
             
-            <Window.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
+            &lt;Window.Resources&gt;
+                &lt;ResourceDictionary&gt;
+                    &lt;ResourceDictionary.MergedDictionaries&gt;
 "@
 
 if($Theme -eq "Dark")
@@ -179,24 +179,24 @@ The first type will expand any variables inside the here-string ([More on Variab
 
 <pre> <code class="ps">
 $syncHash.XAML = @" 
-        <Window 
-            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-            Name="Window" Title="Progress..." WindowStartupLocation = "CenterScreen" 
-            Width = "560"
+        &lt;Window 
+            xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+            xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; 
+            Name=&quot;Window&quot; Title=&quot;Progress...&quot; WindowStartupLocation = &quot;CenterScreen&quot; 
+            Width = &quot;560&quot;
             $(
                 if($MaterialDesign)
                 {
-                    @'
-                        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-                        Background="{DynamicResource MaterialDesignPaper}"
-                        TextElement.FontWeight="Medium"
-                        TextElement.FontSize="14"
-                        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-    '@
+                    @&apos;
+                        TextElement.Foreground=&quot;{DynamicResource MaterialDesignBody}&quot;
+                        Background=&quot;{DynamicResource MaterialDesignPaper}&quot;
+                        TextElement.FontWeight=&quot;Medium&quot;
+                        TextElement.FontSize=&quot;14&quot;
+                        FontFamily=&quot;pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto&quot;
+    &apos;@
                 }
             )
-            >
+            &gt;
 "@
 </code> </pre>
 
