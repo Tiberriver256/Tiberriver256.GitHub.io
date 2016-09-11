@@ -131,19 +131,19 @@ Add-Type -TypeDefinition @"
 
 <pre> <code class="ps">
 $HTML = @'
-<div id="results">Loading processes..</div>
+&lt;div id=&quot;results&quot;&gt;Loading processes..&lt;/div&gt;
 
-<script>
+&lt;script&gt;
     function updateProcesses()
     {
         
-        var HTMLProcessesFromPowerShell = window.external.InvokePowerShell("Get-Process | select name, id | convertTo-HTML");
+        var HTMLProcessesFromPowerShell = window.external.InvokePowerShell(&quot;Get-Process | select name, id | convertTo-HTML&quot;);
         
-        document.getElementById("results").innerHTML = HTMLProcessesFromPowerShell;
+        document.getElementById(&quot;results&quot;).innerHTML = HTMLProcessesFromPowerShell;
      
     }
     updateProcesses();
-</script>
+&lt;/script&gt;
 '@
 
 $WebBrowser.NavigateToString($HTML)
