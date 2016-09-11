@@ -66,7 +66,8 @@ $WebBrowser = $Form.FindName("WebBrowser")
 Okay, so this part was a little scary to figure out but it shouldn't be too hard to figure out if you have been in the PowerShell space for awhile or tinkering with PowerShell v5 Classes. Basically we want something that will execute PowerShell code and that is ComVisible.
 
 <pre> <code class="ps">
-Add-Type -TypeDefinition @"
+
+Add-Type -TypeDefinition @&quot;
     using System.Text;
     using System.Runtime.InteropServices;
 
@@ -100,7 +101,7 @@ Add-Type -TypeDefinition @"
             //Add commands
             pipeline.Commands.AddScript(cmd);
 
-            Collection<PSObject> results = pipeline.Invoke();
+            Collection&lt;PSObject&gt; results = pipeline.Invoke();
 
             //Convert records to strings
             StringBuilder stringBuilder = new StringBuilder();
@@ -115,7 +116,7 @@ Add-Type -TypeDefinition @"
 	    }
 
     }
-"@ -ReferencedAssemblies @("System.Management.Automation","Microsoft.CSharp")
+&quot;@ -ReferencedAssemblies @(&quot;System.Management.Automation&quot;,&quot;Microsoft.CSharp&quot;)
 
 </code> </pre>
 
