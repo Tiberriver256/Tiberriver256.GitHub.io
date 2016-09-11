@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "PowerShell GUI with HTML - Part 4 - Really a much better method"
+title: "WPF WebBrowser / ObjectForScripting / Execute PowerShell... a possibly excellent app framework."
 description: Part 4 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
 modified: {}
 tags: 
