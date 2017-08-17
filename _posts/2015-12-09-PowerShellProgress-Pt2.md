@@ -145,16 +145,16 @@ Function New-ProgressBar {
     $newRunspace.SessionStateProxy.SetVariable("syncHash",$syncHash)           
     $PowerShellCommand = [PowerShell]::Create().AddScript({    
         [xml]$xaml = @" 
-        <Window 
-            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-            Name="Window" Title="Progress..." WindowStartupLocation = "CenterScreen" 
-            Width = "300" Height = "100" ShowInTaskbar = "True"> 
-            <StackPanel Margin="20">
-               <ProgressBar Name="ProgressBar" />
-               <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </StackPanel> 
-        </Window> 
+        &lt;Window 
+            xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+            xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; 
+            Name=&quot;Window&quot; Title=&quot;Progress...&quot; WindowStartupLocation = &quot;CenterScreen&quot; 
+            Width = &quot;300&quot; Height = &quot;100&quot; ShowInTaskbar = &quot;True&quot;&gt; 
+            &lt;StackPanel Margin=&quot;20&quot;&gt;
+               &lt;ProgressBar Name=&quot;ProgressBar&quot; /&gt;
+               &lt;TextBlock Text=&quot;{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0}%}&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+            &lt;/StackPanel&gt; 
+        &lt;/Window&gt; 
 "@ 
   
         $reader=(New-Object System.Xml.XmlNodeReader $xaml) 
