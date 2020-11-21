@@ -1,12 +1,12 @@
-title:            Tiberriver256
-description:      A blog about PowerShell mostly.
+title: Tiberriver256
+description: A blog about PowerShell mostly.
 disqus_shortname: tiberriver256
-reading_time:     true
+reading_time: true
 words_per_minute: 200
-logo:             images/logo.png
+logo: images/logo.png
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
-url:              "http://tiberriver256.github.io"
+url: 'http://tiberriver256.github.io'
 
 menu:
   - title: 'Home'
@@ -21,11 +21,11 @@ menu:
 
 # Owner/author information
 owner:
-  name:           Micah Rairdon
-  site:           http://tiberriver256.github.io
-  avatar:         images/avatar.jpg
-  bio:            'Christian, husband, father, all around haver of fun related to IT. Appreciate the blog and want to donate? I will receive a small commission if you shop Amazon <a href="https://www.amazon.com/?&_encoding=UTF8&tag=tiberriver256-20&linkCode=ur2&linkId=cf4ad5a87e24578f3a0a274c39038146&camp=1789&creative=9325">using this link</a>. Thank you!'
-  email:          "Jun(Real Email: Micah.Rairdon [GMail])k@JunkMail.com"
+  name: Micah Rairdon
+  site: http://tiberriver256.github.io
+  avatar: images/avatar.jpg
+  bio: 'Christian, husband, father, all around haver of fun related to IT. Appreciate the blog and want to donate? I will receive a small commission if you shop Amazon <a href="https://www.amazon.com/?&_encoding=UTF8&tag=tiberriver256-20&linkCode=ur2&linkId=cf4ad5a87e24578f3a0a274c39038146&camp=1789&creative=9325">using this link</a>. Thank you!'
+  email: 'Jun(Real Email: Micah.Rairdon [GMail])k@JunkMail.com'
   # Social networking links used in footer. Update and remove as you like.
   twitter: tiberriver256
   # facebook:
@@ -39,12 +39,12 @@ owner:
   # google_plus:    +yourid
 
 social:
-  - title: "github"
-    url: "https://github.com/tiberriver256"
-  - title: "linkedin"
-    url: "https://br.linkedin.com/in/tiberriver256"
- # - title: "youtube"
- #   url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
+  - title: 'github'
+    url: 'https://github.com/tiberriver256'
+  - title: 'linkedin'
+    url: 'https://br.linkedin.com/in/tiberriver256'
+  # - title: "youtube"
+  #   url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
 # Background image to be tiled on all pages
 background:
 
@@ -55,21 +55,21 @@ google_analytics: UA-70751453-1
 # bing_verify:
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
-future:      true
+timezone: America/New_York
+future: true
 
 syntax-highlighting:
-  enabled : false
-  
-markdown:    kramdown
-gems:
+  enabled: false
+
+markdown: kramdown
+plugins:
   - jekyll-sitemap
 sass:
   sass_dir: _sass
   style: compressed
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title/
+permalink: /:categories/:title/
 
 # Amount of post to show on home page
 paginate: 5
@@ -79,14 +79,36 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: true
+  enable_coderay: true
 
-  coderay:
-    coderay_line_numbers: nil
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
+syntax_highlighter_opts:
+  line_numbers: nil
+  line_numbers_start: 1
+  tab_width: 4
+  bold_every: 10
+  css: class
 
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+include: ['.htaccess']
+exclude:
+  [
+    'lib',
+    'config.rb',
+    'Capfile',
+    'config',
+    'Gemfile',
+    'Gemfile.lock',
+    'README.md',
+    'LICENSE',
+    'log',
+    'Rakefile',
+    'Rakefile.rb',
+    'tmp',
+    'less',
+    '*.sublime-project',
+    '*.sublime-workspace',
+    'test',
+    'spec',
+    'Gruntfile.js',
+    'package.json',
+    'node_modules',
+  ]
