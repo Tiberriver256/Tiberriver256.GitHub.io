@@ -15,11 +15,12 @@ figure {
   padding-top: 10px;
   padding-bottom: 10px;
   @include clearfix();
-  img {
+  img, video {
     margin-bottom: 10px;
+    max-width: 100%;
   }
   a {
-    img {
+    img, video {
       @include translate(0, 0);
       -webkit-transition-duration: 0.25s;
       -moz-transition-duration: 0.25s;
@@ -32,7 +33,7 @@ figure {
   }
   &.half {
     @media #{$large} {
-      img {
+      img, video {
         width: 310px;
         float: left;
         margin-right: 10px;
@@ -44,7 +45,7 @@ figure {
   }
   &.third {
     @media #{$large} {
-      img {
+      img, video {
         width: 200px;
         float: left;
         margin-right: 10px;

@@ -86,7 +86,7 @@ if($SecondsRemaining)
 Now if I run the demo provided at the end of this article we get the following:
 
 <figure>
-	<img src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar.gif">
+	<video autoplay muted loop playsinline src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar.mp4">
 	<figcaption>Give me alllll the deets!</figcaption>
 </figure>
 
