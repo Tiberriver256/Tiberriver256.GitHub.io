@@ -90,7 +90,7 @@ $(document).ready(function(){
 //sharing
 $(document).ready(function(){
   $("body").floatingSocialShare({
-    buttons: ["facebook","twitter","google-plus", "linkedin", "pinterest"],
+    buttons: ["facebook","twitter","linkedin", "pinterest"],
     text: "Share with "
   });
 });
