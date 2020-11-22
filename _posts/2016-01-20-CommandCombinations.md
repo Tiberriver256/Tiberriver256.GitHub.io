@@ -22,6 +22,8 @@ That would be awesome! Wny would that be so awesome?
 1. **Automated testing** -- To guarantee that every single progress bar combination actually ran as expected
 2. **Screenshots** -- The website has a cool dynamic command builder form to fill out that will generate your PowerShell command. It would be sweet to hit "Preview" and see a screenshot of exactly what that particular progress bar looks like.
 
+<!-- more -->
+
 So... doesn't sound too bad right? All of the parameters you can use in the module have parameter sets so the possible inputs are definitely limited.
 
 I also know you can get to all that metadata using **Get-Command** *Stay tuned for a later blog post*. But would I be able to get all the combinations? 

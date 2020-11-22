@@ -21,6 +21,8 @@ I'm sure this isn't the best way to integrate PowerShell and SAP. I'm not an SAP
 
 By default SAP GUI scripts are recorded in VBScript. The very first thing that is usually done is to call **GetObject("SAPGUI")**. PowerShell can sorta run **GetObject** but that has [some problems](https://technet.microsoft.com/en-us/library/ee176862.aspx?f=255&MSPPError=-2147217396). None of us want to get into reflection. So what's the trick? The **MSScriptControl.ScriptControl** in 32-bit PowerShell.
 
+<!-- more -->
+
 ## Running SAPGUI scripts
 
 <pre> <code class="ps">

@@ -19,6 +19,8 @@ The code to create this is really very similar to WinForms style of coding and c
 
 # How to make the magic happen
 
+<!-- more -->
+
 ## Build the project (to get the DLL)
 
 1. Grab the source code from the above mentioned Github repository.

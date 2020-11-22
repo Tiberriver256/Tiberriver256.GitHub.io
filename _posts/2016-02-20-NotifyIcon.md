@@ -19,6 +19,8 @@ categories:
 
 So I decided I wanted to add in a new feature to the PoshProgressBar module. It is always handy to be able to close out of a window but still be able to monitor progress via the notification area, so I decided an icon in the notification tray would be a good next step.
 
+<!-- more -->
+
 ## Problem #1 - Override the default close action of the PoshProgressBar window.
 
 I didn't want to clutter up the window with an extra button that said *hide* or something like that so I wanted to just have it hide to the notification tray when you click **X** on the window. It turns out that wasn't so bad.

@@ -1,17 +1,18 @@
 ---
 published: true
 layout: post
-title: "PowerShell ProgressBar -- Part 1"
+title: 'PowerShell ProgressBar -- Part 1'
 description: Showing how to create a progress bar in PowerShell using XAML and runspaces.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - ProgressBar
-categories: 
+categories:
   - PowerShell
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["ProgressBar"] %}{% if post.title != null %}
@@ -20,14 +21,16 @@ categories:
     </ul>
 </article>
 
-----
+---
 
 Making PowerShell progress bars has always been a handy feature of PowerShell. End users and admins alike love to see that bar progressing just so they know the script is going somewhere. **Write-Progress** is a great tool built into Windows but sometimes you want to hide that black scary screen and surface a beautiful shiny bar of progress that will make your end user oooo and ahhhhh and your PowerShell prowess.
 
+<!-- more -->
+
 What I am going to do over the next few posts is create a decent PowerShell progress bar that will have the following feautures:
+
 1. Update asynchronous from the script (credit goes to Boe Prox[^1] and Rhys W Edwards [^2])
 2. Awesome styles (Material Design and MahApps)
-
 
 [^1]: <http://learn-powershell.net/2012/10/14/powershell-and-wpf-writing-data-to-a-ui-from-a-different-runspace/>
 [^2]: <https://gallery.technet.microsoft.com/scriptcenter/New-ProgressBar-8468da5c>
@@ -35,11 +38,13 @@ What I am going to do over the next few posts is create a decent PowerShell prog
 ## The Basics
 
 This module will be made up of three cmdlets:
+
 1. **New-ProgressBar** - Used to create a ProgressBar variable attached to progressbar in separaterunspace. Select styling.
-2. **Write-ProgressBar** - Used to send progress events to the ProgressBar. *Attempts to modify the variable directly will fail due to runspace security*
+2. **Write-ProgressBar** - Used to send progress events to the ProgressBar. _Attempts to modify the variable directly will fail due to runspace security_
 3. **Close-ProgressBar** - Used to close out the ProgressBar safely and cleanly to prevent memory issues.
 
 ### New-ProgressBar
+
 Let's start with implementing the **New-ProgressBar** cmdlet and see what all that entails. I strongly recommend reading the referenced article from Boe Prox on managing runspaces before continuing (It's short).
 
 In order to have the progress bar run without interrupting the current process we need to create it in a separate runspace.
@@ -116,6 +121,7 @@ Register-ObjectEvent -InputObject $SyncHash.Runspace `
 This will basically listen for when the availability (typically **busy** while the progress bar is running) to change and if it is **Available** go ahead and close out the runspace and dispose it.
 
 The full function appears here:
+
 <pre>
 <code class="ps">
 Function New-ProgressBar {
@@ -177,9 +183,11 @@ Function New-ProgressBar {
 </pre>
 
 ### Write-ProgressBar
+
 Now to build our starting **Write-ProgressBar** function. To start out we aren't going to want to mess with re-creating every functionality of **Write-Progress**, so we are just going to add the ability to pass in an updated **Activity** which will update the title of the progress bar window and **PercentComplete**.
 
 If you didn't read Boe's article you may have already attempted to update the progressbar using the **$SyncHash** Variable. This will sadly not work. Something about security or something. So what we are going to do is modify the properties in the second runspace by using the dispatcher which is exposed in our **$SyncHash** variable.
+
 <pre>
 <code class="ps">
 function Write-ProgressBar
@@ -244,6 +252,7 @@ Hope you enjoy! The next posting we will get into replicating the exact function
 Below is the full code so far and a demo:
 
 ## Full Code
+
 <pre>
 <code class="ps">
 
@@ -364,7 +373,7 @@ function Close-ProgressBar
 
 ## Demo
 
-*Run this after creating the above functions*
+_Run this after creating the above functions_
 
 <pre>
 <code class="ps">

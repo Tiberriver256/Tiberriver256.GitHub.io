@@ -33,6 +33,7 @@ I did not really love my other method. It was just the only method I had found. 
 * Complex to learn (build a server, build a client, learn HTTP methods)
 * Possible security concerns (even though we were only listening on localhost a user could potentially gain access to another user session and execute code as a different user)
 
+<!-- more -->
 
 # A MUCH Better method
 

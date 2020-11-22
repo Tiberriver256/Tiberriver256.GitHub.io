@@ -1,17 +1,18 @@
 ---
 published: true
 layout: post
-title: "PowerShell ProgressBar -- Part 4"
+title: 'PowerShell ProgressBar -- Part 4'
 description: XAML Templates -- Material Design.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - ProgressBar
-categories: 
+categories:
   - PowerShell
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["ProgressBar"] %}{% if post.title != null %}
@@ -20,17 +21,19 @@ categories:
     </ul>
 </article>
 
-----
+---
 
-Alright, so we have the details lined out that we want to see. We have decent performance so we know our progress bar is not going to crash anyones system or slow our awesome sauce PowerShell scripts down. Now what? 
+Alright, so we have the details lined out that we want to see. We have decent performance so we know our progress bar is not going to crash anyones system or slow our awesome sauce PowerShell scripts down. Now what?
 
 It looks decent, how about let's make it look good and add a few color options? Seems like a complicated task right? Enter... XAML templates.
 
 ## XAML Templates
 
+<!-- more -->
+
 So, one of the reason I love hacking stuff together in HTML is that you can Google for 5 seconds and find a million awesome looking css frameworks that you can <LINK href=> into your page and it makes you look like you are good with colors or something like that.
 
-The same thing exists (although not quite as prevalent) in XAML.You can spec out designs for a XAML textbox, save that as a separate xaml, reference it at the beginning of your XAML and it automagically makes copies in the styling that you defined previously [(MSDN Walkthrough)](https://msdn.microsoft.com/en-us/library/cc189093(VS.95).aspx "Customizing the Appearance of an Existing Control by Using a ControlTemplate").
+The same thing exists (although not quite as prevalent) in XAML.You can spec out designs for a XAML textbox, save that as a separate xaml, reference it at the beginning of your XAML and it automagically makes copies in the styling that you defined previously [(MSDN Walkthrough)](<https://msdn.microsoft.com/en-us/library/cc189093(VS.95).aspx> 'Customizing the Appearance of an Existing Control by Using a ControlTemplate').
 
 Does this mean I made my own XAML templates? Heck no. There are free ones out there that are way better than anything I could ever come up with.
 
@@ -43,7 +46,7 @@ If you have not heard of Material Design yet, it is a design spec published by G
 
 ### Step 1 -- Import DLLs
 
-You can download the compiled DLLs for his project from the github source page [here (1.68 MB)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip ".NET 4.0 compatible"). The latest build he has posted there requires .NET 4.5. It does some cool stuff but we don't need super duper fancy for our progress bars, so I went with backwards compatibility.
+You can download the compiled DLLs for his project from the github source page [here (1.68 MB)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip '.NET 4.0 compatible'). The latest build he has posted there requires .NET 4.5. It does some cool stuff but we don't need super duper fancy for our progress bars, so I went with backwards compatibility.
 
 Unzip the DLLs into the folder of your choice and then import them using the **Import-Module** cmdlet as follows (Make sure to unblock them first):
 
@@ -54,26 +57,26 @@ Import-Module .\src\MaterialDesignThemes.Wpf.dll -ErrorAction Stop
 
 ### Step 2 - Referencing the Resource Dictionaries
 
-Now, per ButchersBoy's getting started guide[^3], we need to add the proper resource dictionaries to our prior XAML code. Resource dictionaries, in case you haven't read the MSDN article above (*and you should*), are similar to css libraries in my mind. They hold the magic styling sauce for your XAML GUI.
+Now, per ButchersBoy's getting started guide[^3], we need to add the proper resource dictionaries to our prior XAML code. Resource dictionaries, in case you haven't read the MSDN article above (_and you should_), are similar to css libraries in my mind. They hold the magic styling sauce for your XAML GUI.
 
 [^3]: https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/wiki/Getting-Started
 
 Since my top level element is Window, I want to add the resource dictionaries into the following XML block:
 
 {% highlight xml %}
-                    <Window.Resources>
-                        <ResourceDictionary>
-                            <ResourceDictionary.MergedDictionaries>
-                            
+<Window.Resources>
+<ResourceDictionary>
+<ResourceDictionary.MergedDictionaries>
+
                             #####
                             [Insert dictionary references here]
                             #####
-                            
-                            </ResourceDictionary.MergedDictionaries>            
+
+                            </ResourceDictionary.MergedDictionaries>
                         </ResourceDictionary>
                     </Window.Resources>
-{% endhighlight %}
 
+{% endhighlight %}
 
 He has a lot of dictionaries for us to choose from. We can choose either a dark or light theme by using the following line. I picked the Dark theme:
 
@@ -98,12 +101,12 @@ Lastly we add in some extra properties to the Window element as follows:
 
 {% highlight xml %}
 <Window [...]
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
-        TextElement.FontWeight="Medium"
-        TextElement.FontSize="14"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        [...] >
+TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+Background="{DynamicResource MaterialDesignPaper}"
+TextElement.FontWeight="Medium"
+TextElement.FontSize="14"
+FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+[...] >
 {% endhighlight %}
 
 That's it! Now re-run the script from last week and it will look like this:
@@ -132,7 +135,7 @@ That wasn't so bad right? Now, it's still way too much work to edit and discover
 
 There are three different methods we could use for building out the necessary XAML to cover all possible variations of the xaml we have just looked at:
 
- 1. We could statically type out all of the possibilities, save them as individual XAML and then import them using something like the following:
+1.  We could statically type out all of the possibilities, save them as individual XAML and then import them using something like the following:
 
 <pre> <code class="ps">
 $xaml = Get-Content ".\src\$Theme_$Color_$ProgressBarStyle_$SizeVariation.xaml"
@@ -170,12 +173,12 @@ if($Theme -eq "Dark")
   <li>We could use dynamically created here-strings.</li>
 </ol>
 
-How do we dynamically create a "here-string"? There are two types of here-strings ([Read up on them here](https://technet.microsoft.com/en-us/library/ee692792.aspx "Windows PowerShell Tip: Using Windows PowerShell Here-Strings")).
+How do we dynamically create a "here-string"? There are two types of here-strings ([Read up on them here](https://technet.microsoft.com/en-us/library/ee692792.aspx 'Windows PowerShell Tip: Using Windows PowerShell Here-Strings')).
 
- 1. Those that start with @" and end with "@
- 2. Those that start with @' and end with '@
+1.  Those that start with @" and end with "@
+2.  Those that start with @' and end with '@
 
-The first type will expand any variables inside the here-string ([More on Variable Expansion in Strings](http://blogs.msdn.com/b/powershell/archive/2006/07/15/variable-expansion-in-strings-and-herestrings.aspx "Variable Expansion in Strings")). The second will not. This means if we put an expression inside the here-string it will execute the expression and return the results directly into the string you are creating. So if I wanted to only add special properties to the window XAML element if someone uses a **-MaterialDesign** switch I could type a here-string like the following:
+The first type will expand any variables inside the here-string ([More on Variable Expansion in Strings](http://blogs.msdn.com/b/powershell/archive/2006/07/15/variable-expansion-in-strings-and-herestrings.aspx 'Variable Expansion in Strings')). The second will not. This means if we put an expression inside the here-string it will execute the expression and return the results directly into the string you are creating. So if I wanted to only add special properties to the window XAML element if someone uses a **-MaterialDesign** switch I could type a here-string like the following:
 
 <pre> <code class="ps">
 $syncHash.XAML = @" 
@@ -211,12 +214,11 @@ Check it out!
 	<figcaption>Behold Material Design Circlular Progress Bars in PowerShell</figcaption>
 </figure>
 
-The full code is getting pretty long to post right here so I threw it up on GitHub to [download](https://github.com/Tiberriver256/PoshProgressBar "PoshProgressBar"). 
-
+The full code is getting pretty long to post right here so I threw it up on GitHub to [download](https://github.com/Tiberriver256/PoshProgressBar 'PoshProgressBar').
 
 ## Demo
 
-Don't forget to change the file path of the **Import-Module** function in the **New-ProgressBar** function to match the location of your [downloaded DLLs (Reference Step 1 of this blog posting)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip ".NET 4.0 compatible") otherwise it will default to using the basic styling.
+Don't forget to change the file path of the **Import-Module** function in the **New-ProgressBar** function to match the location of your [downloaded DLLs (Reference Step 1 of this blog posting)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip '.NET 4.0 compatible') otherwise it will default to using the basic styling.
 
 <pre> <code class="ps">
 $Files = dir $env:USERPROFILE -Recurse
@@ -250,5 +252,3 @@ foreach ($File in $Files) {
 
                 }
 </code> </pre>
-
- 

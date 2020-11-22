@@ -19,6 +19,8 @@ Have you ever used the magical cmdlet called **Show-Command**? Ever wonder how i
 
 It is a pretty magical cmdlet. One with which you should play sometime. Today, I am going to show you briefly how to see the same data that is used to generate those GUIs. All you would need to do is determine the specific type (i.e. string, integer, boolean) and map that to a specific form object. for example if a parameter expected a string input you would map that to a simple text input. If it expected a boolean you would map it to a checkbox. Cool, but how would I store that information for my custom cmdlets and how would I access that information? The answers are not as bad as you would think.
 
+<!-- more -->
+
 Storing the info = Params
 Getting the info = **Get-Command**
 

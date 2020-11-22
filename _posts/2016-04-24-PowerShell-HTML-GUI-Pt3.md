@@ -1,20 +1,21 @@
 ---
 published: true
 layout: post
-title: "PowerShell GUI with HTML - Part 3"
+title: 'PowerShell GUI with HTML - Part 3'
 description: Part 3 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - GUI
   - HTML
-categories: 
+categories:
   - PowerShell
   - GUI
   - HTML
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["HTML"] %}{% if post.title != null %}
@@ -23,9 +24,11 @@ categories:
     </ul>
 </article>
 
-If you have been following along with the previous two parts to this blog, I know what you have been saying. *When will we get to the GUI part!* Everything up to this point has been all web servers and web technology. Which could come in handy but we just want to make a simple GUI in HTML that runs PowerShell. The browser thing is cool but you don't want to pop open a browser every time you want to run some scripts. Integrating that into the pipeline would be difficult too right? 
+If you have been following along with the previous two parts to this blog, I know what you have been saying. _When will we get to the GUI part!_ Everything up to this point has been all web servers and web technology. Which could come in handy but we just want to make a simple GUI in HTML that runs PowerShell. The browser thing is cool but you don't want to pop open a browser every time you want to run some scripts. Integrating that into the pipeline would be difficult too right?
 
 Today, we finally get to the good stuff!
+
+<!-- more -->
 
 # Step 1 - Build our own web browser (and just not tell people it is a browser)
 
@@ -119,10 +122,11 @@ You would obviously want your PowerShell console showing when you are debugging 
 To make your GUI look pretty using magic like [materializecss](http://materializecss.com/) or [Office UI Fabric](http://dev.office.com/fabric/) you need the following meta tag in the header of your HTML:
 
 {% highlight html %}
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 {% endhighlight %}
 
-This will force it to use IE Edge. For more information on that magic line see [here](https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx).
+This will force it to use IE Edge. For more information on that magic line see [here](<https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx>).
 
 ### How do I build a complete UI that collects input and returns / displays results using the UI?
 
@@ -161,9 +165,9 @@ A not too bad chunk of code and we get this:
 
 Awesome Right!
 
-### Full code for *Start-PoshWebGUI*
+### Full code for _Start-PoshWebGUI_
 
-*NOTE: I do plan on putting this into a module fairly soon hopefully with help and examples. If you want to help out hit me up or fork [the repo on GitHub](https://github.com/Tiberriver256/New-PoshWebGUI).
+\*NOTE: I do plan on putting this into a module fairly soon hopefully with help and examples. If you want to help out hit me up or fork [the repo on GitHub](https://github.com/Tiberriver256/New-PoshWebGUI).
 
 <pre> <code class="ps">
 Function Start-PoshWebGUI ($ScriptBlock)

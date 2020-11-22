@@ -1,17 +1,18 @@
 ---
 published: true
 layout: post
-title: "PowerShell ProgressBar -- Part 3"
+title: 'PowerShell ProgressBar -- Part 3'
 description: Adding the details.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - ProgressBar
-categories: 
+categories:
   - PowerShell
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["ProgressBar"] %}{% if post.title != null %}
@@ -20,23 +21,27 @@ categories:
     </ul>
 </article>
 
-----
+---
 
 Okay, so we have a progress bar that shows percentage. Big whoop, who cares!? I need all the details! I need to show all the things! Well.... the time has come. Behold, details being added...
 
 ## Easy Peasy
 
 At this point, in order to add in a bit of details we need to do the following tasks:
- 1. Add a textblock to our XAML underneath the plain old progress bar
- 2. Add an update call to the update block triggered by the timer in our previous posting.
- 3. Add if statements to our **Write-ProgressBar** cmdlet
+
+<!-- more -->
+
+1.  Add a textblock to our XAML underneath the plain old progress bar
+2.  Add an update call to the update block triggered by the timer in our previous posting.
+3.  Add if statements to our **Write-ProgressBar** cmdlet
 
 The typical **Write-Progress** cmdlet takes the following three parameters and mushes them together, in order, underneath your progressbar:
- 1. Status
- 2. Seconds Remaining
- 3. CurrentOperation
 
-On the cmdlet side it helps to have these split out to make calling the cmdlet easier. On the UI side though it just complicates things unnecessarily, so I simply added a single variable to my **New-ProgressBar** cmdlet called *AdditionalInfo* on my synchash:
+1.  Status
+2.  Seconds Remaining
+3.  CurrentOperation
+
+On the cmdlet side it helps to have these split out to make calling the cmdlet easier. On the UI side though it just complicates things unnecessarily, so I simply added a single variable to my **New-ProgressBar** cmdlet called _AdditionalInfo_ on my synchash:
 
 <pre> <code class="ps">
 $syncHash.AdditionalInfo = ''
@@ -91,7 +96,6 @@ Now if I run the demo provided at the end of this article we get the following:
 </figure>
 
 Nice eh!?
-
 
 # Full Code
 

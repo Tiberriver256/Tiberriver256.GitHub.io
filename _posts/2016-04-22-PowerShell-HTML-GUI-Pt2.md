@@ -1,20 +1,21 @@
 ---
 published: true
 layout: post
-title: "PowerShell GUI with HTML - Part 2"
+title: 'PowerShell GUI with HTML - Part 2'
 description: Part 2 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - GUI
   - HTML
-categories: 
+categories:
   - PowerShell
   - GUI
   - HTML
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["HTML"] %}{% if post.title != null %}
@@ -25,6 +26,8 @@ categories:
 
 More boring stuff today. We are going to cover how to handle URLs in this PowerShell web server thingy and covering handling query strings. Stick with me on this though! I promise we will get to the good stuff soon.
 
+<!-- more -->
+
 # Handling URLs
 
 In [part 1](http://tiberriver256.github.io/powershell/gui/html/AngularJS-PowerShell-GUI-Pt1/) of this series we covered making a basic server that just sends a single response one time back to your web browser.
@@ -34,6 +37,7 @@ We saw it responded fine when I went to http://localhost:8000 but what would I d
 We are going to use a simple if-then statement and the **$Context.Request** variable to set the value of **$Result** based on the value of **$Context.Request.Url.LocalPath**.
 
 {% raw %}
+
 <pre> <code class="ps">
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
@@ -48,6 +52,7 @@ else
 
 }
 </code> </pre>
+
 {% endraw %}
 
 The **localpath** property of url will remove any query strings (We'll cover those in a bit) and the beginning of the url so that you just get the path that user has requested.
@@ -76,14 +81,14 @@ Okay, so in the PowerShell world we have cmdlets or functions that run code and 
 
 What a query string looks like is this **?ProcessName=Chrome** and breaks down like this:
 
-* **?** - Signifies the beginning of the query string
-* **ProcessName**(Part 1 of 3 in 1st parameter) - This is the parameter name. This would look like **-ProcessName** in PowerShell.
-* **=**(Part 2 of 3 in 1st parameter) - Tells the server that what follows is the value that should be passed to the ProcessName parameter.
-* **Chrome**(Part 3 of 3 in 1st parameter) - This is the value that is to be used for the ProcessName parameter.
+- **?** - Signifies the beginning of the query string
+- **ProcessName**(Part 1 of 3 in 1st parameter) - This is the parameter name. This would look like **-ProcessName** in PowerShell.
+- **=**(Part 2 of 3 in 1st parameter) - Tells the server that what follows is the value that should be passed to the ProcessName parameter.
+- **Chrome**(Part 3 of 3 in 1st parameter) - This is the value that is to be used for the ProcessName parameter.
 
-So, if I wanted to write **Get-Process -Name Chrome** in a URL form it could look like this: **/getProcess?Name=Chrome**. 
+So, if I wanted to write **Get-Process -Name Chrome** in a URL form it could look like this: **/getProcess?Name=Chrome**.
 
-If I wanted to send a second parameter I would just add a **&** to the URL and do another parameter. 
+If I wanted to send a second parameter I would just add a **&** to the URL and do another parameter.
 
 So, if I wanted to write **Get-Process -Name Chrome -ComputerName MyLabComputer2**. It would look like this: **/getProcess?Name=Chrome&ComputerName=MyLabComputer2**
 
@@ -102,9 +107,10 @@ $ComputerName = $Context.Request.QueryString["ComputerName"]
 
 Nice! Now, if only there were a simple way to build a form or something in HTML that would send query strings in the URL back to PowerShell... Hmmm.... What about an HTML form?!?!
 
-Check out how easy this is. 
+Check out how easy this is.
 
 {% highlight html %}
+
 <form action="/getProcesses">
     <label for="Name">Process Name</label>
     <input name="Name"></input>
@@ -119,6 +125,7 @@ There is a parameter called **action** for the HTML form element that tells the 
 So, if I re-write the code above I used to handle the URL like this:
 
 {% raw %}
+
 <pre> <code class="ps">
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
@@ -144,6 +151,7 @@ else
 
 }
 </code> </pre>
+
 {% endraw %}
 
 The first time I run my server and point my browser at http://localhost:8000, I will get a nice little HTML form that looks like the following:
@@ -160,10 +168,10 @@ Cool, and if I fill it out with Chrome as the process name, leave localhost as t
 
 Awesome! So, I built a PowerShell web server that can prompt for input and render a response in HTML to the end user. All in less than 100 lines of code. Now, stay tuned for the next blog posting where we are going to take this out of the Chrome browser and launch a PowerShell web browser that looks like a standard UI application, because when you are designing a UI for end users anyway you don't want to have them launching a browser to access what they would consider a desktop application. It would seem tacky I think.
 
-
 ## Full Code
 
 {% raw %}
+
 <pre> <code class="ps">
 # Create HttpListener Object
 $SimpleServer = New-Object Net.HttpListener
@@ -243,4 +251,5 @@ $Context.Response.Close()
 # We stop our server
 $SimpleServer.Stop()
 </code> </pre>
+
 {% endraw %}

@@ -1,17 +1,18 @@
 ---
 published: true
 layout: post
-title: "PowerShell ProgressBar -- Part 2"
+title: 'PowerShell ProgressBar -- Part 2'
 description: Performance Tuning asynchronous XAML and runspaces.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - ProgressBar
-categories: 
+categories:
   - PowerShell
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["ProgressBar"] %}{% if post.title != null %}
@@ -20,12 +21,15 @@ categories:
     </ul>
 </article>
 
-----
+---
 
 Welcome back for more fun with PowerShell and XAML ProgressBars! Today we are going to tackle performance tuning all on it's own.
 
 ## The Problem
-If you attempted to run the demo at the end of [PowerShell ProgressBar -- Part 1](tiberriver256.github.io/powershell/PowerShellProgress-Pt1/ "PowerShell ProgressBar -- Part 1"), and you were sneaky enough to remove my **Start-Sleep** cmdlet you may have noticed that the performance is AWFUL!
+
+If you attempted to run the demo at the end of [PowerShell ProgressBar -- Part 1](tiberriver256.github.io/powershell/PowerShellProgress-Pt1/ 'PowerShell ProgressBar -- Part 1'), and you were sneaky enough to remove my **Start-Sleep** cmdlet you may have noticed that the performance is AWFUL!
+
+<!-- more -->
 
 Here are the stats just running the following progress bar demo code (**Start-Sleep** removed):
 
@@ -38,13 +42,12 @@ Here are the stats just running the following progress bar demo code (**Start-Sl
 	<figcaption>50 seconds to count to 100!</figcaption>
 </figure>
 
-
 50 seconds just to count to 100 is a lot of overhead to a script just to add a progress bar. In most cases end users want speed over shininess so we are going to need to fix this.
 
 ##The Solution
 Doing a quick Google search turned up the fact that other people had experienced the same issue when using dispatcher.invoke[^1] it turns out this is because dispatcher.invoke is thread blocking (i.e. your script has to wait for the invoke function, which has quite a bit of overhead, to complete before it will continue).
 
-Turns out the there are a few other non-threadblocking methods for updating your GUI. I chose to use something called the dispatchertimer because of this dandy article[^2] and a sweet simple demo from Richard Siddaway[^3]. 
+Turns out the there are a few other non-threadblocking methods for updating your GUI. I chose to use something called the dispatchertimer because of this dandy article[^2] and a sweet simple demo from Richard Siddaway[^3].
 
 What the dispatchertimer allows us to do is tell our GUI to run some code on a set interval. So, I want my GUI to update every ten milliseconds to reflect the properties on my **$Synchash** and this should dramatically increase our performance.
 
@@ -119,13 +122,11 @@ function Write-ProgressBar
 </code> </pre>
 
 The end results in performance are... Drumroll please!!!
+
 <figure>
 	<img src="{{ site.url }}/images/PowerProgress/RockinPerformance.JPG">
 	<figcaption>68 milliseconds to complete the same code!</figcaption>
 </figure>
-
-
-
 
 ##Full Code
 
@@ -267,9 +268,6 @@ Close-ProgressBar $ProgressBar
 
 </code> </pre>
 
-
 [^1]: <https://social.msdn.microsoft.com/Forums/vstudio/en-US/080f7b59-38ec-4a45-944d-e538b08f525b/why-is-the-dispatcher-so-slow?forum=wpf>
-
 [^2]: <http://jkshay.com/implementing-the-net-dispatchertimer/>
-
 [^3]: <https://richardspowershellblog.wordpress.com/2011/07/07/a-powershell-clock/>
