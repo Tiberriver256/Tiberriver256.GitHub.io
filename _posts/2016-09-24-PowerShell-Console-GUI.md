@@ -130,6 +130,7 @@ And we get the magic! Pretty awesome way to make an oldschool GUI right? This pr
 <figure>
 	<video autoplay muted loop playsinline>
         <source src="{{ site.url }}/images/Oldschool%20PowerShell%20UI.mp4" type="video/mp4">
+        <source src="{{ site.url }}/images/Oldschool%20PowerShell%20UI.webm" type="video/webm">
     </video>
 </figure>
 
