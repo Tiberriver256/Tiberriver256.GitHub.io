@@ -160,7 +160,9 @@ Start-PoshWebGUI -ScriptBlock {
 A not too bad chunk of code and we get this:
 
 <figure>
-	<video autoplay muted loop playsinline src="{{ site.url }}/images/PowerShellHTMLGUI.mp4">
+	<video autoplay muted loop playsinline>
+        <source src="{{ site.url }}/images/PowerShellHTMLGUI.mp4" type="video/mp4">
+    </video>
 </figure>
 
 Awesome Right!
