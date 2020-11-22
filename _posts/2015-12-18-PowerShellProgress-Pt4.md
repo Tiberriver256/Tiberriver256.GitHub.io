@@ -112,9 +112,9 @@ FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/
 That's it! Now re-run the script from last week and it will look like this:
 
 <figure>
-	<video autoplay muted loop playsinline >
-        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 1.mp4" type="video/mp4">
+	<video controls autoplay muted loop playsinline >
         <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 1.webm" type="video/webm">
+        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 1.mp4" type="video/mp4">
     </video>
 	<figcaption>Behold Material Design in PowerShell</figcaption>
 </figure>
@@ -128,9 +128,9 @@ Sweet! Now... what about one of those fancy circle progress bars? Wouldn't that 
 Adjust the width on your window to be 630 to fit the width of the circular progressbar and voila!
 
 <figure>
-	<video autoplay muted loop playsinline>
-        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 2.mp4" type="video/mp4">
+	<video controls autoplay muted loop playsinline>
         <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 2.webm" type="video/webm">
+        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 2.mp4" type="video/mp4">
     </video>
 	<figcaption>Behold Material Design Circlular Progress Bars in PowerShell</figcaption>
 </figure>
@@ -216,9 +216,9 @@ I was able to code out a full function **New-ProgressBar** in a pretty short tim
 Check it out!
 
 <figure>
-	<video autoplay muted loop playsinline>
-        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 3.mp4" type="video/mp4">
+	<video autoplay controls muted loop playsinline>
         <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 3.webm" type="video/webm">
+        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar - Material Design 3.mp4" type="video/mp4">
     </video>
 	<figcaption>Behold Material Design Circlular Progress Bars in PowerShell</figcaption>
 </figure>

@@ -91,9 +91,9 @@ if($SecondsRemaining)
 Now if I run the demo provided at the end of this article we get the following:
 
 <figure>
-	<video autoplay muted loop playsinline>
-        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar.mp4" type="video/mp4">
+	<video controls autoplay muted loop playsinline>
         <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar.webm" type="video/webm">
+        <source src="{{ site.url }}/images/PowerProgress/PowerShell ProgressBar.mp4" type="video/mp4">
     </video>
 	<figcaption>Give me alllll the deets!</figcaption>
 </figure>
