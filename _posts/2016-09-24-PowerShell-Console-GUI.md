@@ -128,9 +128,9 @@ Now, we run the GUI with by running the $Root.
 And we get the magic! Pretty awesome way to make an oldschool GUI right? This project is pretty sweet but I would also like to check out [CursesSharp](https://github.com/sushihangover/CursesSharp) as that project looks to be a bit more developed.
 
 <figure>
-	<video autoplay muted loop playsinline>
-        <source src="{{ site.url }}/images/Oldschool%20PowerShell%20UI.mp4" type="video/mp4">
+	<video autoplay controls muted loop playsinline>
         <source src="{{ site.url }}/images/Oldschool%20PowerShell%20UI.webm" type="video/webm">
+        <source src="{{ site.url }}/images/Oldschool%20PowerShell%20UI.mp4" type="video/mp4">
     </video>
 </figure>
 
