@@ -15,7 +15,7 @@ categories:
 
 <article>
     <ul>
-        {% for post in site.tags["ProgressBar"] %}{% if post.title != null %}
+        {% for post in site.tags["ProgressBar"] reversed %}{% if post.title != null %}
             <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
         {% endif %}{% endfor %}
     </ul>
