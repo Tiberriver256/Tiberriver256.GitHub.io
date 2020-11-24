@@ -5,10 +5,10 @@
   <div class="header-menu header-menu-top">
     <ul>
       <li class="header-item-title header-toggle "><a href="#menu"><h2><i class="fa fa-bars"></i></h2></a></li>
-      <li class="header-item-title">
+      <li class="header-item-title sm-float-right">
         <a href="{{site.url}}/">
           {% if site.logo %}
-            <img class="logo" src="{{site.url}}/{{ site.logo }}" alt="{{ site.title }}">
+            <img class="logo" width="50" height="50" loading="lazy" src="{{site.url}}/{{ site.logo }}" alt="{{ site.title }}">
           {% endif %}
           <h2 class="title"> {{ site.title }}</h2>
         </a>
@@ -88,7 +88,3 @@
     {% endfor %}
   </ul>
 </nav>
-
-{% if site.owner.twitter %}
-  <a href="https://twitter.com/{{site.owner.twitter}}" class="btn btn-info button-twitter" data-show-count="false" data-size="large"><i class="fa fa-twitter"></i> <span> | Follow @{{site.owner.twitter}}</span></a>
-{% endif %}
