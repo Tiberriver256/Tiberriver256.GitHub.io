@@ -553,6 +553,15 @@ ul.social-buttons li a:active {
 .header-toggle {
 	display: block;
 
+	a {
+		mix-blend-mode: difference;
+		transition: none;
+
+		h2 {
+			transition: none;
+		}
+	}
+
 	@media #{$large} {
 		display: none;
 	}
@@ -618,6 +627,7 @@ ul.social-buttons li a:active {
 	width: 100%;
 	height: 70px;
 	z-index: 20;
+	transition: background-color .4s;
 
 	ul {
 		margin: 0 auto;
