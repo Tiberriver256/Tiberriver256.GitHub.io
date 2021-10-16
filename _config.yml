@@ -82,11 +82,7 @@ kramdown:
   enable_coderay: false
 
 syntax_highlighter_opts:
-  line_numbers: nil
-  line_numbers_start: 1
-  tab_width: 4
-  bold_every: 10
-  css: class
+  disable: true
 
 include: ['.htaccess']
 exclude:
