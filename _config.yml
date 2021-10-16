@@ -74,12 +74,16 @@ permalink: /:categories/:title/
 # Amount of post to show on home page
 paginate: 5
 
+highlighter: none
+
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
   enable_coderay: false
+  syntax_highligher_opts:
+    disable: true
 
 syntax_highlighter_opts:
   disable: true
