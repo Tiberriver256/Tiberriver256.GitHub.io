@@ -82,11 +82,8 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   enable_coderay: false
-  syntax_highligher_opts:
+  syntax_highlighter_opts:
     disable: true
-
-syntax_highlighter_opts:
-  disable: true
 
 include: ['.htaccess']
 exclude:
