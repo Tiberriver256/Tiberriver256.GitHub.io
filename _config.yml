@@ -74,8 +74,6 @@ permalink: /:categories/:title/
 # Amount of post to show on home page
 paginate: 5
 
-highlighter: none
-
 kramdown:
   auto_ids: true
   footnote_nr: 1
