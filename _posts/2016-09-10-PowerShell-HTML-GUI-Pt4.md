@@ -4,18 +4,19 @@ layout: post
 title: "WPF WebBrowser / ObjectForScripting / Execute PowerShell... a possibly excellent app framework."
 description: Part 4 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - GUI
   - HTML
   - ObjectForScripting
-categories: 
+categories:
   - PowerShell
   - GUI
   - HTML
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["HTML"] reversed %}{% if post.title != null %}
@@ -26,16 +27,16 @@ categories:
 
 Okay, so about 5 months ago I wrote a blog post on a potential method of executing PowerShell from a user interface built in HTML and javascript. It turns out that the series was one of the more popular ones I have posted and it consistently receives traffic.
 
-# The Problem
+## The Problem
 
 I did not really love my other method. It was just the only method I had found. The problems were:
 
-* Complex to learn (build a server, build a client, learn HTTP methods)
-* Possible security concerns (even though we were only listening on localhost a user could potentially gain access to another user session and execute code as a different user)
+- Complex to learn (build a server, build a client, learn HTTP methods)
+- Possible security concerns (even though we were only listening on localhost a user could potentially gain access to another user session and execute code as a different user)
 
 <!-- more -->
 
-# A MUCH Better method
+## A MUCH Better method
 
 So, this still is not cross-platform. I would still like to investigate ElectronJS and AppJS to see if integration with PowerShell would be easy to achieve and thus provide a method of making cross-platform apps using PowerShell, HTML and JavaScript but this will work for now on Windows devices and is pretty slick in my opinion.
 
@@ -55,8 +56,8 @@ So, this still is not cross-platform. I would still like to investigate Electron
     &lt;/Window&gt;
 "@
 
-#Read XAML
-$reader=(New-Object System.Xml.XmlNodeReader $xaml) 
+# Read XAML
+$reader=(New-Object System.Xml.XmlNodeReader $xaml)
 $Form=[Windows.Markup.XamlReader]::Load( $reader )
 
 $WebBrowser = $Form.FindName("WebBrowser")
@@ -85,7 +86,7 @@ Add-Type -TypeDefinition @&quot;
 
         public PowerShellHelper()
         {
-            
+
             runspace = RunspaceFactory.CreateRunspace();
             runspace.Open();
 
@@ -111,16 +112,14 @@ Add-Type -TypeDefinition @&quot;
                 stringBuilder.Append(obj);
             }
 
-
             return stringBuilder.ToString();
 
-	    }
+     }
 
     }
 &quot;@ -ReferencedAssemblies @(&quot;System.Management.Automation&quot;,&quot;Microsoft.CSharp&quot;)
 
 </code> </pre>
-
 
 ## Step 3 - (The magic part) Add a new PowerShellHelper Object as the ObjectForScripting on the WPF browser
 
@@ -128,8 +127,7 @@ Add-Type -TypeDefinition @&quot;
     $WebBrowser.ObjectForScripting = [PowerShellHelper]::new()
 </code> </pre>
 
-
-## Step 4 - Run PowerShell code from HTML!
+## Step 4 - Run PowerShell code from HTML
 
 <pre> <code class="ps">
 $HTML = @'
@@ -138,11 +136,11 @@ $HTML = @'
 &lt;script&gt;
     function updateProcesses()
     {
-        
+
         var HTMLProcessesFromPowerShell = window.external.InvokePowerShell(&quot;Get-Process | select name, id | convertTo-HTML&quot;);
-        
+
         document.getElementById(&quot;results&quot;).innerHTML = HTMLProcessesFromPowerShell;
-     
+
     }
     updateProcesses();
 &lt;/script&gt;
@@ -150,9 +148,9 @@ $HTML = @'
 
 $WebBrowser.NavigateToString($HTML)
 
-#===========================================================================
+# ===========================================================================
 # Shows the form
-#===========================================================================
+# ===========================================================================
 write-host "To show the form, run the following" -ForegroundColor Cyan
 $Form.ShowDialog() | out-null
 </code> </pre>
@@ -160,7 +158,7 @@ $Form.ShowDialog() | out-null
 The result:
 
 <figure>
-	<img src="{{ site.url }}/images/PowerShell-HTML.png">
+ <img src="{{ site.url }}/images/PowerShell-HTML.png">
 </figure>
 
 Sweet! Now we have a simple method of executing PowerShell from HTML that does not require a server or require knowledge of HTTP. This code executes synchronously just like a good old HTA would have with your vbscript so the GUI will lock up while the code is running. [If you want to play around with one that executes asynchronously and executes a javascript function with the results when the PowerShell script is finished running you can check out my gist here](https://gist.github.com/Tiberriver256/304dc314b0260cb1c24b9b4781b1a707). The c# code is a bit more complicated there though. I may blog through this at a later date and possibly package it up as a module.
@@ -171,4 +169,4 @@ Let me know in the comments what you think of this method. I appreciate the read
 
 # More Reading
 
-* [WPF WebBrowser ObjectForScripting](https://blogs.msdn.microsoft.com/wpf/2011/05/27/how-does-wpf-webbrowser-control-handle-window-external-notify/)
+- [WPF WebBrowser ObjectForScripting](https://blogs.msdn.microsoft.com/wpf/2011/05/27/how-does-wpf-webbrowser-control-handle-window-external-notify/)

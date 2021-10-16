@@ -4,14 +4,15 @@ layout: post
 title: "PowerShell ProgressBar -- The Module"
 description: First release of the module.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - ProgressBar
-categories: 
+categories:
   - PowerShell
 ---
 
 ## The Series
+
 <article>
     <ul>
         {% for post in site.tags["ProgressBar"] reversed %}{% if post.title != null %}
@@ -20,7 +21,7 @@ categories:
     </ul>
 </article>
 
-----
+---
 
 Hey everyone!
 

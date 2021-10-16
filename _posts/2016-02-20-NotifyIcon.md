@@ -4,11 +4,11 @@ layout: post
 title: "Adding a Notification Icon to PoshProgressBar"
 description: List of problems and solutions for adding a notification icon to the PoshProgressBar module
 modified: {}
-tags: 
+tags:
   - PowerShell
   - ProgressBar
   - XAML
-categories: 
+categories:
   - PowerShell
   - ProgressBar
 ---
@@ -23,7 +23,7 @@ So I decided I wanted to add in a new feature to the PoshProgressBar module. It 
 
 ## Problem #1 - Override the default close action of the PoshProgressBar window.
 
-I didn't want to clutter up the window with an extra button that said *hide* or something like that so I wanted to just have it hide to the notification tray when you click **X** on the window. It turns out that wasn't so bad.
+I didn't want to clutter up the window with an extra button that said _hide_ or something like that so I wanted to just have it hide to the notification tray when you click **X** on the window. It turns out that wasn't so bad.
 
 <pre> <code class="ps">
 $Synchash.window.Add_Closing({
@@ -34,7 +34,7 @@ $Synchash.window.Add_Closing({
          })
 </code> </pre>
 
-The *hide()* method on the window will make it disappear. Setting the **Cancel** property of the closing event will then cancel out of the closing event. Nice!
+The _hide()_ method on the window will make it disappear. Setting the **Cancel** property of the closing event will then cancel out of the closing event. Nice!
 
 ## Problem #2 - Getting NotifyIcon (WinForms) to play with WPF in the same thread
 
@@ -59,7 +59,7 @@ $syncHash.Window.Show() | Out-Null
 $appContext = [System.Windows.Forms.ApplicationContext]::new()
 </code> </pre>
 
-Changing from using the *ShowDialog()* method to using the *Show()* method prevented the Window object from hogging up the whole thread. The application context allows two forms to run and will not continue the script until both are closed or the application context is exited.
+Changing from using the _ShowDialog()_ method to using the _Show()_ method prevented the Window object from hogging up the whole thread. The application context allows two forms to run and will not continue the script until both are closed or the application context is exited.
 
 ## Problem #3 - Closing the progress bar
 
@@ -113,7 +113,7 @@ $Synchash.window.Add_Closing({
 })
 </code> </pre>
 
-Not too bad. Of course, you can still close the progress bar from within the script using the **Close-ProgressBar** cmdlet. Which sets the **Closing** variable to *True*. The closing variable is checked inside the update block of the progress bar and used to close it as follows.
+Not too bad. Of course, you can still close the progress bar from within the script using the **Close-ProgressBar** cmdlet. Which sets the **Closing** variable to _True_. The closing variable is checked inside the update block of the progress bar and used to close it as follows.
 
 <pre> <code class="ps">
 $updateBlock = {            
@@ -133,11 +133,12 @@ $updateBlock = {
         } 
 </code> </pre>
 
-That's all folks! 
+That's all folks!
 
 # [Get the updated module](http://tiberriver256.github.io/PoshProgressBar/)
 
 ## More in This Series
+
 <article>
     <ul>
         {% for post in site.tags["ProgressBar"] reversed %}{% if post.title != null %}

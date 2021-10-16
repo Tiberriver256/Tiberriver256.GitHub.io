@@ -1,0 +1,9 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": true
+    },
+    "[markdown]": {
+        "rewrap.autoWrap.enabled": true,
+        "rewrap.wrappingColumn": 80
+    }
+}

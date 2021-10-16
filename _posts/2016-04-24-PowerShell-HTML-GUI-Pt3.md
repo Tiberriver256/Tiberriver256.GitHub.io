@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: 'PowerShell GUI with HTML - Part 3'
+title: "PowerShell GUI with HTML - Part 3"
 description: Part 3 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
 modified: {}
 tags:

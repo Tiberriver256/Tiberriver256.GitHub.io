@@ -4,12 +4,12 @@ layout: post
 title: "Command Combinations"
 description: Gathering all the possible combinations of parameters that could be passed to your cmdlet.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - Strings
   - MultiArray
   - Combinations
-categories: 
+categories:
   - PowerShell
   - Utility
   - QA Testing
@@ -26,7 +26,7 @@ That would be awesome! Wny would that be so awesome?
 
 So... doesn't sound too bad right? All of the parameters you can use in the module have parameter sets so the possible inputs are definitely limited.
 
-I also know you can get to all that metadata using **Get-Command** *Stay tuned for a later blog post*. But would I be able to get all the combinations? 
+I also know you can get to all that metadata using **Get-Command** _Stay tuned for a later blog post_. But would I be able to get all the combinations?
 
 Let's start doing the math... wait... math is hard... let's keep it simple.
 

@@ -4,12 +4,12 @@ layout: post
 title: "What's in a cmdlet?"
 description: First release of the module.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - Cmdlet
   - Metadata
   - Get-Command
-categories: 
+categories:
   - PowerShell
   - Utility
   - QA Testing
@@ -26,7 +26,7 @@ Getting the info = **Get-Command**
 
 ## Params
 
-All the information regarding what information you expect to be given to your cmdlet is defined in your params. See [this article](https://technet.microsoft.com/en-us/magazine/jj554301.aspx, 'Windows PowerShell: Defining Parameters') for a simple walkthrough on params. It's an oldie but a goodie.
+All the information regarding what information you expect to be given to your cmdlet is defined in your params. See [this article](https://technet.microsoft.com/en-us/magazine/jj554301.aspx, "Windows PowerShell: Defining Parameters") for a simple walkthrough on params. It's an oldie but a goodie.
 
 ## Get-Command
 
@@ -38,7 +38,7 @@ Get-Command *SQL*
 
 </code> </pre>
 
-It should return any cmdlets that have the keyword "SQL" in them! COOL! WOW! AWESOME! We then leave the cmdlet and go on to other awesome things. Meanwhile... **Get-Command** is saying... *Wait! I can do SO much more for you!*
+It should return any cmdlets that have the keyword "SQL" in them! COOL! WOW! AWESOME! We then leave the cmdlet and go on to other awesome things. Meanwhile... **Get-Command** is saying... _Wait! I can do SO much more for you!_
 
 Check out how much info I can get on a simple command like **Read-Host**. You can see the **Parameters** property should fulfill our needs.
 

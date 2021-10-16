@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: 'PowerShell ProgressBar -- Part 2'
+title: "PowerShell ProgressBar -- Part 2"
 description: Performance Tuning asynchronous XAML and runspaces.
 modified: {}
 tags:
@@ -27,7 +27,7 @@ Welcome back for more fun with PowerShell and XAML ProgressBars! Today we are go
 
 ## The Problem
 
-If you attempted to run the demo at the end of [PowerShell ProgressBar -- Part 1](tiberriver256.github.io/powershell/PowerShellProgress-Pt1/ 'PowerShell ProgressBar -- Part 1'), and you were sneaky enough to remove my **Start-Sleep** cmdlet you may have noticed that the performance is AWFUL!
+If you attempted to run the demo at the end of [PowerShell ProgressBar -- Part 1](tiberriver256.github.io/powershell/PowerShellProgress-Pt1/ "PowerShell ProgressBar -- Part 1"), and you were sneaky enough to remove my **Start-Sleep** cmdlet you may have noticed that the performance is AWFUL!
 
 <!-- more -->
 

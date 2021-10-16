@@ -4,11 +4,11 @@ layout: post
 title: "SAPGUI Scripting with PowerShell"
 description: Just some brief notes on a technique for SAPGUI scripting from PowerShell.
 modified: {}
-tags: 
+tags:
   - PowerShell
   - SAP
   - SAP GUI
-categories: 
+categories:
   - PowerShell
   - SAP
 ---
@@ -58,7 +58,7 @@ $ScriptControl.AddCode($Login)
 
 </code> </pre>
 
-*Note the username and password are passed into the script using a here-string before the script is added to the script object.
+\*Note the username and password are passed into the script using a here-string before the script is added to the script object.
 
 ## Returning text from SAPGUI to PowerShell
 

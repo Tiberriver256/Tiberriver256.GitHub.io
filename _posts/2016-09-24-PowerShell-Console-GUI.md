@@ -4,18 +4,24 @@ layout: post
 title: "ASCII GUI in your PowerShell Console"
 description: Making a GUI in the PowerShell Console using PhonicUK's CLRCLI
 modified: {}
-tags: 
+tags:
   - PowerShell
   - GUI
   - CLRCLI
-categories: 
+categories:
   - PowerShell
   - GUI
 ---
 
-I stumbled upon this [epic .net project by PhonicUK on Github](https://github.com/PhonicUK/CLRCLI) for "an event-driven windowing system using a line-art interface for use by command-line applications" and thought I would see if it worked in PowerShell. The results, I think are pretty cool!
+I stumbled upon this [epic .net project by PhonicUK on
+Github](https://github.com/PhonicUK/CLRCLI) for "an event-driven windowing
+system using a line-art interface for use by command-line applications" and
+thought I would see if it worked in PowerShell. The results, I think are pretty
+cool!
 
-The code to create this is really very similar to WinForms style of coding and can be generated very quickly. I will give a short walkthrough on how to create a GUI using this sweet library.
+The code to create this is really very similar to WinForms style of coding and
+can be generated very quickly. I will give a short walkthrough on how to create a
+GUI using this sweet library.
 
 # How to make the magic happen
 
@@ -28,7 +34,6 @@ The code to create this is really very similar to WinForms style of coding and c
 3. Build the solution
 
 This should generate the DLL we will need to reference in a bin/debug folder of the project.
-
 
 ## Load the DLL into PowerShell
 
@@ -44,7 +49,8 @@ Create a root base
     $Root = [CLRCLI.Widgets.RootWindow]::new()
 </code> </pre>
 
-Add your first dialog. The dialog is the base that you can attach buttons, listboxes etc. to.
+Add your first dialog. The dialog is the base that you can attach buttons,
+listboxes etc. to.
 
 <pre> <code class="ps">
     $Dialog = [CLRCLI.Widgets.Dialog]::new($Root)
@@ -57,7 +63,8 @@ Add your first dialog. The dialog is the base that you can attach buttons, listb
     $Dialog.Border = [CLRCLI.BorderStyle]::Thick
 </code> </pre>
 
-Cool. Now lets add a nice label, a couple of buttons and a listbox. Note that in the creation they are all attached to my first $Dialog.
+Cool. Now lets add a nice label, a couple of buttons and a listbox. Note that in
+the creation they are all attached to my first $Dialog.
 
 <pre> <code class="ps">
     $Label = [CLRCLI.Widgets.Label]::new($Dialog)
@@ -85,7 +92,8 @@ Cool. Now lets add a nice label, a couple of buttons and a listbox. Note that in
     $list.Border = [CLRCLI.BorderStyle]::Thin
 </code> </pre>
 
-Cool. Seems pretty straightforward. Now let's build another dialog that is hidden as basically another page.
+Cool. Seems pretty straightforward. Now let's build another dialog that is
+hidden as basically another page.
 
 <pre> <code class="ps">
     $Dialog2 = [CLRCLI.Widgets.Dialog]::new($Root)
@@ -98,7 +106,8 @@ Cool. Seems pretty straightforward. Now let's build another dialog that is hidde
     $Dialog2.Visible = $false
 </code> </pre>
 
-Now I'm going to add a button to the second dialog window. Since the dialog is hidden the button also will be hidden.
+Now I'm going to add a button to the second dialog window. Since the dialog is
+hidden the button also will be hidden.
 
 <pre> <code class="ps">
     $Button3 = [CLRCLI.Widgets.Button]::new($Dialog2)
@@ -117,7 +126,10 @@ Sweet! Now let's make the buttons do something.
     $Button.Add_Clicked({ Get-Process | select -ExpandProperty ProcessName | foreach { $list.items.Add($_) }  })
 </code> </pre>
 
-You can guess what is happening from the code for Buttons 2 and 3. Those buttons are going to be used to switch between the dialogs. The code for button one might be a bit more complicated but basically we are adding the process names from get-process into the listbox we created earlier.
+You can guess what is happening from the code for Buttons 2 and 3. Those buttons
+are going to be used to switch between the dialogs. The code for button one
+might be a bit more complicated but basically we are adding the process names
+from get-process into the listbox we created earlier.
 
 Now, we run the GUI with by running the $Root.
 
@@ -125,12 +137,14 @@ Now, we run the GUI with by running the $Root.
     $Root.Run()
 </code> </pre>
 
-And we get the magic! Pretty awesome way to make an oldschool GUI right? This project is pretty sweet but I would also like to check out [CursesSharp](https://github.com/sushihangover/CursesSharp) as that project looks to be a bit more developed.
+And we get the magic! Pretty awesome way to make an oldschool GUI right? This
+project is pretty sweet but I would also like to check out
+[CursesSharp](https://github.com/sushihangover/CursesSharp) as that project
+looks to be a bit more developed.
 
 <figure>
-	<video autoplay controls muted loop playsinline>
+ <video autoplay controls muted loop playsinline>
         <source src="{{ site.url }}/images/Oldschool%20PowerShell%20UI.webm" type="video/webm">
         <source src="{{ site.url }}/images/Oldschool%20PowerShell%20UI.mp4" type="video/mp4">
     </video>
 </figure>
-

@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: 'PowerShell ProgressBar -- Part 3'
+title: "PowerShell ProgressBar -- Part 3"
 description: Adding the details.
 modified: {}
 tags:
