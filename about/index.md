@@ -11,6 +11,9 @@ modified: 2014-12-24
 
 Hello everyone and thank you for visiting my blog!
 
-I am a PowerShell enthusiast who is currently working at Haworth in Holland Michigan. I have a wife and two boys and we have lots of fun together when I am not PowerShelling or having fun at Haworth.
+I am a Web Development and PowerShell enthusiast who is currently working as a
+web development consultant at [OST](https://www.ostusa.com/) in Grand Rapids,
+Michigan. I have a wife and two boys and we have lots of fun together when I am
+not PowerShelling or having fun at work.
 
 I hope what you read here is useful to you!
