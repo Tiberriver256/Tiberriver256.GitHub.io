@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Constraints Are Good"
+title: "Sometimes... Constraints Are Good"
 description: Sometimes having no constraints can be worse than having constraints.
 modified: {}
 tags:
