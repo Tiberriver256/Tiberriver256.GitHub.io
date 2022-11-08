@@ -71,7 +71,7 @@ A single dev on this team must know **18** technologies in order to support a si
 
 This doesn't sound like much fun anymore does it?
 
-## Technologies aren't the only thing that drifts
+## Technologies aren't the only thing that drift
 
 There are other things that change over time within a project and when applications are smaller devs will be much more likley to make these types of changes:
 
