@@ -167,6 +167,25 @@ header .entry-meta {
 
 #post,
 #page {
+	.giscus {
+		margin: 40px 2px 20px 2px;
+		padding: 10px 15px;
+		@include rounded(3px);
+
+		@media #{$medium} {
+			margin-left: 10px;
+			margin-right: 10px;
+			padding: 20px 30px;
+		}
+
+		@media #{$large} {
+			max-width: 800px;
+
+			>p:first-child {
+				@include font-size(20);
+			}
+		}
+	}
 	.entry-content {
 		margin: 40px 2px 20px 2px;
 		padding: 10px 15px;
