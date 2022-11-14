@@ -175,6 +175,7 @@ header .entry-meta {
 		@media #{$medium} {
 			margin-left: 10px;
 			margin-right: 10px;
+			width: calc(100% - 10px);
 			padding: 0;
 		}
 
