@@ -36,7 +36,6 @@ General notes and suggestions for customizing **HPSTR**.
 {% highlight yaml %}
 title:            Site Title
 description:      Describe your website here.
-disqus_shortname: shortname
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 url:              //mmistakes.github.io
@@ -129,14 +128,6 @@ hpstr-jekyll-theme/
 ## Customization
 
 Most of the variables found here are used in the .html files found in `_includes` if you need to add or remove anything. A good place to start would be to add the `title`, `description`, and `url` for your site. Links are absolute and prefixed with `{{ "{{ site.url " }}}}` in the various `_includes` and `_layouts`, so remember to properly set `url`[^1] to `http://localhost:4000` when developing locally.
-
-### Disqus Comments
-
-Create a [Disqus](http://disqus.com) account and change `disqus_shortname` in `_config.yml` to the Disqus *shortname* you just setup. By default comments appear on all post and pages if you assigned a shortname. To disable commenting on a post or page, add the following to its YAML Front Matter:
-
-{% highlight yaml %}
-comments: false
-{% endhighlight %}
 
 ### Social Share Links
 

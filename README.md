@@ -14,7 +14,6 @@ You can see it running [here](http://blog.rhesoft.com/) and [here](http://aronbo
 * Responsive templates for post, page, and post index `_layouts`. Looks great on mobile, tablet, and desktop devices.
 * Gracefully degrades in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.  
 * Sweet topbar animated menu with support for drop-downs.
-* Optional [Disqus](http://disqus.com) comments and social sharing links.
 * [Open Graph](https://developers.facebook.com/docs/opengraph/) and [Twitter Cards](https://dev.twitter.com/docs/cards) support for a better social sharing experience.
 * Simple [custom 404 page](http://mmistakes.github.io/hpstr-jekyll-theme/404.html) to get you started.
 * Stylesheets for Pygments and Coderay [syntax highlighting](http://mmistakes.github.io/hpstr-jekyll-theme/code-highlighting-post/) to make your code examples look snazzy
