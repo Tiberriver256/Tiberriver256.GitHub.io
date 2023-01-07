@@ -4,7 +4,7 @@
 <div class="entry-header">
   <div class="header-menu header-menu-top">
     <ul>
-      <li class="header-item-title header-toggle "><a href="#menu"><h2><i class="fa fa-bars"></i></h2></a></li>
+      <li class="header-item-title header-toggle "><a href="#menu" aria-label="Open navigation menu"><h2><i class="fa fa-bars"></i></h2></a></li>
       <li class="header-item-title sm-float-right">
         <a href="{{site.url}}/">
           {% if site.logo %}
@@ -86,5 +86,6 @@
         <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a></li>
       {% endif %}
     {% endfor %}
+    <li><a href="{{site.url}}/search" aria-label="Search"><h3>Search</h3></a></li>
   </ul>
 </nav>

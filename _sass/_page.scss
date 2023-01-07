@@ -168,10 +168,6 @@ header .entry-meta {
 	}
 }
 
-#menu {
-	margin-bottom: 48px;
-}
-
 #post,
 #page {
 	.giscus {
@@ -560,6 +556,7 @@ ul.social-buttons li a:active {
 	a {
 		mix-blend-mode: difference;
 		transition: none;
+		color: $white;
 
 		h2 {
 			transition: none;
