@@ -109,15 +109,21 @@ body {
 	}
 }
 
+.read-more-header, .list-item, .read-more-content h3, .social-share, .entry-title {
+	a {
+		text-decoration: none;
+	}
+}
+
 // Single Post and Page
 // --------------------------------------------------
 .entry-meta {
 	@include font-rem(12);
 	text-transform: uppercase;
-	color: lighten($base-color, 60);
+	color: lighten($base-color, 10);
 
 	a {
-		color: lighten($base-color, 60);
+		color: lighten($base-color, 10);
 	}
 
 	.vcard {
@@ -131,7 +137,7 @@ body {
 		margin: 4px;
 		color: $white;
 		@include rounded(3px);
-		background-color: lighten($base-color, 50);
+		background-color: lighten($base-color, 10);
 
 		span {
 			float: left;
@@ -139,12 +145,12 @@ body {
 		}
 
 		.count {
-			background-color: lighten($base-color, 40);
+			background-color: lighten($base-color, 10);
 			@include border-radius(3px, 3px, 0, 0);
 		}
 
 		&:hover {
-			background-color: lighten($base-color, 40);
+			background-color: $base-color;
 		}
 	}
 
@@ -670,6 +676,10 @@ ul.social-buttons li a:active {
 	border-top-width: 5px;
 	box-sizing: border-box;
 	position: relative;
+
+	a {
+		text-decoration: none;
+	}
 }
 
 ///sections
