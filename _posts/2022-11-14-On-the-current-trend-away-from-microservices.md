@@ -46,9 +46,9 @@ If you're looking for established methodologies for helping elicit requirements 
 
 I do applaud the general pull away from microservices but I'd recommend the following articles for a bit more varied reading than the one that was cited in Hacker News:
 
-[Monolith First - Martin Fowler](https://martinfowler.com/bliki/MonolithFirst.html)
-[Don't start with a monolith - Stefan Tilkov](https://martinfowler.com/articles/dont-start-monolith.html)
-[Microservices and the First Law of Distributed Objects - Martin Fowler](https://martinfowler.com/articles/distributed-objects-microservices.html)
-[The False Dichotomy of Monoliths and Microservices - Jimmy Bogard](https://jimmybogard.com/the-false-dichotomy-of-monoliths-and-microservices/)
-[Errant Architectures - Martin Fowler](https://www.drdobbs.com/errant-architectures/184414966)
-[History of web-focused distributed computing](https://kriha.de/docs/lectures/distributedsystems/services/services.pdf)
+* [Monolith First - Martin Fowler](https://martinfowler.com/bliki/MonolithFirst.html)
+* [Don't start with a monolith - Stefan Tilkov](https://martinfowler.com/articles/dont-start-monolith.html)
+* [Microservices and the First Law of Distributed Objects - Martin Fowler](https://martinfowler.com/articles/distributed-objects-microservices.html)
+* [The False Dichotomy of Monoliths and Microservices - Jimmy Bogard](https://jimmybogard.com/the-false-dichotomy-of-monoliths-and-microservices/)
+* [Errant Architectures - Martin Fowler](https://www.drdobbs.com/errant-architectures/184414966)
+* [History of web-focused distributed computing](https://kriha.de/docs/lectures/distributedsystems/services/services.pdf)
