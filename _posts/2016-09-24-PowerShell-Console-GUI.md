@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "ASCII GUI in your PowerShell Console"
 description: Making a GUI in the PowerShell Console using PhonicUK's CLRCLI
-modified: {}
+modified: 2016-09-24
 tags:
   - PowerShell
   - GUI

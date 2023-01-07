@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Adding a Notification Icon to PoshProgressBar"
 description: List of problems and solutions for adding a notification icon to the PoshProgressBar module
-modified: {}
+modified: 2016-02-20
 tags:
   - PowerShell
   - ProgressBar

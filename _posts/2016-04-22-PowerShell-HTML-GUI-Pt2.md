@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "PowerShell GUI with HTML - Part 2"
 description: Part 2 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
-modified: {}
+modified: 2016-04-22
 tags:
   - PowerShell
   - GUI

@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "SAPGUI Scripting with PowerShell"
 description: Just some brief notes on a technique for SAPGUI scripting from PowerShell.
-modified: {}
+modified: 2016-01-25
 tags:
   - PowerShell
   - SAP

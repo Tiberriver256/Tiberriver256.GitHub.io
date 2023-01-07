@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "PowerShell ProgressBar -- Part 4"
 description: XAML Templates -- Material Design.
-modified: {}
+modified: 2015-12-18
 tags:
   - PowerShell
   - ProgressBar

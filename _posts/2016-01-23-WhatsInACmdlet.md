@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "What's in a cmdlet?"
 description: First release of the module.
-modified: {}
+modified: 2016-01-23
 tags:
   - PowerShell
   - Cmdlet

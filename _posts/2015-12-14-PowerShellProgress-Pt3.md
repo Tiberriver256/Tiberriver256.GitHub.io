@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "PowerShell ProgressBar -- Part 3"
 description: Adding the details.
-modified: {}
+modified: 2015-12-14
 tags:
   - PowerShell
   - ProgressBar

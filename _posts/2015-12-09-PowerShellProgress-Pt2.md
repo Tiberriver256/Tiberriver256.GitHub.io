@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "PowerShell ProgressBar -- Part 2"
 description: Performance Tuning asynchronous XAML and runspaces.
-modified: {}
+modified: 2015-12-09
 tags:
   - PowerShell
   - ProgressBar

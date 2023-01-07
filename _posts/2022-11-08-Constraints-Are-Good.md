@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Sometimes... Constraints Are Good"
 description: Sometimes having no constraints can be worse than having constraints.
-modified: {}
+modified: 2022-11-08
 tags:
   - Software Architecture
 categories:

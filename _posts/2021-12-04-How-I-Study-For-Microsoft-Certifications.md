@@ -5,7 +5,7 @@ title: 'How I Study For Microsoft Certifications'
 description: >
   What tools I used to help study for and get the DevOps Engineer Expert (AZ-400) and the Azure
   Developer Associate (AZ-204) certifications.
-modified: {}
+modified: 2021-12-04
 tags:
   - Microsoft
 categories:

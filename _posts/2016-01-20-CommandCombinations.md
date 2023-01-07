@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Command Combinations"
 description: Gathering all the possible combinations of parameters that could be passed to your cmdlet.
-modified: {}
+modified: 2016-01-20
 tags:
   - PowerShell
   - Strings

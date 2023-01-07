@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "PowerShell ProgressBar -- Part 1"
 description: Showing how to create a progress bar in PowerShell using XAML and runspaces.
-modified: {}
+modified: 2015-12-06
 tags:
   - PowerShell
   - ProgressBar

@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "PowerShell ProgressBar -- The Module"
 description: First release of the module.
-modified: {}
+modified: 2016-01-04
 tags:
   - PowerShell
   - ProgressBar

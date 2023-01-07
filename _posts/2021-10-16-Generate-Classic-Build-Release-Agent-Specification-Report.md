@@ -5,7 +5,7 @@ title: 'How To Generate A Report On Your Classic Build/Release Pipeline Agent Sp
 description: >
   Ubuntu 16.04 is being removed from MS Azure DevOps in October 2021. Here's a quick way to find which of your classic
   build/release pipelines need to be changed.
-modified: {}
+modified: 2021-10-16
 tags:
   - PowerShell
   - Azure DevOps

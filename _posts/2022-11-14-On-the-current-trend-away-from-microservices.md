@@ -3,7 +3,7 @@ published: true
 layout: post
 title: 'On the current trend away from Microservices...'
 description: Microservices vs. Monolith... and other industry trends. Should you follow the trend?
-modified: {}
+modified: 2022-11-14
 tags:
   - Software Architecture
 categories:
