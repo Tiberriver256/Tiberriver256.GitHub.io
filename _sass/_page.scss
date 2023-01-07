@@ -397,7 +397,7 @@ ul.social-buttons li a:active {
 	span {
 		display: block;
 		@include font-rem(14);
-		color: lighten($base-color, 50);
+		color: lighten($base-color, 10);
 	}
 
 	@media #{$medium} {
