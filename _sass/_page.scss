@@ -669,6 +669,7 @@ ul.social-buttons li a:active {
 	border-top-style: solid;
 	border-top-width: 5px;
 	box-sizing: border-box;
+	position: relative;
 }
 
 ///sections
@@ -722,6 +723,7 @@ ul.social-buttons li a:active {
 .header-item:hover .header-submenu {
 	display: block;
 	position: absolute;
+	left: 0;
 }
 
 .header-submenu {
