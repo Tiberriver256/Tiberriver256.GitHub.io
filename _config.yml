@@ -2,7 +2,7 @@ title: Tiberriver256
 description: A blog about PowerShell mostly.
 reading_time: true
 words_per_minute: 200
-logo: images/logo.png
+logo: images/logo.svg
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 url: 'https://tiberriver256.github.io'
@@ -16,7 +16,6 @@ menu:
     url: '/tags'
   - title: 'Categories'
     url: '/categories'
-    type: 'categories'
 
 # Owner/author information
 owner:

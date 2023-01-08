@@ -1,0 +1,46 @@
+---
+sitemap: false
+---
+
+* {
+  color-scheme: light dark;
+}
+
+div,
+nav,
+article {
+  margin: 4rem auto;
+  max-width: 6in;
+  font: 110%/1.5 system-ui;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+  border-bottom: solid #8ECA9D;
+}
+
+blockquote,
+hr {
+  border-left: solid #8ECA9D;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+sup {
+  font: icon;
+}
+
+.site-title {
+  border: 0;
+}
+
+.site-title > h1, .pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination {
+  gap: .4rem;
+}

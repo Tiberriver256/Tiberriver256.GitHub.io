@@ -14,15 +14,15 @@
     "dev": "grunt dev"
   },
   "devDependencies": {
-    "grunt": "^1.4.1",
-    "grunt-contrib-clean": "^2.0.0",
+    "grunt": "^1.5.3",
+    "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-imagemin": "^4.0.0",
-    "grunt-contrib-jshint": "^3.1.1",
-    "grunt-contrib-uglify": "^5.0.1",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-uglify": "^5.2.2",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-svgmin": "^6.0.1"
   },
   "dependencies": {
-    "prettier": "^2.4.1"
+    "prettier": "^2.8.2"
   }
 }

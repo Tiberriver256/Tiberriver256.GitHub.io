@@ -1,91 +1,25 @@
 {% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
 {% assign cats_list = site_cats | split:',' | sort %}
 
-<div class="entry-header">
-  <div class="header-menu header-menu-top">
-    <ul>
-      <li class="header-item-title header-toggle "><a href="#menu" aria-label="Open navigation menu"><h2><i class="fa fa-bars"></i></h2></a></li>
-      <li class="header-item-title sm-float-right">
-        <a href="{{site.url}}/">
-          {% if site.logo %}
-            <img class="logo" width="50" height="50" loading="lazy" src="{{site.url}}/{{ site.logo }}" alt="{{ site.title }}">
-          {% endif %}
-          <h2 class="title"> {{ site.title }}</h2>
-        </a>
-      </li>
-      {% for menu in site.menu reversed %}
-        {% assign class = nil %}
+<nav>
+  <a class="site-title" href="{{site.url}}/">
+    <h1>
+      <picture style="height: 50px;width: 50px;">
+        <source media="(prefers-color-scheme: dark)" srcset="{{site.url}}/images/logo_dark.svg">
+        <source media="(prefers-color-scheme: light)" srcset="{{site.url}}/images/logo_light.svg">
+        <img width="50" height="50" src="{{site.url}}/images/logo_light.svg">
+      </picture>
+      {{ site.title }}
+    </h1>
+  </a>
+  <small>
+    by <a rel="author" style="border: 0">Micah Rairdon</a>
+    {% for menu in site.menu reversed %}
         {% if ((page.url contains menu.url and menu.url != '/') or (page.url == '/index.html' and menu.url == '/')) %}
-          {% assign class = 'active' %}
-        {% endif %}
-
-        {% if menu.type == 'categories' %}
-          <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-            <ul class="header-submenu">
-              {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-                {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                  <li class="sub-item"><a href="/categories/#{{this_word}}">{{this_word}}</a></li>
-              {% endunless %}{% endfor %}
-            </ul>
-          </li>
-        {% elsif menu.submenu %}
-          <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-            <ul class="header-submenu">
-              {% for sub in menu.submenu %}
-                <li class="sub-item"><a href="{{site.url}}{{sub.url}}">{{sub.title}}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
+          ・<a style="border: 0; font-weight: bold;" href="{{site.url}}{{menu.url}}">{{ menu.title }}</a>
         {% else %}
-          <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a></li>
+          ・<a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a>
         {% endif %}
       {% endfor %}
-      <li class="header-item"><a href="{{site.url}}/search" aria-label="Search"><h3><i class="fa fa-search"></i></h3></a></li>
-    </ul>
-  </div>
-  <div class="header-title">
-    <div class="header-title-wrap">
-      <h1>{{ page.title }}</h1>
-      {% if page.date %}
-        <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-      {% endif %}
-
-      {% if site.reading_time and page.layout == 'post' %}
-        <p class="entry-reading-time">
-          <i class="fa fa-clock-o"></i>
-          {% assign readtime = content | number_of_words | divided_by:site.words_per_minute %}
-          Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
-        </p><!-- /.entry-reading-time -->
-      {% endif %}
-    </div><!-- /.header-title-wrap -->
-  </div><!-- /.header-title -->
-</div><!-- /.entry-header -->
-
-
-<nav id="menu" style="display: none">
-  <ul>
-    {% for menu in site.menu %}
-      {% if menu.type == 'categories' %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-          <ul>
-            {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-              {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                <li><a href="{{site.url}}/categories/#{{this_word}}">{{this_word}}</a></li>
-            {% endunless %}{% endfor %}
-          </ul>
-        </li>
-      {% elsif menu.submenu %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-          <ul>
-            {% for sub in menu.submenu %}
-              <li><a href="{{site.url}}{{sub.url}}">{{sub.title}}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-      {% else %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a></li>
-      {% endif %}
-    {% endfor %}
-    <li><a href="{{site.url}}/search" aria-label="Search"><h3>Search</h3></a></li>
-  </ul>
+  </small>
 </nav>
