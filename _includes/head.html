@@ -45,22 +45,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 <link rel="preload" as="style" href="{{ site.url }}/assets/css/main.css">
-<link rel="preload" as="style" href="{{ site.url }}/assets/css/jquery.mmenu.all.css">
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
-<link rel="stylesheet" href="{{ site.url }}/assets/css/jquery.mmenu.all.css">
-<link type="text/css" rel="stylesheet" href="{{ site.url }}/assets/css/hljs-a11y-dark.min.css" />
-<!-- Webfonts -->
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
-
-<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic&display=swap" rel="stylesheet" type="text/css" media="print" onload="this.media='all'">
 
 <meta http-equiv="cleartype" content="on">
 
-<!-- Load Modernizr -->
-<script src="{{ site.url }}/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -75,9 +65,3 @@
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ site.url }}/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.url }}/images/apple-touch-icon-144x144-precomposed.png">
-
-{% if page.image.background or site.background %}
-{% capture background %}{% if page.image.background %}{{ page.image.background }}{% else %}{{ site.background }}{% endif %}{% endcapture %}
-{% unless background contains 'http://' or background contains 'https://' %}{% capture background %}{{ site.url }}/images/{{ background }}{% endcapture %}{% endunless %}
-<style type="text/css">body {background-image:url({{ background }});}</style>
-{% endif %}

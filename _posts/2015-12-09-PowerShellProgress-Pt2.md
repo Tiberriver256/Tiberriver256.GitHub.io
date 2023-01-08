@@ -33,9 +33,9 @@ If you attempted to run the demo at the end of [PowerShell ProgressBar -- Part 1
 
 Here are the stats just running the following progress bar demo code (**Start-Sleep** removed):
 
-<pre> <code class="ps">
+```powershell
 1..100 | foreach {Write-ProgressBar -ProgressBar $ProgressBar -Activity "Counting $_ out of 100" -PercentComplete $_ }
-</code> </pre>
+```
 
 <figure>
 	<img src="{{ site.url }}/images/PowerProgress/SlowPerformance.JPG">
@@ -53,25 +53,25 @@ What the dispatchertimer allows us to do is tell our GUI to run some code on a s
 
 So, to walk it through. We added a property for the activity and a property to for the percentcomplete to our **$Synchash**
 
-<pre> <code class="ps">
+```powershell
 $syncHash.Activity = ''
 $syncHash.PercentComplete = 0
-</code> </pre>
+```
 
 We then created a scriptblock to that we wanted to run at the set interval which will update the GUI.
 
-<pre> <code class="ps">
+```powershell
 $updateBlock = {            
             
     $SyncHash.Window.Title = $SyncHash.Activity
     $SyncHash.ProgressBar.Value = $SyncHash.PercentComplete
                        
  }
-</code> </pre>
+```
 
 Then we will create the dispatchtimer which will call the code and set the interval to be 10 milliseconds.
 
-<pre> <code class="ps">
+```powershell
 
 $syncHash.Window.Add_SourceInitialized( {            
             ## Before the window's even displayed ...            
@@ -91,11 +91,11 @@ $syncHash.Window.Add_SourceInitialized( {
             }            
   } )
 
-</code> </pre>
+```
 
 This makes my **Write-ProgressBar** cmdlet as simple as changing a property on the variable.
 
-<pre> <code class="ps">
+```powershell
 
 function Write-ProgressBar
 {
@@ -119,7 +119,7 @@ function Write-ProgressBar
 
 }
 
-</code> </pre>
+```
 
 The end results in performance are... Drumroll please!!!
 
@@ -130,7 +130,7 @@ The end results in performance are... Drumroll please!!!
 
 ##Full Code
 
-<pre> <code class="ps">
+```powershell
 
 Function New-ProgressBar {
  
@@ -254,11 +254,11 @@ function Close-ProgressBar
  
 }
 
-</code> </pre>
+```
 
 ## Demo
 
-<pre> <code class="ps">
+```powershell
  #Put a Start-Sleep back in if you actually want to see the progress bar up.
 $ProgressBar = New-ProgressBar
 Measure-Command -Expression {
@@ -266,7 +266,7 @@ Measure-Command -Expression {
 }
 Close-ProgressBar $ProgressBar
 
-</code> </pre>
+```
 
 [^1]: <https://social.msdn.microsoft.com/Forums/vstudio/en-US/080f7b59-38ec-4a45-944d-e538b08f525b/why-is-the-dispatcher-so-slow?forum=wpf>
 [^2]: <http://jkshay.com/implementing-the-net-dispatchertimer/>

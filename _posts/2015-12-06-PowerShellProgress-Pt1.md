@@ -49,8 +49,7 @@ Let's start with implementing the **New-ProgressBar** cmdlet and see what all th
 
 In order to have the progress bar run without interrupting the current process we need to create it in a separate runspace.
 
-<pre>
-<code class="ps">
+```powershell
     $SyncHash = [hashtable]::Synchronized(@{})
     $newRunspace =[runspacefactory]::CreateRunspace()
     $SyncHash.Runspace = $newRunspace
@@ -58,15 +57,13 @@ In order to have the progress bar run without interrupting the current process w
     $newRunspace.ThreadOptions = "ReuseThread"           
     $newRunspace.Open() 
     $newRunspace.SessionStateProxy.SetVariable("syncHash",$syncHash)
-</code>
-</pre>
+```
 
 The **$SyncHash** variable is going to be used to manage the progress bar from the current thread as we'll see later in the **Write-Progress** cmdlet.
 
 The next step is to create the command that will run in this alternate runspace which creates a very basic xaml progress bar and adds the elements of the progressbar to the **$SyncHash** for later modificiation.
 
-<pre>
-<code class="ps">
+```powershell
     $PowerShellCommand = [PowerShell]::Create().AddScript({    
         [xml]$xaml = @" 
         <Window 
@@ -95,15 +92,13 @@ The next step is to create the command that will run in this alternate runspace 
     }) 
     $PowerShellCommand.Runspace = $newRunspace 
     $data = $PowerShellCommand.BeginInvoke()
-</code>
-</pre>
+```
 
 At this point we should have a progress bar running asynchronously in a separate runspace. Now all we have to do is wrap this in a function and return the **$SyncHash** as the result for future modification.
 
 I did, however, just in case someone sent it to the pipeline without storing it in a variable a sort of safeguard to close the runspace if it became orphaned or the progress bar was closed.
 
-<pre>
-<code class="ps">
+```powershell
 Register-ObjectEvent -InputObject $SyncHash.Runspace `
             -EventName 'AvailabilityChanged' `
             -Action { 
@@ -115,15 +110,13 @@ Register-ObjectEvent -InputObject $SyncHash.Runspace `
                     } 
                 
                 }
-</code>
-</pre>
+```
 
 This will basically listen for when the availability (typically **busy** while the progress bar is running) to change and if it is **Available** go ahead and close out the runspace and dispose it.
 
 The full function appears here:
 
-<pre>
-<code class="ps">
+```powershell
 Function New-ProgressBar {
  
     [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework') 
@@ -179,8 +172,7 @@ Function New-ProgressBar {
     return $SyncHash
 
 }
-</code>
-</pre>
+```
 
 ### Write-ProgressBar
 
@@ -188,8 +180,7 @@ Now to build our starting **Write-ProgressBar** function. To start out we aren't
 
 If you didn't read Boe's article you may have already attempted to update the progressbar using the **$SyncHash** Variable. This will sadly not work. Something about security or something. So what we are going to do is modify the properties in the second runspace by using the dispatcher which is exposed in our **$SyncHash** variable.
 
-<pre>
-<code class="ps">
+```powershell
 function Write-ProgressBar
 {
 
@@ -220,15 +211,13 @@ function Write-ProgressBar
    }
 
 }
-</code>
-</pre>
+```
 
 ### Close-ProgressBar
 
 The **Close-ProgressBar** function is going to be very similar.
 
-<pre>
-<code class="ps">
+```powershell
 function Close-ProgressBar
 {
 
@@ -244,8 +233,7 @@ function Close-ProgressBar
     }, "Normal")
  
 }
-</code>
-</pre>
+```
 
 Hope you enjoy! The next posting we will get into replicating the exact functionality of the write-progress function as well as dealing with some of the performance issues you will see when running the below demo. The third we will get into styling our progress bars.
 
@@ -253,8 +241,7 @@ Below is the full code so far and a demo:
 
 ## Full Code
 
-<pre>
-<code class="ps">
+```powershell
 
 # Function to facilitate updates to controls within the window 
 Function New-ProgressBar {
@@ -368,19 +355,16 @@ function Close-ProgressBar
     }, "Normal")
  
 }
-</code>
-</pre>
+```
 
 ## Demo
 
 _Run this after creating the above functions_
 
-<pre>
-<code class="ps">
+```powershell
 $ProgressBar = New-ProgressBar
 
 1..100 | foreach {Write-ProgressBar -ProgressBar $ProgressBar -Activity "Counting $_ out of 100" -PercentComplete $_; Start-Sleep -Milliseconds 250}
 
 Close-ProgressBar $ProgressBar
-</code>
-</pre>
+```

@@ -56,15 +56,9 @@ google_verify: SkYg6CIVG1p7WbqGm-KTy1l3lYOKRySzKYEt7ZI_EG8
 timezone: America/New_York
 future: true
 
-syntax-highlighting:
-  enabled: false
-
 markdown: kramdown
 plugins:
   - jekyll-sitemap
-sass:
-  sass_dir: _sass
-  style: compressed
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:categories/:title/
@@ -78,8 +72,6 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   enable_coderay: false
-  syntax_highlighter_opts:
-    disable: true
 
 include: ['.htaccess']
 exclude:

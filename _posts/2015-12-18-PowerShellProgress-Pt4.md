@@ -50,10 +50,10 @@ You can download the compiled DLLs for his project from the github source page [
 
 Unzip the DLLs into the folder of your choice and then import them using the **Import-Module** cmdlet as follows (Make sure to unblock them first):
 
-<pre> <code class="ps">
+```powershell
 Import-Module .\src\MaterialDesignColors.dll -ErrorAction Stop
 Import-Module .\src\MaterialDesignThemes.Wpf.dll -ErrorAction Stop
-</code> </pre>
+```
 
 ### Step 2 - Referencing the Resource Dictionaries
 
@@ -143,15 +143,15 @@ There are three different methods we could use for building out the necessary XA
 
 1.  We could statically type out all of the possibilities, save them as individual XAML and then import them using something like the following:
 
-<pre> <code class="ps">
+```powershell
 $xaml = Get-Content ".\src\$Theme_$Color_$ProgressBarStyle_$SizeVariation.xaml"
-</code> </pre>
+```
 
 <ol start="2">
   <li>We could use the build the string as you go method with something like the following:</li>
 </ol>
 
-<pre> <code class="ps">
+```powershell
 $xaml = @"
 &lt;Window 
             xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
@@ -173,7 +173,7 @@ if($Theme -eq "Dark")
 {
     $xaml += '<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />'
 }
-</code> </pre>
+```
 
 <ol start="3">
   <li>We could use dynamically created here-strings.</li>
@@ -186,7 +186,7 @@ How do we dynamically create a "here-string"? There are two types of here-string
 
 The first type will expand any variables inside the here-string ([More on Variable Expansion in Strings](http://blogs.msdn.com/b/powershell/archive/2006/07/15/variable-expansion-in-strings-and-herestrings.aspx "Variable Expansion in Strings")). The second will not. This means if we put an expression inside the here-string it will execute the expression and return the results directly into the string you are creating. So if I wanted to only add special properties to the window XAML element if someone uses a **-MaterialDesign** switch I could type a here-string like the following:
 
-<pre> <code class="ps">
+```powershell
 $syncHash.XAML = @" 
         &lt;Window 
             xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
@@ -207,7 +207,7 @@ $syncHash.XAML = @"
             )
             &gt;
 "@
-</code> </pre>
+```
 
 The middle string only gets added if the switch is present. This does make the code a bit more difficult to read but, for me at least, speeds up the development process and is a little bit of a personal preference.
 
@@ -229,7 +229,7 @@ The full code is getting pretty long to post right here so I threw it up on GitH
 
 Don't forget to change the file path of the **Import-Module** function in the **New-ProgressBar** function to match the location of your [downloaded DLLs (Reference Step 1 of this blog posting)](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/releases/download/v1.1.0/MaterialDesignThemes1_1_net40.zip ".NET 4.0 compatible") otherwise it will default to using the basic styling.
 
-<pre> <code class="ps">
+```powershell
 $Files = dir $env:USERPROFILE -Recurse
 
 
@@ -260,4 +260,4 @@ foreach ($File in $Files) {
                     }
 
                 }
-</code> </pre>
+```

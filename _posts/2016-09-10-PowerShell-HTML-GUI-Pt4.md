@@ -42,7 +42,7 @@ So, this still is not cross-platform. I would still like to investigate Electron
 
 ## Step 1 - Create a WPF web browser
 
-<pre> <code class="ps">
+```powershell
 [xml]$xaml = @"
    &lt;Window
         xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
@@ -61,13 +61,13 @@ $reader=(New-Object System.Xml.XmlNodeReader $xaml)
 $Form=[Windows.Markup.XamlReader]::Load( $reader )
 
 $WebBrowser = $Form.FindName("WebBrowser")
-</code> </pre>
+```
 
 ## Step 2 - Create a C# class that is COMVisible for executing PowerShell
 
 Okay, so this part was a little scary to figure out but it shouldn't be too hard to figure out if you have been in the PowerShell space for awhile or tinkering with PowerShell v5 Classes. Basically we want something that will execute PowerShell code and that is ComVisible.
 
-<pre> <code class="ps">
+```powershell
 
 Add-Type -TypeDefinition @&quot;
     using System.Text;
@@ -119,17 +119,17 @@ Add-Type -TypeDefinition @&quot;
     }
 &quot;@ -ReferencedAssemblies @(&quot;System.Management.Automation&quot;,&quot;Microsoft.CSharp&quot;)
 
-</code> </pre>
+```
 
 ## Step 3 - (The magic part) Add a new PowerShellHelper Object as the ObjectForScripting on the WPF browser
 
-<pre> <code class="ps">
+```powershell
     $WebBrowser.ObjectForScripting = [PowerShellHelper]::new()
-</code> </pre>
+```
 
 ## Step 4 - Run PowerShell code from HTML
 
-<pre> <code class="ps">
+```powershell
 $HTML = @'
 &lt;div id=&quot;results&quot;&gt;Loading processes..&lt;/div&gt;
 
@@ -153,7 +153,7 @@ $WebBrowser.NavigateToString($HTML)
 # ===========================================================================
 write-host "To show the form, run the following" -ForegroundColor Cyan
 $Form.ShowDialog() | out-null
-</code> </pre>
+```
 
 The result:
 

@@ -47,7 +47,7 @@ One screenshot a second though... this is going to take awhile...
 
 ## Check out the code
 
-<pre> <code class="ps">
+```powershell
 
 function Get-StringCombinations
 {
@@ -171,4 +171,4 @@ function Get-AllParameters ($Command)
 $AllParameters = Get-AllParameters -Command "New-ProgressBar"
 $AllPossibleCommandlines = Get-StringCombinations $AllParameters
 
-</code> </pre>
+```

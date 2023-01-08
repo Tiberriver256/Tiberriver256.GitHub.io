@@ -34,7 +34,7 @@ Today, we finally get to the good stuff!
 
 So, what if we take the code just below which launches a super simple XAML GUI with just a webbrowser object in it, in another runspace immediately before we run our code from the last post.
 
-<pre> <code class="ps">
+```powershell
     Start-Sleep -Seconds 15
     [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
     [xml]$XAML = @'
@@ -59,7 +59,7 @@ So, what if we take the code just below which launches a super simple XAML GUI w
     $WebBrowser.Navigate("http://localhost:8000/")
 
     $Form.ShowDialog()
-</code> </pre>
+```
 
 Voila! We have our own PowerShell web browser displaying our simple form but doesn't look anything like a web browser! It looks like a regular old windows desktop application.
 
@@ -73,7 +73,7 @@ Now with this we can do some pretty amazing things but we still have a few probl
 
 If you were just going to get a single request from the browser you can close it as soon as you receive and process the request from the browser. If not you can simply build in a URL that will stop the server for example:
 
-<pre> <code class="ps">
+```powershell
 while($SimpleServer.IsListening)
 {
 
@@ -92,13 +92,13 @@ while($SimpleServer.IsListening)
     ...
 
 }
-</code> </pre>
+```
 
 ### How do I eliminate the Start-Sleep and launch my GUI as soon as the server is ready?
 
 You may come up with your own better method for doing this but I came up with this little function. Which will continually attempt to access the URL until it gets a response and then it will continue to load the xaml:
 
-<pre> <code class="ps">
+```powershell
 function Wait-ServerLaunch
 {
 
@@ -111,7 +111,7 @@ function Wait-ServerLaunch
     { start-sleep -Seconds 1; Wait-ServerLaunch }
 
 }
-</code> </pre>
+```
 
 ### How do I hide the PowerShell window so end users won't know it is there?
 
@@ -132,7 +132,7 @@ This will force it to use IE Edge. For more information on that magic line see [
 
 Here is my code for this solution. A usage example would be like this:
 
-<pre> <code class="ps">
+```powershell
 Start-PoshWebGUI -ScriptBlock {
     
     $Parameters = $Context.Request.QueryString
@@ -155,7 +155,7 @@ Start-PoshWebGUI -ScriptBlock {
     }
 
 }
-</code> </pre>
+```
 
 A not too bad chunk of code and we get this:
 
@@ -172,7 +172,7 @@ Awesome Right!
 
 \*NOTE: I do plan on putting this into a module fairly soon hopefully with help and examples. If you want to help out hit me up or fork [the repo on GitHub](https://github.com/Tiberriver256/New-PoshWebGUI).
 
-<pre> <code class="ps">
+```powershell
 Function Start-PoshWebGUI ($ScriptBlock)
 {
     # We create a scriptblock that waits for the server to launch and then opens a web browser control
@@ -320,4 +320,4 @@ Function Start-PoshWebGUI ($ScriptBlock)
     }
 
 }
-</code> </pre>
+```

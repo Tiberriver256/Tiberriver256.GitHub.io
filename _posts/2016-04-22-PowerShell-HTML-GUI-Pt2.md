@@ -38,7 +38,7 @@ We are going to use a simple if-then statement and the **$Context.Request** vari
 
 {% raw %}
 
-<pre> <code class="ps">
+```powershell
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
 
@@ -51,7 +51,7 @@ else
     $result = "&lt;html&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;"
 
 }
-</code> </pre>
+```
 
 {% endraw %}
 
@@ -100,10 +100,10 @@ So, you are thinking, how do I parse that query string out in PowerShell? If you
 
 So, if my browser sent a request to my PowerShell server with the above URL **/getProcess?Name=Chrome&ComputerName=MyLabComputer2**. All I would need to do to get at those parameters is this:
 
-<pre> <code class="ps">
+```powershell
 $Name = $Context.Request.QueryString["Name"]
 $ComputerName = $Context.Request.QueryString["ComputerName"]
-</code> </pre>
+```
 
 Nice! Now, if only there were a simple way to build a form or something in HTML that would send query strings in the URL back to PowerShell... Hmmm.... What about an HTML form?!?!
 
@@ -126,7 +126,7 @@ So, if I re-write the code above I used to handle the URL like this:
 
 {% raw %}
 
-<pre> <code class="ps">
+```powershell
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
 
@@ -150,7 +150,7 @@ else
 "@
 
 }
-</code> </pre>
+```
 
 {% endraw %}
 
@@ -172,7 +172,7 @@ Awesome! So, I built a PowerShell web server that can prompt for input and rende
 
 {% raw %}
 
-<pre> <code class="ps">
+```powershell
 # Create HttpListener Object
 $SimpleServer = New-Object Net.HttpListener
 
@@ -250,6 +250,6 @@ $Context.Response.Close()
 
 # We stop our server
 $SimpleServer.Stop()
-</code> </pre>
+```
 
 {% endraw %}

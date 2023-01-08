@@ -43,33 +43,33 @@ The typical **Write-Progress** cmdlet takes the following three parameters and m
 
 On the cmdlet side it helps to have these split out to make calling the cmdlet easier. On the UI side though it just complicates things unnecessarily, so I simply added a single variable to my **New-ProgressBar** cmdlet called _AdditionalInfo_ on my synchash:
 
-<pre> <code class="ps">
+```powershell
 $syncHash.AdditionalInfo = ''
-</code> </pre>
+```
 
 We add the following textblock code to our XAML to create the label underneath the progress bar:
 
-<pre> <code class="xml">
+```xml
 <TextBlock Name="AdditionalInfoTextBlock" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" />
-</code> </pre>
+```
 
 Making all three variables squished into one makes the addition to my update block a single line of code:
 
-<pre> <code class="ps">
+```powershell
 $SyncHash.AdditionalInfoTextBlock.Text = $SyncHash.AdditionalInfo
-</code> </pre>
+```
 
 Now I add in the addtional parameters to the param section of my **Write-ProgressBar** cmdlet as follows:
 
-<pre> <code class="ps">
+```powershell
         [String]$Status = $Null,
         [int]$SecondsRemaining = $Null,
         [String]$CurrentOperation = $Null
-</code> </pre>
+```
 
 My if statements on whether or not to add these parameters and combining them with spacing into the AdditionalInfo paramater looks like this:
 
-<pre> <code class="ps">
+```powershell
 if($SecondsRemaining)
    {
 
@@ -86,7 +86,7 @@ if($SecondsRemaining)
    Write-Verbose -Message "Setting AdditionalInfo to $Status       $SecondsRemaining$(if($SecondsRemaining){ " seconds remaining..." }else {''})       $CurrentOperation"
    $ProgressBar.AdditionalInfo = "$Status       $SecondsRemaining       $CurrentOperation"
 
-</code> </pre>
+```
 
 Now if I run the demo provided at the end of this article we get the following:
 
@@ -102,7 +102,7 @@ Nice eh!?
 
 # Full Code
 
-<pre> <code class="ps">
+```powershell
 Function New-ProgressBar {
  
     [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework') 
@@ -245,11 +245,11 @@ function Close-ProgressBar
     }, "Normal")
  
 }
-</code> </pre>
+```
 
 # Demo
 
-<pre> <code class="ps">
+```powershell
 
 $ProgressBar = New-ProgressBar
 
@@ -271,4 +271,4 @@ Measure-Command -Expression {
                      }
 }
 
-</code> </pre>
+```
