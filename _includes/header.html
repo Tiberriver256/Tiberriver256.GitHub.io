@@ -4,16 +4,16 @@
 <nav>
   <a class="site-title" href="{{site.url}}/">
     <h1>
-      <picture style="height: 50px;width: 50px;">
+      <picture style="height: 50px;width: 50px;" aria-hidden="true">
         <source media="(prefers-color-scheme: dark)" srcset="{{site.url}}/images/logo_dark.svg">
         <source media="(prefers-color-scheme: light)" srcset="{{site.url}}/images/logo_light.svg">
-        <img width="50" height="50" src="{{site.url}}/images/logo_light.svg">
+        <img width="50" aria-hidden="true" height="50" src="{{site.url}}/images/logo_light.svg">
       </picture>
       {{ site.title }}
     </h1>
   </a>
   <small>
-    by <a rel="author" style="border: 0">Micah Rairdon</a>
+    by <a rel="author" style="border: 0" href="{{site.url}}/about">Micah Rairdon</a>
     {% for menu in site.menu reversed %}
         {% if ((page.url contains menu.url and menu.url != '/') or (page.url == '/index.html' and menu.url == '/')) %}
           ・<a style="border: 0; font-weight: bold;" href="{{site.url}}{{menu.url}}">{{ menu.title }}</a>

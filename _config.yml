@@ -8,8 +8,6 @@ logo: images/logo.svg
 url: 'https://tiberriver256.github.io'
 
 menu:
-  - title: 'Home'
-    url: '/'
   - title: 'About'
     url: '/about'
   - title: 'Tags'
