@@ -291,3 +291,7 @@ figure figcaption {
     color: #90a959;
   }
 }
+
+pre {
+  overflow: auto;
+}
