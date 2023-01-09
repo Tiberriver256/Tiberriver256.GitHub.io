@@ -54,7 +54,7 @@ sup {
   font-size: small;
 }
 
-figure img {
+figure img, figure video {
   max-width: 100%;
 }
 
