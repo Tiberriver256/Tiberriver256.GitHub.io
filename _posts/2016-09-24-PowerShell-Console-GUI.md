@@ -38,7 +38,7 @@ This should generate the DLL we will need to reference in a bin/debug folder of 
 ## Load the DLL into PowerShell
 
 ```powershell
-    Import-Module "Whereveryoustoredtheproject/bin/debug/CLRCLI.dll"
+Import-Module "Whereveryoustoredtheproject/bin/debug/CLRCLI.dll"
 ```
 
 ## Build out your GUI in something similar to WinForms style
@@ -46,84 +46,84 @@ This should generate the DLL we will need to reference in a bin/debug folder of 
 Create a root base
 
 ```powershell
-    $Root = [CLRCLI.Widgets.RootWindow]::new()
+$Root = [CLRCLI.Widgets.RootWindow]::new()
 ```
 
 Add your first dialog. The dialog is the base that you can attach buttons,
 listboxes etc. to.
 
 ```powershell
-    $Dialog = [CLRCLI.Widgets.Dialog]::new($Root)
+$Dialog = [CLRCLI.Widgets.Dialog]::new($Root)
 
-    $Dialog.Text = "List Running Processes"
-    $Dialog.Width = 60
-    $Dialog.Height = 32
-    $Dialog.Top = 4
-    $Dialog.Left = 4
-    $Dialog.Border = [CLRCLI.BorderStyle]::Thick
+$Dialog.Text = "List Running Processes"
+$Dialog.Width = 60
+$Dialog.Height = 32
+$Dialog.Top = 4
+$Dialog.Left = 4
+$Dialog.Border = [CLRCLI.BorderStyle]::Thick
 ```
 
 Cool. Now lets add a nice label, a couple of buttons and a listbox. Note that in
 the creation they are all attached to my first $Dialog.
 
 ```powershell
-    $Label = [CLRCLI.Widgets.Label]::new($Dialog)
-    $Label.Text = "Running Processes"
-    $Label.Top = 2
-    $Label.Left = 2
+$Label = [CLRCLI.Widgets.Label]::new($Dialog)
+$Label.Text = "Running Processes"
+$Label.Top = 2
+$Label.Left = 2
 
-    $Button = [CLRCLI.Widgets.Button]::new($Dialog)
-    $Button.Text = "Get Processes"
-    $Button.Top = 4
-    $Button.Left = 6
-    $Button.Width = 25
+$Button = [CLRCLI.Widgets.Button]::new($Dialog)
+$Button.Text = "Get Processes"
+$Button.Top = 4
+$Button.Left = 6
+$Button.Width = 25
 
-    $Button2 = [CLRCLI.Widgets.Button]::new($Dialog)
-    $Button2.Text = "Show Alternate Window"
-    $Button2.Top = 4
-    $Button2.Left = 34
-    $Button2.Width = 25
+$Button2 = [CLRCLI.Widgets.Button]::new($Dialog)
+$Button2.Text = "Show Alternate Window"
+$Button2.Top = 4
+$Button2.Left = 34
+$Button2.Width = 25
 
-    $list = [CLRCLI.Widgets.ListBox]::new($Dialog)
-    $list.top = 10
-    $list.Left = 4
-    $list.Width = 32
-    $list.height = 6
-    $list.Border = [CLRCLI.BorderStyle]::Thin
+$list = [CLRCLI.Widgets.ListBox]::new($Dialog)
+$list.top = 10
+$list.Left = 4
+$list.Width = 32
+$list.height = 6
+$list.Border = [CLRCLI.BorderStyle]::Thin
 ```
 
 Cool. Seems pretty straightforward. Now let's build another dialog that is
 hidden as basically another page.
 
 ```powershell
-    $Dialog2 = [CLRCLI.Widgets.Dialog]::new($Root)
-    $Dialog2.Text = "ooooh"
-    $Dialog2.Width = 32
-    $Dialog2.Height = 5
-    $Dialog2.Top = 6
-    $Dialog2.Left = 6
-    $Dialog2.Border = [CLRCLI.BorderStyle]::Thick
-    $Dialog2.Visible = $false
+$Dialog2 = [CLRCLI.Widgets.Dialog]::new($Root)
+$Dialog2.Text = "ooooh"
+$Dialog2.Width = 32
+$Dialog2.Height = 5
+$Dialog2.Top = 6
+$Dialog2.Left = 6
+$Dialog2.Border = [CLRCLI.BorderStyle]::Thick
+$Dialog2.Visible = $false
 ```
 
 Now I'm going to add a button to the second dialog window. Since the dialog is
 hidden the button also will be hidden.
 
 ```powershell
-    $Button3 = [CLRCLI.Widgets.Button]::new($Dialog2)
-    $Button3.Text = "Bye!"
-    $Button3.Width = 8
-    $Button3.Height =3
-    $Button3.Top = 1
-    $Button3.Left = 1
+$Button3 = [CLRCLI.Widgets.Button]::new($Dialog2)
+$Button3.Text = "Bye!"
+$Button3.Width = 8
+$Button3.Height =3
+$Button3.Top = 1
+$Button3.Left = 1
 ```
 
 Sweet! Now let's make the buttons do something.
 
 ```powershell
-    $Button3.Add_Clicked({$Dialog2.Hide(); $Dialog.Show()})
-    $Button2.Add_Clicked({$Dialog.Hide(); $Dialog2.Show()})
-    $Button.Add_Clicked({ Get-Process | select -ExpandProperty ProcessName | foreach { $list.items.Add($_) }  })
+$Button3.Add_Clicked({$Dialog2.Hide(); $Dialog.Show()})
+$Button2.Add_Clicked({$Dialog.Hide(); $Dialog2.Show()})
+$Button.Add_Clicked({ Get-Process | select -ExpandProperty ProcessName | foreach { $list.items.Add($_) }  })
 ```
 
 You can guess what is happening from the code for Buttons 2 and 3. Those buttons
@@ -134,7 +134,7 @@ from get-process into the listbox we created earlier.
 Now, we run the GUI with by running the $Root.
 
 ```powershell
-    $Root.Run()
+$Root.Run()
 ```
 
 And we get the magic! Pretty awesome way to make an oldschool GUI right? This
