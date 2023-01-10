@@ -33,9 +33,7 @@ All the information regarding what information you expect to be given to your cm
 Anyone who has watched a PowerShell tutorial knows **Get-Command**. It's one of the first things they tell you. Not sure what you are looking for? Get command takes wildcards! Use it to search for the command you are looking for like this:
 
 ```powershell
-
 Get-Command *SQL*
-
 ```
 
 It should return any cmdlets that have the keyword "SQL" in them! COOL! WOW! AWESOME! We then leave the cmdlet and go on to other awesome things. Meanwhile... **Get-Command** is saying... _Wait! I can do SO much more for you!_
@@ -43,9 +41,7 @@ It should return any cmdlets that have the keyword "SQL" in them! COOL! WOW! AWE
 Check out how much info I can get on a simple command like **Read-Host**. You can see the **Parameters** property should fulfill our needs.
 
 ```powershell
-
 (Get-Command Read-Host).Parameters | ConvertTo-Json -Depth 1
-
 ```
 
 ## ALLLLL the info!
@@ -171,7 +167,4 @@ Check out how much info I can get on a simple command like **Read-Host**. You ca
                              "SwitchParameter":  false
                          }
 }
-
-
-
 ```

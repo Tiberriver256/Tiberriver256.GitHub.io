@@ -48,44 +48,32 @@ One screenshot a second though... this is going to take awhile...
 ## Check out the code
 
 ```powershell
-
 function Get-StringCombinations
 {
 
     Param(
         $MultiArray
     )
-    
+
     function Recursive-Combine($MultiArray, $Count, $String)
     {
-
         foreach ($SubString in $MultiArray[$Count])
         {
-
              if( $Count -lt ( $MultiArray.count - 1 ) )
              {
-
                 
                 Recursive-Combine -MultiArray $MultiArray -Count ( $Count + 1 ) -String "$String $SubString"
-
              }
              else
              {
-
                 "$String $SubString"
-
              }
-
         }
-
     }
 
     foreach ($String in $MultiArray[0]) {
-            
             Recursive-Combine -MultiArray $MultiArray -Count ($Count+1) -String $String
-
     }
-
 }
 
 $CommonParamaters = @(
@@ -95,80 +83,61 @@ $CommonParamaters = @(
     "WarningVariable", "InformationVariable", 
     "OutVariable", "OutBuffer", 
     "PipelineVariable"
-    )
+)
 
 function Get-AllParameters ($Command)
 {
-
     $Command = Get-Command $Command
 
     $Parameters = $Command.Parameters.Keys.ForEach({$Command.Parameters[$_]}) | where {$CommonParamaters -notcontains $_.Name}
 
     $ValidateSetParameters = $Parameters | where { 
-    
         ( $_.Attributes | foreach { $_.TypeId.FullName } ) -contains "System.Management.Automation.ValidateSetAttribute" 
-        
     }
-    
+
     $AllParameters = @()
 
     foreach($Parameter in $ValidateSetParameters) { 
-        
+
         $Array = @()
 
         ($Parameter.Attributes | where { 
-        
                             $_.TypeId.FullName -eq "System.Management.Automation.ValidateSetAttribute" 
-                        
                         } ).validValues | foreach { $Array += ( "-$($Parameter.Name) $_") } 
 
         $Array += ("")
 
         $AllParameters += @(,$Array)
-        
     }
 
     $OtherParameters = $Parameters | where { $ValidateSetParameters -notcontains $_ }
 
 
     $PossibleValues = @{
-
         "System.String"="TestString"
         "System.String[]"=@("TestString1","TestString2")
         "System.Boolean"=@('$True','$False')
-
     }
 
     foreach ($Parameter in $OtherParameters) {
-        
+
         $Array = @()
 
         if($Parameter.ParameterType.FullName -eq "System.Management.Automation.SwitchParameter")
         {
-
             $Array += ("-$($Parameter.Name)")
-
         } else {
-
             $PossibleValues["$($Parameter.ParameterType.FullName)"] | foreach {
-        
                 $Array += ("-$($Parameter.Name) $_")
-        
             }
-
         }
-
         $Array += ("")
-
         $AllParameters += @(,$Array)
-
     }
 
     return $AllParameters
-
 }
 
 $AllParameters = Get-AllParameters -Command "New-ProgressBar"
 $AllPossibleCommandlines = Get-StringCombinations $AllParameters
-
 ```

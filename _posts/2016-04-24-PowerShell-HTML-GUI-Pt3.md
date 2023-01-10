@@ -35,9 +35,9 @@ Today, we finally get to the good stuff!
 So, what if we take the code just below which launches a super simple XAML GUI with just a webbrowser object in it, in another runspace immediately before we run our code from the last post.
 
 ```powershell
-    Start-Sleep -Seconds 15
-    [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
-    [xml]$XAML = @'
+Start-Sleep -Seconds 15
+[void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
+[xml]$XAML = @'
     &lt;Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -48,17 +48,17 @@ So, what if we take the code just below which launches a super simple XAML GUI w
     &lt;/Window&gt;
 '@
 
-    #Read XAML
-    $reader=(New-Object System.Xml.XmlNodeReader $xaml) 
-    $Form=[Windows.Markup.XamlReader]::Load( $reader )
-    #===========================================================================
-    # Store Form Objects In PowerShell
-    #===========================================================================
-    $WebBrowser = $Form.FindName("WebBrowser")
+#Read XAML
+$reader=(New-Object System.Xml.XmlNodeReader $xaml) 
+$Form=[Windows.Markup.XamlReader]::Load( $reader )
+#===========================================================================
+# Store Form Objects In PowerShell
+#===========================================================================
+$WebBrowser = $Form.FindName("WebBrowser")
 
-    $WebBrowser.Navigate("http://localhost:8000/")
+$WebBrowser.Navigate("http://localhost:8000/")
 
-    $Form.ShowDialog()
+$Form.ShowDialog()
 ```
 
 Voila! We have our own PowerShell web browser displaying our simple form but doesn't look anything like a web browser! It looks like a regular old windows desktop application.
@@ -151,9 +151,7 @@ Start-PoshWebGUI -ScriptBlock {
 &lt;a href="/showServices"&gt;&lt;h2&gt;Show Running Services&lt;/h2&gt;&lt;/a&gt;      
 "@
          }
-
     }
-
 }
 ```
 
@@ -318,6 +316,5 @@ Function Start-PoshWebGUI ($ScriptBlock)
 
         $Context.Response
     }
-
 }
 ```

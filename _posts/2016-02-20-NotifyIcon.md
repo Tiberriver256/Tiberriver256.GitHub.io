@@ -27,11 +27,9 @@ I didn't want to clutter up the window with an extra button that said _hide_ or 
 
 ```powershell
 $Synchash.window.Add_Closing({
-                
-                $SyncHash.Window.Hide()
-                $_.Cancel = $true
-         
-         })
+    $SyncHash.Window.Hide()
+    $_.Cancel = $true
+})
 ```
 
 The _hide()_ method on the window will make it disappear. Setting the **Cancel** property of the closing event will then cancel out of the closing event. Nice!
@@ -79,12 +77,10 @@ $SyncHash.NotifyIcon.contextMenu.MenuItems.AddRange($menuitem)
 
 # When Exit is clicked, close everything and kill the PowerShell process
 $menuitem.add_Click({
- 
     $SyncHash.NotifyIcon.Visible = $false
     $syncHash.Closing = $True
     $syncHash.Window.Close()
     [System.Windows.Forms.Application]::Exit()
-
 })
 ```
 
@@ -94,43 +90,36 @@ Our closing event now looks like this.
 
 ```powershell
 $Synchash.window.Add_Closing({
-
     if($SyncHash.Closing -eq $True)
     {
         
     }
     else
     {
-        
         $SyncHash.Window.Hide()
         $SyncHash.NotifyIcon.BalloonTipTitle = "Your script is still running..."
         $SyncHash.NotifyIcon.BalloonTipText = "Double click to open the progress bar again."
         $SyncHash.NotifyIcon.ShowBalloonTip(100)
         $_.Cancel = $true
-
     }
-
 })
 ```
 
 Not too bad. Of course, you can still close the progress bar from within the script using the **Close-ProgressBar** cmdlet. Which sets the **Closing** variable to _True_. The closing variable is checked inside the update block of the progress bar and used to close it as follows.
 
 ```powershell
-$updateBlock = {            
-            
-            
-            if($SyncHash.Closing -eq $True)
-            {
+$updateBlock = {
+    if($SyncHash.Closing -eq $True)
+    {
+        $SyncHash.NotifyIcon.Visible = $false
+        $syncHash.Window.Close()
+        [System.Windows.Forms.Application]::Exit()
+        Break
+    }
 
-                $SyncHash.NotifyIcon.Visible = $false
-                $syncHash.Window.Close()
-                [System.Windows.Forms.Application]::Exit()
-                Break
-            }
-            
-            ...
-                     
-        } 
+    ...
+
+}
 ```
 
 That's all folks!

@@ -36,24 +36,16 @@ We saw it responded fine when I went to http://localhost:8000 but what would I d
 
 We are going to use a simple if-then statement and the **$Context.Request** variable to set the value of **$Result** based on the value of **$Context.Request.Url.LocalPath**.
 
-{% raw %}
-
 ```powershell
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
-
     $result = Get-Process | select name,cpu | ConvertTo-Html | Out-String
-
 }
 else 
 {
-
-    $result = "&lt;html&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;"
-
+    $result = "<html><body>Hello World!</body></html>"
 }
 ```
-
-{% endraw %}
 
 The **localpath** property of url will remove any query strings (We'll cover those in a bit) and the beginning of the url so that you just get the path that user has requested.
 
@@ -110,7 +102,6 @@ Nice! Now, if only there were a simple way to build a form or something in HTML 
 Check out how easy this is.
 
 {% highlight html %}
-
 <form action="/getProcesses">
     <label for="Name">Process Name</label>
     <input name="Name"></input>
@@ -124,35 +115,28 @@ There is a parameter called **action** for the HTML form element that tells the 
 
 So, if I re-write the code above I used to handle the URL like this:
 
-{% raw %}
 
 ```powershell
 if($Context.Request.Url.LocalPath -eq "/getProcesses")
 {
-
     $Name = $Context.Request.QueryString["Name"]
     $ComputerName = $Context.Request.QueryString["ComputerName"]
     $result = Get-Process -Name $Name -ComputerName $ComputerName | select name,cpu | ConvertTo-Html | Out-String
-
 }
 else 
 {
-
     $result = @"
-&lt;h1&gt; List Running Processes &lt;/h1&gt;
-&lt;form action="/getProcesses"&gt;
-    &lt;label for="Name"&gt;Process Name&lt;/label&gt;
-    &lt;input name="Name"&gt;&lt;/input&gt;
-    &lt;label for="ComputerName"&gt;Computer Name&lt;/label&gt;
-    &lt;input name="ComputerName" value="."&gt;&lt;/input&gt;
-    &lt;button type="Submit"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
+<h1> List Running Processes </h1>
+<form action="/getProcesses">
+    <label for="Name">Process Name</label>
+    <input name="Name"></input>
+    <label for="ComputerName">Computer Name</label>
+    <input name="ComputerName" value="."></input>
+    <button type="Submit">Submit</button>
+</form>
 "@
-
 }
 ```
-
-{% endraw %}
 
 The first time I run my server and point my browser at http://localhost:8000, I will get a nice little HTML form that looks like the following:
 
@@ -169,8 +153,6 @@ Cool, and if I fill it out with Chrome as the process name, leave localhost as t
 Awesome! So, I built a PowerShell web server that can prompt for input and render a response in HTML to the end user. All in less than 100 lines of code. Now, stay tuned for the next blog posting where we are going to take this out of the Chrome browser and launch a PowerShell web browser that looks like a standard UI application, because when you are designing a UI for end users anyway you don't want to have them launching a browser to access what they would consider a desktop application. It would seem tacky I think.
 
 ## Full Code
-
-{% raw %}
 
 ```powershell
 # Create HttpListener Object
@@ -218,21 +200,17 @@ else
 {
 
     $result = @"
-&lt;h1&gt; List Running Processes &lt;/h1&gt;
-&lt;form action="/getProcesses"&gt;
-    &lt;label for="Name"&gt;Process Name&lt;/label&gt;
-    &lt;input name="Name"&gt;&lt;/input&gt;
-    &lt;label for="ComputerName"&gt;Computer Name&lt;/label&gt;
-    &lt;input name="ComputerName" value="."&gt;&lt;/input&gt;
-    &lt;button type="Submit"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
+<h1> List Running Processes </h1>
+<form action="/getProcesses">
+    <label for="Name">Process Name</label>
+    <input name="Name"></input>
+    <label for="ComputerName">Computer Name</label>
+    <input name="ComputerName" value="."></input>
+    <button type="Submit">Submit</button>
+</form>
 "@
 
 }
-
-
-
-
 
 
 
@@ -251,5 +229,3 @@ $Context.Response.Close()
 # We stop our server
 $SimpleServer.Stop()
 ```
-
-{% endraw %}

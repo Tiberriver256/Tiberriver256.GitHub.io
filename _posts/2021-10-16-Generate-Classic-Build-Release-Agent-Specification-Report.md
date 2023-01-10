@@ -20,6 +20,10 @@ ubuntu-latest instead. For more details, see
 <https://github.com/actions/virtual-environments/issues/3287>"]({{ site.url
 }}/images/AzureDevOps-Ubuntu-Deprecated-Warning.png)
 
+> Warning ⚠
+> Ubuntu 16.04 LTS environment is deprecated and will be removed on October 18, 2021. Migrate to
+> ubuntu-latest instead. For more details, see <https://github.com/actions/virtual-environments/issues/3287>
+
 Perhaps you may have seen this warning in Azure DevOps already. It's easy
 enough to fix once you identify a classic build or release pipeline that
 needs upgrading but it is quite the chore to click through and manually

@@ -63,9 +63,7 @@ $ScriptControl.AddCode($Login)
 ## Returning text from SAPGUI to PowerShell
 
 ```powershell
-
 $UserNameFromSAP = $ScriptControl.Eval('session.findById("wnd[0]/usr/txtRSYST-BNAME").text')
-
 ```
 
 I have used AddCode to script / automate the GUI up to the point where I would need to pull data to SAP then at that point I would extract the data using the **Eval** method, run the PowerShell code, then feed it back in using a here-string built vbscript using the result of the PowerShell script.
@@ -73,9 +71,7 @@ I have used AddCode to script / automate the GUI up to the point where I would n
 Kind of clunky but it works. The scripting object is actually really cool. It can return entire objects from vbscriptland to PowerShell. You can almost fully bring it out of vbscript into PowerShell with this oneliner
 
 ```powershell
-
 $SAPGUI = $ScriptControl.Eval('(GetObject("SAPGUI")).GetScriptingEngine.Children(0).Children(0)')
-
 ```
 
 Using this little chunk of code exposes the majorit of methods you would need to automate SAPGUI (i.e. **$SAPGUI.FindByID("wnd[0]/usr/txtRSYST-BNAME").text** would actually return the text value of that field, but I ran into areas where I would be needing to use reflection for certain methods so I dropped it.
