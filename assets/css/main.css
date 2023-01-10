@@ -29,6 +29,7 @@ hr {
   border-left: solid #8eca9d;
   margin: 2rem 0;
   padding: 0 1rem;
+  font-style: italic;
 }
 
 sup {
@@ -54,7 +55,7 @@ sup {
   font-size: small;
 }
 
-figure img, figure video {
+figure img, figure video, img {
   max-width: 100%;
 }
 
