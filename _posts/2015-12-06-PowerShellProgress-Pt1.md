@@ -61,7 +61,7 @@ In order to have the progress bar run without interrupting the current process w
 
 The **$SyncHash** variable is going to be used to manage the progress bar from the current thread as we'll see later in the **Write-Progress** cmdlet.
 
-The next step is to create the command that will run in this alternate runspace which creates a very basic xaml progress bar and adds the elements of the progressbar to the **$SyncHash** for later modificiation.
+The next step is to create the command that will run in this alternate runspace which creates a very basic xaml progress bar and adds the elements of the progressbar to the **$SyncHash** for later modification.
 
 ```powershell
     $PowerShellCommand = [PowerShell]::Create().AddScript({    
@@ -176,7 +176,7 @@ Function New-ProgressBar {
 
 ### Write-ProgressBar
 
-Now to build our starting **Write-ProgressBar** function. To start out we aren't going to want to mess with re-creating every functionality of **Write-Progress**, so we are just going to add the ability to pass in an updated **Activity** which will update the title of the progress bar window and **PercentComplete**.
+Now to build your starting **Write-ProgressBar** function. To start out we aren't going to want to mess with re-creating every functionality of **Write-Progress**, so we are just going to add the ability to pass in an updated **Activity** which will update the title of the progress bar window and **PercentComplete**.
 
 If you didn't read Boe's article you may have already attempted to update the progressbar using the **$SyncHash** Variable. This will sadly not work. Something about security or something. So what we are going to do is modify the properties in the second runspace by using the dispatcher which is exposed in our **$SyncHash** variable.
 

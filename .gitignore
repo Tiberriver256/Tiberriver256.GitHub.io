@@ -10,3 +10,7 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+### Vale ###
+/styles/*
+!/styles/Vocab/

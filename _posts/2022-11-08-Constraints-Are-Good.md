@@ -10,18 +10,19 @@ categories:
   - Software Architecture
 ---
 
-One of the common benefits touted for splitting a singe REST API into many smaller REST APIs or microfrontends is that:
+One of the common benefits touted for splitting a singe REST API into many smaller REST APIs or splitting a 
+single frontend into many micro-frontends is that:
 
 > Devs can choose whatever technology they want!
 
 This sounds amazing on the surface to some people. In practice this winds up being overwhelming for developers on the team. Let's look at some examples.
 
-## Microfrontends
+## Micro-frontends
 
 ### What sounds good
 
 * I can choose react for one page and Angular for another page.
-* I can selectively upgrade one microfrontend to React 18 while leaving the rest at React 17.
+* I can selectively upgrade one micro-frontend to React 18 while leaving the rest at React 17.
 * I can leave all existing pages using Webpack and start all new ones using Vite
 
 ### What sounds bad
@@ -44,7 +45,7 @@ This sounds amazing on the surface to some people. In practice this winds up bei
 * I have 2 APIs using C# ASP.NET Core, 2 using NodeJS ExpressJS, and 1 using C# Azure Functions
 * I have 1 API using .NET 6, 1 API using .NET 3.1, 1 API using Node 14 + ExpressJS 4, 1 API using Node 16 + ExpressJS 5, and 1 using Azure Function Runtime 3
 
-## Required Skillset
+## Required Skill set
 
 Let's say this system is owned by a small team of 5. That team of five must know the following technologies:
 
@@ -73,13 +74,13 @@ This doesn't sound like much fun anymore does it?
 
 ## Technologies aren't the only thing that drift
 
-There are other things that change over time within a project and when applications are smaller devs will be much more likley to make these types of changes:
+There are other things that change over time within a project and when applications are smaller devs will be much more likely to make these types of changes:
 
 * Changes in code-style
 * Changes in folder structure
 * Changes in team 'best-practices'
 
-Even with 13 microfrontends using Webpack 4 and React 17 you are likely to have microfrotnends with varying code-styles, folder structures and best-practices.
+Even with 13 micro-frontends using Webpack 4 and React 17 you are likely to have micro-frontends with varying code-styles, folder structures and best-practices.
 
 ## A Comparison
 
@@ -116,11 +117,11 @@ There team has to know a total of **6** technologies to maintain a HUGE number o
 
 Stackoverflow is reliably adopting the latest and greatest .NET technology. They are always at the leading edge using early releases of ASP.NET Core. They handle insane amounts of traffic with excellent performance. For the longest time they only had to manage a very simple infrastructure.
 
-Because of the smaller technology stack, the team was able to focus on deepening those technology skillsets and came out with things like:
+Because of the smaller technology stack, the team was able to focus on deepening those technology skill sets and came out with things like:
 
 * Dapper
 * StackExchange.Redis
-* A significant number of contributions to perf improvements in the .NET runtime
+* A significant number of contributions to performance improvements in the .NET runtime
 
 ## Conclusion
 
@@ -134,7 +135,7 @@ Very true. I'd also add, "Just because you can... doesn't mean you should in mos
 
 > Listing multiple versions of the same framework or technology as different technologies is stupid. If I know node 14 I won't have to spend months learning node 16.
 
-Also very true, but it does add overhead that isn't completely insignificant and can become overwhelming very quickly. My team has been using micro-frontends for 2 years now, just doing React and React MUI. The drift between our 15 microfrontends is significant to manage. What would have been a single project with a single tech stack to manage is now 15 projects with 15 remarkably similar but subtly different tech stacks.
+Also very true, but it does add overhead that isn't completely insignificant and can become overwhelming very quickly. My team has been using micro-frontends for 2 years now, just doing React and React MUI. The drift between our 15 micro-frontends is significant to manage. What would have been a single project with a single tech stack to manage is now 15 projects with 15 remarkably similar but subtly different tech stacks.
 
 > Not all companies have one or just a few projects. Keeping all projects up to date requires a lot of time and effort, time and effort that you could spend on new projects for new clients that pay you new money. If you have to touch an old project again, you can upgrade the project at that point, or not. Until then, why bother upgrading old projects?
 

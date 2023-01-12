@@ -14,6 +14,8 @@ menu:
     url: '/tags'
   - title: 'Categories'
     url: '/categories'
+  - title: 'RSS'
+    url: '/feed.xml'
 
 # Owner/author information
 owner:
