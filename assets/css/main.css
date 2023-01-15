@@ -14,6 +14,12 @@ article {
   font: 110%/1.5 system-ui;
 }
 
+a,
+strong,
+em {
+  word-wrap: break-word;
+}
+
 div.highlight {
   margin: 2rem auto;
 }
