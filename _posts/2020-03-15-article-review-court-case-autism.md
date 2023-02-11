@@ -46,7 +46,12 @@ While I disagree with the way the article was written and I don’t feel like IC
 
 What am I trying to say here? Why would I get my own child vaccinated if it’s potentially very dangerous? The point is that everything in life is dangerous. Getting up, getting in a car and driving to church is dangerous. Being safe is not about completely eliminating all risks. Being safe is about reducing risks. Are the risks greater for children who do not get vaccinated? Definitely. Check out this chart from an our world in data [article on vaccination](https://ourworldindata.org/vaccination):
 
-![A chart showing a dramatic reduction in deaths caused by various diseases](/images/2020-03-15-article-review-court-case-autism/vaccine_reduction-of-cases-and-deaths-1.png)
+{% include 
+    image.html 
+      path="/images/2020-03-15-article-review-court-case-autism/vaccine_reduction-of-cases-and-deaths-1.png" 
+      alt="A chart showing a dramatic reduction in deaths caused by various diseases"
+%}
+
 
 So, doctors know that vaccines *can* be dangerous but they also know that the danger from vaccination is definitely much lower than any of these numbers. Now, if you have a child where you know that the risk of a health issue related to vaccination is much higher the CDC actually recommends you not get the vaccine. Why would that be? Again, this is all about risk reduction, if your risk from getting the vaccine is higher than normal you should go with a lower risk choice. In fact, since there are so many children being vaccinated the risk associated with not getting the vaccine is actually relatively low due to herd immunity and the disease not being able to become prevalent. The chances of your child ever encountering the disease are pretty low. If we all decided to stop taking vaccines though, that would be clearly bad. We would likely see these nasty diseases come back and become prevalent again.
 
@@ -90,7 +95,11 @@ My personal opinion on it being this broad is that it is both useful and not use
 
 ASD is a developmental disorder which means it likely has something to do with your brain. Unfortunately the best way to make a specific diagnosis related to the brain is with an MRI machine. An MRI machine looks like this:
 
-![Someone getting an MRI](/images/2020-03-15-article-review-court-case-autism/fmri-machine-scientists-study-basics.jpg)
+{% include 
+    image.html 
+      path="/images/2020-03-15-article-review-court-case-autism/fmri-machine-scientists-study-basics.jpg" 
+      alt="Someone getting an MRI"
+%}
 
 The person getting an MRI must also be awake because seeing how your brain behaves when you are sleeping or under a heavy anesthetic likely has no bearing on how your brain behaves when you are awake and alert.
 

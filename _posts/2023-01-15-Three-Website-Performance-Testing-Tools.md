@@ -16,7 +16,11 @@ out these three tools for helping you test the performance of your website.
 
 ## [PageSpeed Insights](https://pagespeed.web.dev/)
 
-![A sample of a PageSpeed Insights report](/images/2023-01-15-Three-Website-Performance-Testing-Tools/PageSpeedInsightsReport.jpg)
+{% include 
+    image.html 
+      path="/images/2023-01-15-Three-Website-Performance-Testing-Tools/PageSpeedInsightsReport.jpg" 
+      alt="A sample of a PageSpeed Insights report"
+%}
 
 Provided by Google this tool will basically run a [lighthouse test](https://developer.chrome.com/docs/lighthouse/overview/) for you.
 You'll get performance statistics for both mobile and desktop as well as metrics on accessibility, SEO, and general best practices.
@@ -29,14 +33,22 @@ Sometimes the extensions you've installed in your browser can interfere with the
 
 ## [GTmetrix](https://gtmetrix.com/)
 
-![A sample of a GTmetrix report](/images/2023-01-15-Three-Website-Performance-Testing-Tools/GTmetrixReport.jpg)
+{% include 
+    image.html 
+      path="/images/2023-01-15-Three-Website-Performance-Testing-Tools/GTmetrixReport.jpg" 
+      alt="A sample of a GTmetrix report"
+%}
 
 This tool is purely focused on performance. The measurements are similar to PageSpeed Insights but it gives a nice waterfall chart for
 the loading of your site, a video and an option for monitoring/alerting with a free account.
 
 ## [WebPageTest](https://www.webpagetest.org/)
 
-![A sample of a WebPageTest report](/images/2023-01-15-Three-Website-Performance-Testing-Tools/WebPageTestReport.jpg)
+{% include 
+    image.html 
+      path="/images/2023-01-15-Three-Website-Performance-Testing-Tools/WebPageTestReport.jpg" 
+      alt="A sample of a WebPageTest report"
+%}
 
 The most feature rich option of the three this one offers:
 

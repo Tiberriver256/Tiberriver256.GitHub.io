@@ -157,9 +157,7 @@ $Form.ShowDialog() | out-null
 
 The result:
 
-<figure>
- <img src="{{ site.url }}/images/PowerShell-HTML.png">
-</figure>
+{% include image.html path="/images/PowerShell-HTML.png" %}
 
 Sweet! Now we have a simple method of executing PowerShell from HTML that does not require a server or require knowledge of HTTP. This code executes synchronously just like a good old HTA would have with your vbscript so the GUI will lock up while the code is running. [If you want to play around with one that executes asynchronously and executes a javascript function with the results when the PowerShell script is finished running you can check out my gist here](https://gist.github.com/Tiberriver256/304dc314b0260cb1c24b9b4781b1a707). The c# code is a bit more complicated there though. I may blog through this at a later date and possibly package it up as a module.
 

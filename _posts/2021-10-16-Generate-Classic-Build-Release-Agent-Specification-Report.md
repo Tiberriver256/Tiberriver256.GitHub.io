@@ -14,11 +14,11 @@ categories:
   - Azure DevOps
 ---
 
-![An image showing the following warning inside Azure DevOps, "Ubuntu 16.04 LTS
-environment is deprecated and will be removed on October 18, 2021. Migrate to
-ubuntu-latest instead. For more details, see
-<https://github.com/actions/virtual-environments/issues/3287>"]({{ site.url
-}}/images/AzureDevOps-Ubuntu-Deprecated-Warning.png)
+{% include 
+    image.html 
+      path="/images/AzureDevOps-Ubuntu-Deprecated-Warning.png" 
+      alt="Ubuntu 16.04 LTS environment is deprecated and will be removed on October 18, 2021. Migrate to ubuntu-latest instead. For more details, see https://github.com/actions/virtual-environments/issues/3287"
+%}
 
 > Warning ⚠
 > Ubuntu 16.04 LTS environment is deprecated and will be removed on October 18, 2021. Migrate to

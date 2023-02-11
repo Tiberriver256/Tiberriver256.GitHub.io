@@ -63,9 +63,7 @@ $Form.ShowDialog()
 
 Voila! We have our own PowerShell web browser displaying our simple form but doesn't look anything like a web browser! It looks like a regular old windows desktop application.
 
-<figure>
-	<img src="{{ site.url }}/images/PowerShellHTMLGUI.png">
-</figure>
+{% include image.html path="/images/PowerShellHTMLGUI.png" %}
 
 Now with this we can do some pretty amazing things but we still have a few problems to solve.
 

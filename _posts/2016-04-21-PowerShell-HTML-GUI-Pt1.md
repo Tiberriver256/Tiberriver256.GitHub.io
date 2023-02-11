@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "PowerShell GUI with HTML - Part 1"
+title: 'PowerShell GUI with HTML - Part 1'
 description: Part 1 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
 modified: 2016-04-21
 tags:
@@ -26,9 +26,7 @@ categories:
 
 ---
 
-<figure>
-	<img src="{{ site.url }}/images/AngularJS-PowerShellGUI.png">
-</figure>
+{% include image.html path="/images/AngularJS-PowerShellGUI.png" loading="eager" %}
 
 **Edit** - I have changed the title of this blog series from AngularJS GUIs with PowerShell to just PowerShell GUI with HTML. I will make a second series though covering AngularJS, how and why you should use it for making PowerShell GUIs but I figured that it needed to be split out.
 

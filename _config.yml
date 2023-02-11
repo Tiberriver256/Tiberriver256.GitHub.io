@@ -73,6 +73,8 @@ kramdown:
   toc_levels: 1..6
   enable_coderay: false
 
+cloudinary_cloud: dhff6zdnc
+
 include: ['.htaccess']
 exclude:
   [
