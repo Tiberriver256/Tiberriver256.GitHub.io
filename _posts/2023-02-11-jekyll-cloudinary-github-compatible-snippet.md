@@ -42,13 +42,13 @@ They provide a `fetch` method where you can just simply build a url and they wil
 
 ```html
 <img
-  src="http://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_800,q_auto,f_auto/https://<your-domain>/assets/img.jpg"
+  src="https://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_800,q_auto,f_auto/https://<your-domain>/assets/img.jpg"
   srcset="
-    http://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_320,q_auto,f_auto/https://<your-domain>/assets/img.jpg 320w,
-    http://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_640,q_auto,f_auto/https://<your-domain>/assets/img.jpg 640w
-    http://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_960,q_auto,f_auto/https://<your-domain>/assets/img.jpg 960w
-    http://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_1280,q_auto,f_auto/https://<your-domain>/assets/img.jpg 1280w
-    http://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_1600,q_auto,f_auto/https://<your-domain>/assets/img.jpg 1600w
+    https://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_320,q_auto,f_auto/https://<your-domain>/assets/img.jpg 320w,
+    https://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_640,q_auto,f_auto/https://<your-domain>/assets/img.jpg 640w
+    https://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_960,q_auto,f_auto/https://<your-domain>/assets/img.jpg 960w
+    https://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_1280,q_auto,f_auto/https://<your-domain>/assets/img.jpg 1280w
+    https://res.cloudinary.com/<cloud_name>/image/fetch/c_limit,w_1600,q_auto,f_auto/https://<your-domain>/assets/img.jpg 1600w
     "
   sizes="(min-width: 50rem) 50rem, 90vw"
   alt="beautiful!"
@@ -76,13 +76,13 @@ Using that HTML as a template I can write a little Jekyll liquid snippet:
 <img src="{{ site.url }}{{ include.path }}" loading="{{ include.loading | default: "lazy" }}" />
 {% else %}
 <img
-    src="http://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_800,q_auto,f_auto/{{ site.url }}{{ include.path }}"
+    src="https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_800,q_auto,f_auto/{{ site.url }}{{ include.path }}"
     srcset="
-        http://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_320,q_auto,f_auto/{{ site.url }}{{ include.path }} 320w,
-        http://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_640,q_auto,f_auto/{{ site.url }}{{ include.path }} 640w,
-        http://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_960,q_auto,f_auto/{{ site.url }}{{ include.path }} 960w,
-        http://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1280,q_auto,f_auto/{{ site.url }}{{ include.path }} 1280w,
-        http://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1600,q_auto,f_auto/{{ site.url }}{{ include.path }} 1600w
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_320,q_auto,f_auto/{{ site.url }}{{ include.path }} 320w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_640,q_auto,f_auto/{{ site.url }}{{ include.path }} 640w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_960,q_auto,f_auto/{{ site.url }}{{ include.path }} 960w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1280,q_auto,f_auto/{{ site.url }}{{ include.path }} 1280w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1600,q_auto,f_auto/{{ site.url }}{{ include.path }} 1600w
     "
     sizes="(min-width: 50rem) 50rem, 90vw"
     alt="{{ include.alt }}"
