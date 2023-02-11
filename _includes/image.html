@@ -1,5 +1,5 @@
 {% if site.url contains "localhost" %}
-<img src="{{ site.url }}{{ include.path }}" loading="{{ include.loading }}" />
+<img src="{{ site.url }}{{ include.path }}" loading="{{ include.loading | default: "lazy" }}" />
 {% else %}
 <img
     src="https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_800,q_auto,f_auto/{{ site.url }}{{ include.path }}"
@@ -12,6 +12,6 @@
     "
     sizes="(min-width: 50rem) 50rem, 90vw"
     alt="{{ include.alt }}"
-    loading="{{ include.loading }}"
+    loading="{{ include.loading | default: "lazy" }}"
 />
 {% endif %}
