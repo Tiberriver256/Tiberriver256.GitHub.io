@@ -20,6 +20,7 @@ out these three tools for helping you test the performance of your website.
     image.html 
       path="/images/2023-01-15-Three-Website-Performance-Testing-Tools/PageSpeedInsightsReport.jpg" 
       alt="A sample of a PageSpeed Insights report"
+      loading="eager"
 %}
 
 Provided by Google this tool will basically run a [lighthouse test](https://developer.chrome.com/docs/lighthouse/overview/) for you.
