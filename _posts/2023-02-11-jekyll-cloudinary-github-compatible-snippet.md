@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: 'Github compatible Cloudinary responsive image Jekyll include'
+title: 'Easy responsive images with on Github Pages with Cloudinary'
 description: A Github compatible Jekyll include template to produce responsive images using Cloudinary
 modified: 2023-01-27
 tags:
