@@ -12,9 +12,9 @@ categories:
   - Web Development
 ---
 
-> ⚠ **NOTE** ⚠
+> ⚠️ Brief Note For Perfection Seekers ⚠️
 > 
-> This is definitely not optimal. In an ideal world you would want the URLs generated off of the width and
+> This is definitely not **the best**™ way to handle images. In an ideal world you would want the URLs generated off of the width and
 > height of the images. You cannot do that in a plain-jane include though. You must reach for a custom Jekyll plugin
 > which then makes it incompatible with the default Github Pages set of plugins.
 >
