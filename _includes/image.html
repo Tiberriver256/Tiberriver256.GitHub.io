@@ -1,6 +1,7 @@
 {% assign pathType = include.pathType | default: "convention" %}
 {% if pathType == "convention" %}
-  {% assign path = "/images/" | append: page.slug | append: "/" | append: include.path %}
+  {% assign slugToLower = page.slug | downcase %}
+  {% assign path = "/images/" | append: slugToLower | append: "/" | append: include.path %}
 {% else %}
   {% assign path = include.path %}
 {% endif %}
