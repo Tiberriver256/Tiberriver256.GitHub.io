@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: 'Too beginner to share'
-description: A note to myself, that not all my posts have to be genius stuff. Some people need the basics.
+description: What you consider humdrum, may be insightful for others.
 modified: 2023-02-23
 tags:
   - Writing
