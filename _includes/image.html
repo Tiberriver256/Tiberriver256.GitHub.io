@@ -1,14 +1,21 @@
+{% assign pathType = include.pathType | default: "convention" %}
+{% if pathType == "convention" %}
+  {% assign path = "/images/" | append: page.slug | append: "/" | append: include.path %}
+{% else %}
+  {% assign path = include.path %}
+{% endif %}
+
 {% if site.url contains "localhost" %}
-<img src="{{ site.url }}{{ include.path }}" loading="{{ include.loading | default: "lazy" }}" />
+<img src="{{ site.url }}{{ path }}" loading="{{ include.loading | default: "lazy" }}" />
 {% else %}
 <img
-    src="https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_800,q_auto,f_auto/{{ site.url }}{{ include.path }}"
+    src="https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_800,q_auto,f_auto/{{ site.url }}{{ path }}"
     srcset="
-        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_320,q_auto,f_auto/{{ site.url }}{{ include.path }} 320w,
-        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_640,q_auto,f_auto/{{ site.url }}{{ include.path }} 640w,
-        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_960,q_auto,f_auto/{{ site.url }}{{ include.path }} 960w,
-        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1280,q_auto,f_auto/{{ site.url }}{{ include.path }} 1280w,
-        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1600,q_auto,f_auto/{{ site.url }}{{ include.path }} 1600w
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_320,q_auto,f_auto/{{ site.url }}{{ path }} 320w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_640,q_auto,f_auto/{{ site.url }}{{ path }} 640w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_960,q_auto,f_auto/{{ site.url }}{{ path }} 960w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1280,q_auto,f_auto/{{ site.url }}{{ path }} 1280w,
+        https://res.cloudinary.com/{{ site.cloudinary_cloud }}/image/fetch/c_limit,w_1600,q_auto,f_auto/{{ site.url }}{{ path }} 1600w
     "
     sizes="(min-width: 50rem) 50rem, 90vw"
     alt="{{ include.alt }}"

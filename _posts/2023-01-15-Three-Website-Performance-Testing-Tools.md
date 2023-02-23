@@ -18,7 +18,7 @@ out these three tools for helping you test the performance of your website.
 
 {% include 
     image.html 
-      path="/images/2023-01-15-Three-Website-Performance-Testing-Tools/PageSpeedInsightsReport.jpg" 
+      path="PageSpeedInsightsReport.jpg" 
       alt="A sample of a PageSpeed Insights report"
       loading="eager"
 %}
@@ -36,7 +36,7 @@ Sometimes the extensions you've installed in your browser can interfere with the
 
 {% include 
     image.html 
-      path="/images/2023-01-15-Three-Website-Performance-Testing-Tools/GTmetrixReport.jpg" 
+      path="GTmetrixReport.jpg" 
       alt="A sample of a GTmetrix report"
 %}
 
@@ -47,7 +47,7 @@ the loading of your site, a video and an option for monitoring/alerting with a f
 
 {% include 
     image.html 
-      path="/images/2023-01-15-Three-Website-Performance-Testing-Tools/WebPageTestReport.jpg" 
+      path="WebPageTestReport.jpg" 
       alt="A sample of a WebPageTest report"
 %}
 

@@ -48,7 +48,7 @@ What am I trying to say here? Why would I get my own child vaccinated if it’s 
 
 {% include 
     image.html 
-      path="/images/2020-03-15-article-review-court-case-autism/vaccine_reduction-of-cases-and-deaths-1.png" 
+      path="vaccine_reduction-of-cases-and-deaths-1.png" 
       alt="A chart showing a dramatic reduction in deaths caused by various diseases"
 %}
 
@@ -97,7 +97,7 @@ ASD is a developmental disorder which means it likely has something to do with y
 
 {% include 
     image.html 
-      path="/images/2020-03-15-article-review-court-case-autism/fmri-machine-scientists-study-basics.jpg" 
+      path="fmri-machine-scientists-study-basics.jpg" 
       alt="Someone getting an MRI"
 %}
 

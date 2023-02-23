@@ -54,12 +54,12 @@ You can see how the **ConvertTo-HTML** function is going to make this very easy 
 We are going to run the code from [part 1](http://tiberriver256.github.io/powershell/gui/html/AngularJS-PowerShell-GUI-Pt1/) with the small change of the if-then statement above and launch Google Chrome and point it at http://localhost:8000. We get the following as a response:
 
 
-{% include image.html path="/images/HelloWorld.png" %}
+{% include image.html path="HelloWorld.png" %}
 
 My capture on the PowerShell side should have come to an end, but if I run my code again and this time point my browser at http://localhost:8000/getProcesses, I now get the following:
 
 
-{% include image.html path="/images/WebGUIGetProcesses.png" %}
+{% include image.html path="WebGUIGetProcesses.png" %}
 
 Awesome! We are now able to serve up completely different user interfaces based on what the user requests with a simple if-then statement. Now onto something that also sounds scary but is cake in PowerShell.
 
@@ -99,7 +99,7 @@ Nice! Now, if only there were a simple way to build a form or something in HTML 
 
 Check out how easy this is.
 
-{% highlight html %}
+```html
 <form action="/getProcesses">
     <label for="Name">Process Name</label>
     <input name="Name"></input>
@@ -107,7 +107,7 @@ Check out how easy this is.
     <input name="ComputerName" value="."></input>
     <button type="Submit">Submit</button>
 </form>
-{% endhighlight %}
+```
 
 There is a parameter called **action** for the HTML form element that tells the form what URL the parameters should be sent to. The **Name** of each input sets the parameter name. The value that the user types into that input is the value that gets sent for that parameter. The button just tells the form to submit those parameters to the url path given in the action parameter.
 
@@ -138,11 +138,11 @@ else
 
 The first time I run my server and point my browser at http://localhost:8000, I will get a nice little HTML form that looks like the following:
 
-{% include image.html path="/images/PowerShellHTMLForm.png" %}
+{% include image.html path="PowerShellHTMLForm.png" %}
 
 Cool, and if I fill it out with Chrome as the process name, leave localhost as the default computer name start my mini PowerShell webserver listening for a request again and click submit. It now responds back with the following:
 
-{% include image.html path="/images/PowerShellHTMLFormResult.png" %}
+{% include image.html path="PowerShellHTMLFormResult.png" %}
 
 Awesome! So, I built a PowerShell web server that can prompt for input and render a response in HTML to the end user. All in less than 100 lines of code. Now, stay tuned for the next blog posting where we are going to take this out of the Chrome browser and launch a PowerShell web browser that looks like a standard UI application, because when you are designing a UI for end users anyway you don't want to have them launching a browser to access what they would consider a desktop application. It would seem tacky I think.
 

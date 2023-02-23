@@ -14,7 +14,7 @@ categories:
 ---
 
 <figure>
-	{% include image.html path="/images/PowerProgress/NotifyIcon.jpg" loading="eager" %} 
+	{% include image.html path="NotifyIcon.jpg" loading="eager" %} 
 </figure>
 
 So I decided I wanted to add in a new feature to the PoshProgressBar module. It is always handy to be able to close out of a window but still be able to monitor progress via the notification area, so I decided an icon in the notification tray would be a good next step.

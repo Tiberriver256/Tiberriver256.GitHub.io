@@ -26,7 +26,7 @@ categories:
 
 ---
 
-{% include image.html path="/images/AngularJS-PowerShellGUI.png" loading="eager" %}
+{% include image.html path="AngularJS-PowerShellGUI.png" loading="eager" %}
 
 **Edit** - I have changed the title of this blog series from AngularJS GUIs with PowerShell to just PowerShell GUI with HTML. I will make a second series though covering AngularJS, how and why you should use it for making PowerShell GUIs but I figured that it needed to be split out.
 

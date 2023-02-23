@@ -11,7 +11,7 @@ categories:
 ---
 
 <figure>
-  {% include image.html path="/images/hacker-news-build-the-modular-monolith.png" %}
+  {% include image.html path="hacker-news-build-the-modular-monolith.png" %}
     <figcaption>Top trending article on Hacker News of <a href="https://news.ycombinator.com/item?id=33585104">Build the modular monolith first</a></figcaption>
 </figure>
 

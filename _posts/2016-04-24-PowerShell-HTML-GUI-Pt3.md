@@ -63,7 +63,7 @@ $Form.ShowDialog()
 
 Voila! We have our own PowerShell web browser displaying our simple form but doesn't look anything like a web browser! It looks like a regular old windows desktop application.
 
-{% include image.html path="/images/PowerShellHTMLGUI.png" %}
+{% include image.html path="PowerShellHTMLGUI.png" %}
 
 Now with this we can do some pretty amazing things but we still have a few problems to solve.
 
@@ -119,10 +119,10 @@ You would obviously want your PowerShell console showing when you are debugging 
 
 To make your GUI look pretty using magic like [materializecss](http://materializecss.com/) or [Office UI Fabric](http://dev.office.com/fabric/) you need the following meta tag in the header of your HTML:
 
-{% highlight html %}
+```html
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-{% endhighlight %}
+```
 
 This will force it to use IE Edge. For more information on that magic line see [here](<https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx>).
 
