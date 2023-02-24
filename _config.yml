@@ -6,6 +6,8 @@ logo: images/logo.svg
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 url: 'https://tiberriver256.github.io'
+bareUrl: 'tiberriver256.github.io'
+ogImageBackground: '/images/Black.jpg'
 
 menu:
   - title: 'About'
@@ -21,6 +23,7 @@ menu:
 owner:
   name: Micah Rairdon
   site: https://tiberriver256.github.io
+  gravatarmd5: f2cc976ebe94f2bdaa2ff21801312836
   avatar: images/avatar.jpg
   bio: 'Christian, husband, father, all around haver of fun related to IT. Appreciate the blog and want to donate? I will receive a small commission if you shop Amazon <a href="https://www.amazon.com/?&_encoding=UTF8&tag=tiberriver256-20&linkCode=ur2&linkId=cf4ad5a87e24578f3a0a274c39038146&camp=1789&creative=9325">using this link</a>. Thank you!'
   email: 'Jun(Real Email: Micah.Rairdon [GMail])k@JunkMail.com'
@@ -74,6 +77,7 @@ kramdown:
   enable_coderay: false
 
 cloudinary_cloud: dhff6zdnc
+base64_encoded_logo_url: aHR0cHM6Ly90aWJlcnJpdmVyMjU2LmdpdGh1Yi5pby9pbWFnZXMvbG9nb19saWdodC5zdmc=
 
 include: ['.htaccess']
 exclude:

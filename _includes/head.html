@@ -20,6 +20,105 @@
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:site_name" content="{{ site.title }}">
 
+{% comment %}
+    Cloudinary cloud
+{% endcomment %}
+{% assign ogImageUrl = 'https://res.cloudinary.com/' | append: site.cloudinary_cloud %}
+
+{% comment %}
+    Fetch an image and set its width to look good on social media
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/image/fetch/w_1600,h_836,q_100' %}
+
+{% comment %}
+    Fetch the logo to put in the top right
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/l_fetch:' | append: site.base64_encoded_logo_url %}
+
+{% comment %}
+    Ensure the logo is colored white and apply it
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/co_rgb:fff,e_colorize:100' %}
+
+{% comment %}
+    Place the logo in the top-right corner
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/fl_layer_apply,w_140,g_north_east,x_100,y_100' %}
+
+{% comment %}
+    Build the title of the post
+{% endcomment %}
+
+{% if page.title %}
+    {% assign title = page.title %}
+{% else %}
+    {% assign title = site.title %}
+{% endif %}
+
+{% assign ogImageUrl = ogImageUrl | append: '/l_text:noto sans_72_bold:' | append: title %}
+
+{% comment %}
+    Ensure the text wraps and is colored white
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: ',c_fit,w_1400,co_rgb:FFF,h_240' %}
+
+{% comment %}
+    Place the title
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/fl_layer_apply,g_south_west,x_100,y_180' %}
+
+{% comment %}
+    Build the subtext
+{% endcomment %}
+{% assign subtext = site.bareUrl %}
+
+{% if page.tags %}
+    {% assign subtext = subtext | append: ' | ' %}
+    {% assign tagsString = '' %}
+    {% for tag in page.tags %}
+        {% assign tagHashTag = tag | slugify | prepend: '%2523' %}
+        {% assign tagsString = tagsString | append: tagHashTag %}
+        {% if forloop.last == false %}
+            {% assign tagsString = tagsString | append: ' · ' %}
+        {% endif %}
+    {% endfor %}
+    {% assign subtext = subtext | append: tagsString %}
+{% endif %}
+
+{% assign ogImageUrl = ogImageUrl | append: '/l_text:noto sans_48:' | append: subtext %}
+
+{% comment %}
+    Color and wrap the subtext
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: ',co_rgb:ffe4e680,c_fit,w_1400,h_180' %}
+
+{% comment %}
+    Place the subtext
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/fl_layer_apply,g_north_west,x_100,y_662' %}
+
+{% comment %}
+    Build the gravatar image
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/l_gravatar:' | append: site.owner.gravatarmd5 %}
+
+{% comment %}
+    Crop the gravatar image
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/c_thumb,g_face,r_max,q_100' %}
+
+{% comment %}
+    Place and size the gravatar image
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/fl_layer_apply,w_140,g_north_west,x_100,y_100' %}
+
+{% comment %}
+    Add the background image
+{% endcomment %}
+{% assign ogImageUrl = ogImageUrl | append: '/' | append: 'https://tiberriver256.github.io' | append: site.ogImageBackground %}
+
+<meta property="og:image" content="{{ ogImageUrl | uri_escape }}">
+
 {% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
 {% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
 
