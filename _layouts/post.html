@@ -21,7 +21,7 @@
             <div style="margin: 1rem auto">
               <span style="font-size: large">Tags:</span>
               {% for tag in page.tags %} {% unless forloop.first %}・{% endunless %}
-              <a href="{{ site.url }}/tags#{{ tag }}" title="Pages tagged {{ tag }}" class="tag">{{ tag }}</a>
+              <a href="{{ site.url }}/tags#{{ tag }}" title="Pages tagged {{ tag }}">{{ tag }}</a>
               {% endfor %}
             </div>
             {% if page.modified %}

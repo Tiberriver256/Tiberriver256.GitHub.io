@@ -75,7 +75,7 @@
 {% if page.tags %}
     {% assign subtext = subtext | append: ' | ' %}
     {% assign tagsString = '' %}
-    {% for tag in page.tags %}
+    {% for tag in page.tags limit:3 %}
         {% assign tagHashTag = tag | slugify | prepend: '%2523' %}
         {% assign tagsString = tagsString | append: tagHashTag %}
         {% if forloop.last == false %}
