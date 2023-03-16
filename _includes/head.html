@@ -50,7 +50,7 @@
 {% endcomment %}
 
 {% if page.title %}
-    {% assign title = page.title %}
+    {% assign title = page.title | escape | replace: "?", "%253F" %}
 {% else %}
     {% assign title = site.title %}
 {% endif %}
