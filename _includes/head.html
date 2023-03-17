@@ -72,17 +72,21 @@
 {% endcomment %}
 {% assign subtext = site.bareUrl %}
 
-{% if page.tags %}
-    {% assign subtext = subtext | append: ' | ' %}
-    {% assign tagsString = '' %}
-    {% for tag in page.tags limit:3 %}
-        {% assign tagHashTag = tag | slugify | prepend: '%2523' %}
-        {% assign tagsString = tagsString | append: tagHashTag %}
-        {% if forloop.last == false %}
-            {% assign tagsString = tagsString | append: ' · ' %}
-        {% endif %}
-    {% endfor %}
-    {% assign subtext = subtext | append: tagsString %}
+{% if page.subtitle %}
+    {% assign subtext = page.subtitle %}
+{% else %}
+    {% if page.tags %}
+        {% assign subtext = subtext | append: ' | ' %}
+        {% assign tagsString = '' %}
+        {% for tag in page.tags limit:3 %}
+            {% assign tagHashTag = tag | slugify | prepend: '%2523' %}
+            {% assign tagsString = tagsString | append: tagHashTag %}
+            {% if forloop.last == false %}
+                {% assign tagsString = tagsString | append: ' · ' %}
+            {% endif %}
+        {% endfor %}
+        {% assign subtext = subtext | append: tagsString %}
+    {% endif %}
 {% endif %}
 
 {% assign ogImageUrl = ogImageUrl | append: '/l_text:noto sans_36:' | append: subtext %}
