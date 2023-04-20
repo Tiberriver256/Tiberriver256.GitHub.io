@@ -19,7 +19,7 @@ That is this:
 
 Let's dive a little deeper into that.
 
-## Each autistic person is their person
+## Each autistic person is their own person
 
 In the same way that two people with the diagnosis of *normal* can be extremely different people, two people
 with the diagnosis of *autism* are likely to be entirely different. They have different personalities, likes, and
@@ -66,5 +66,5 @@ potentially hundreds of thousands of different reasons a person could have defic
 
 The point:
 
-> Each autistic person is unique. Spend time getting them on an individual basis. You'll likely learn something new and make a
-> new friend.
+> Each autistic person is unique. Spend time getting to know them on an individual basis.
+> You'll likely learn something new and make a new friend.
