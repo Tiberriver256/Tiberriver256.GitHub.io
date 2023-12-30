@@ -3,7 +3,7 @@ published: true
 layout: post
 title: 'How to run multiple versions of React side-by-side using Single Spa'
 description: How to run multiple versions of React side-by-side when using Single Spa
-modified: 2023-06-29
+modified: 2023-10-21
 tags:
   - Development
   - single-spa
