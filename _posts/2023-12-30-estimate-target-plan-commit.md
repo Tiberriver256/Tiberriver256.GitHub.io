@@ -17,10 +17,10 @@ as I go, so don't be surprised if I actually contradict something in the book. I
 
 ## Some definitions
 
-**Estimate** - Something rather easily and simply generated that is roughly accurate and expected to be off within a certain range. A simple formula that may be good enough in most cases is suggested as `Effort = NumberOfRequirements * AverageEffortPerRequirement`.
-**Target** - The business wants to do *something* by *X* date. A statement of a desireable business outcome.
-**Plan** - This is a detailed schedule on how we plan to *hit* said target (it will likely include prioritization and leaving certain things out).
-**Commitment** - When someone or a team promises to hit the target with a specific level of quality.
+* **Estimate** - Something rather easily and simply generated that is roughly accurate and expected to be off within a certain range. A simple formula that may be good enough in most cases is suggested as `Effort = NumberOfRequirements * AverageEffortPerRequirement`.
+* **Target** - The business wants to do *something* by *X* date. A statement of a desireable business outcome.
+* **Plan** - This is a detailed schedule on how we plan to *hit* said target (it will likely include prioritization and leaving certain things out).
+* **Commitment** - When someone or a team promises to hit the target with a specific level of quality.
 
 ## A logical plan
 
