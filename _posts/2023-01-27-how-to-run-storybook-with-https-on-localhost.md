@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: 'How to run Storybook with Https on localhost'
+title: "How to run Storybook with Https on localhost"
 description: How to setup Storybook to run using Https on localhost
 modified: 2023-01-27
 tags:
@@ -11,7 +11,8 @@ categories:
   - Web Development
 ---
 
-This is just a quick note for myself on how to do this since the Storybook docs don't cover this topic.
+This is just a quick note for myself on how to do this since the Storybook docs
+don't cover this topic.
 
 The steps are:
 
@@ -20,8 +21,9 @@ The steps are:
 
 ## Generate a self-signed certificate
 
-There are many ways to do this. The one that seems most universal to me though is to create the certificate
-using the following [`openssl`](https://www.openssl.org/) command:
+There are many ways to do this. The one that seems most universal to me though
+is to create the certificate using the following
+[`openssl`](https://www.openssl.org/) command:
 
 ```sh
 openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout localhost.key -out localhost.crt

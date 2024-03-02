@@ -1,10 +1,13 @@
 ---
 published: true
 layout: post
-title: 'How To Generate A Report On Your Classic Build/Release Pipeline Agent Specifications'
+title:
+  "How To Generate A Report On Your Classic Build/Release Pipeline Agent
+  Specifications"
 description: >
-  Ubuntu 16.04 is being removed from MS Azure DevOps in October 2021. Here's a quick way to find which of your classic
-  build/release pipelines need to be changed.
+  Ubuntu 16.04 is being removed from MS Azure DevOps in October 2021. Here's a
+  quick way to find which of your classic build/release pipelines need to be
+  changed.
 modified: 2021-10-16
 tags:
   - PowerShell
@@ -14,23 +17,23 @@ categories:
   - Azure DevOps
 ---
 
-{% include 
-    image.html 
-      path="AzureDevOps-Ubuntu-Deprecated-Warning.png" 
+{% include
+    image.html
+      path="AzureDevOps-Ubuntu-Deprecated-Warning.png"
       alt="Ubuntu 16.04 LTS environment is deprecated and will be removed on October 18, 2021. Migrate to ubuntu-latest instead. For more details, see https://github.com/actions/virtual-environments/issues/3287"
 %}
 
-> Warning ⚠
-> Ubuntu 16.04 LTS environment is deprecated and will be removed on October 18, 2021. Migrate to
-> ubuntu-latest instead. For more details, see <https://github.com/actions/virtual-environments/issues/3287>
+> Warning ⚠ Ubuntu 16.04 LTS environment is deprecated and will be removed on
+> October 18, 2021. Migrate to ubuntu-latest instead. For more details, see
+> <https://github.com/actions/virtual-environments/issues/3287>
 
-Perhaps you may have seen this warning in Azure DevOps already. It's easy
-enough to fix once you identify a classic build or release pipeline that
-needs upgrading but it is quite the chore to click through and manually
-find which pipelines need updating.
+Perhaps you may have seen this warning in Azure DevOps already. It's easy enough
+to fix once you identify a classic build or release pipeline that needs
+upgrading but it is quite the chore to click through and manually find which
+pipelines need updating.
 
-Here I'll show you a quick script to generate a report of all your classic
-build and release pipelines and what agent specification they are using.
+Here I'll show you a quick script to generate a report of all your classic build
+and release pipelines and what agent specification they are using.
 
 ## Step 1 - Download VSTeams PowerShell Module
 
@@ -38,19 +41,18 @@ build and release pipelines and what agent specification they are using.
 Install-Module VSTeam -Scope CurrentUser
 ```
 
-The [VSTeam module](https://github.com/MethodsAndPractices/vsteam) is a PowerShell
-module started by Donovan Brown a Microsoft employee that has since recieved
-numerous contributions from the Azure DevOps community and has quite a nice set
-of features for working with Azure DevOps.
+The [VSTeam module](https://github.com/MethodsAndPractices/vsteam) is a
+PowerShell module started by Donovan Brown a Microsoft employee that has since
+recieved numerous contributions from the Azure DevOps community and has quite a
+nice set of features for working with Azure DevOps.
 
 ## Step 2 - Generate a Personal Access Token
 
-[Generate a personal access
-token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
+[Generate a personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
 with the following scopes:
 
-* Build:Read
-* Release:Read
+- Build:Read
+- Release:Read
 
 ## Step 3 - Run the following script
 
@@ -144,9 +146,9 @@ function Get-AzureDevOpsAgentSpecifications {
 }
 ```
 
-*NOTE: I'll keep an [updated gist
-here](https://gist.github.com/Tiberriver256/afbc749e1ccc04b287fae296694fea1c) in
- case others use this and find bugs.
+\*NOTE: I'll keep an
+[updated gist here](https://gist.github.com/Tiberriver256/afbc749e1ccc04b287fae296694fea1c)
+in case others use this and find bugs.
 
 You can use this function by just running the command or by specifying the
 `-Verbose` argument to get a little bit more detail while it runs.

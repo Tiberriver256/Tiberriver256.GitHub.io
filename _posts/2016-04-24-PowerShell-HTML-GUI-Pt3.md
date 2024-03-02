@@ -2,7 +2,9 @@
 published: true
 layout: post
 title: "PowerShell GUI with HTML - Part 3"
-description: Part 3 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
+description:
+  Part 3 of 3 in a blog series about building PowerShell GUIs using HTML and
+  javascript.
 modified: 2016-04-24
 tags:
   - PowerShell
@@ -24,7 +26,13 @@ categories:
     </ul>
 </article>
 
-If you have been following along with the previous two parts to this blog, I know what you have been saying. _When will we get to the GUI part!_ Everything up to this point has been all web servers and web technology. Which could come in handy but we just want to make a simple GUI in HTML that runs PowerShell. The browser thing is cool but you don't want to pop open a browser every time you want to run some scripts. Integrating that into the pipeline would be difficult too right?
+If you have been following along with the previous two parts to this blog, I
+know what you have been saying. _When will we get to the GUI part!_ Everything
+up to this point has been all web servers and web technology. Which could come
+in handy but we just want to make a simple GUI in HTML that runs PowerShell. The
+browser thing is cool but you don't want to pop open a browser every time you
+want to run some scripts. Integrating that into the pipeline would be difficult
+too right?
 
 Today, we finally get to the good stuff!
 
@@ -32,7 +40,9 @@ Today, we finally get to the good stuff!
 
 # Step 1 - Build our own web browser (and just not tell people it is a browser)
 
-So, what if we take the code just below which launches a super simple XAML GUI with just a webbrowser object in it, in another runspace immediately before we run our code from the last post.
+So, what if we take the code just below which launches a super simple XAML GUI
+with just a webbrowser object in it, in another runspace immediately before we
+run our code from the last post.
 
 ```powershell
 Start-Sleep -Seconds 15
@@ -49,7 +59,7 @@ Start-Sleep -Seconds 15
 '@
 
 #Read XAML
-$reader=(New-Object System.Xml.XmlNodeReader $xaml) 
+$reader=(New-Object System.Xml.XmlNodeReader $xaml)
 $Form=[Windows.Markup.XamlReader]::Load( $reader )
 #===========================================================================
 # Store Form Objects In PowerShell
@@ -61,15 +71,20 @@ $WebBrowser.Navigate("http://localhost:8000/")
 $Form.ShowDialog()
 ```
 
-Voila! We have our own PowerShell web browser displaying our simple form but doesn't look anything like a web browser! It looks like a regular old windows desktop application.
+Voila! We have our own PowerShell web browser displaying our simple form but
+doesn't look anything like a web browser! It looks like a regular old windows
+desktop application.
 
 {% include image.html path="PowerShellHTMLGUI.png" %}
 
-Now with this we can do some pretty amazing things but we still have a few problems to solve.
+Now with this we can do some pretty amazing things but we still have a few
+problems to solve.
 
 ### How do we know when to shut down the web server?
 
-If you were just going to get a single request from the browser you can close it as soon as you receive and process the request from the browser. If not you can simply build in a URL that will stop the server for example:
+If you were just going to get a single request from the browser you can close it
+as soon as you receive and process the request from the browser. If not you can
+simply build in a URL that will stop the server for example:
 
 ```powershell
 while($SimpleServer.IsListening)
@@ -86,7 +101,7 @@ while($SimpleServer.IsListening)
                 break
 
     }
-    
+
     ...
 
 }
@@ -94,7 +109,9 @@ while($SimpleServer.IsListening)
 
 ### How do I eliminate the Start-Sleep and launch my GUI as soon as the server is ready?
 
-You may come up with your own better method for doing this but I came up with this little function. Which will continually attempt to access the URL until it gets a response and then it will continue to load the xaml:
+You may come up with your own better method for doing this but I came up with
+this little function. Which will continually attempt to access the URL until it
+gets a response and then it will continue to load the xaml:
 
 ```powershell
 function Wait-ServerLaunch
@@ -113,18 +130,24 @@ function Wait-ServerLaunch
 
 ### How do I hide the PowerShell window so end users won't know it is there?
 
-You would obviously want your PowerShell console showing when you are debugging but if you are using your script client-side you may not want them to know that it is there. DexterPosh had a great post on this awhile back. [Check it out here](http://www.dexterposh.com/2014/09/powershell-wpf-gui-hide-use-background.html).
+You would obviously want your PowerShell console showing when you are debugging
+but if you are using your script client-side you may not want them to know that
+it is there. DexterPosh had a great post on this awhile back.
+[Check it out here](http://www.dexterposh.com/2014/09/powershell-wpf-gui-hide-use-background.html).
 
 ### How do I include modern web technologies in this GUI? It seem to work in IE8 by default.
 
-To make your GUI look pretty using magic like [materializecss](http://materializecss.com/) or [Office UI Fabric](http://dev.office.com/fabric/) you need the following meta tag in the header of your HTML:
+To make your GUI look pretty using magic like
+[materializecss](http://materializecss.com/) or
+[Office UI Fabric](http://dev.office.com/fabric/) you need the following meta
+tag in the header of your HTML:
 
 ```html
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 ```
 
-This will force it to use IE Edge. For more information on that magic line see [here](<https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx>).
+This will force it to use IE Edge. For more information on that magic line see
+[here](<https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx>).
 
 ### How do I build a complete UI that collects input and returns / displays results using the UI?
 
@@ -132,7 +155,7 @@ Here is my code for this solution. A usage example would be like this:
 
 ```powershell
 Start-PoshWebGUI -ScriptBlock {
-    
+
     $Parameters = $Context.Request.QueryString
 
     switch ($Context.Request.Url.LocalPath)
@@ -142,11 +165,11 @@ Start-PoshWebGUI -ScriptBlock {
         "/filterProcesses" { "&lt;a href='/'&gt;Main Menu&lt;/a&gt;&lt;form action='/filterProcesses'&gt;Filter:&lt;input Name='Name'&gt;&lt;/input&gt;&lt;/form&gt;$(Get-Process $Parameters["Name"] | select cpu, name | ConvertTo-Html -Fragment | Out-String)" }
         "/showServices" { "&lt;a href='/'&gt;Main Menu&lt;/a&gt;&lt;form action='/filterServices'&gt;Filter:&lt;input Name='Name'&gt;&lt;/input&gt;&lt;/form&gt;$(Get-Service | select Status,Name,DisplayName | ConvertTo-Html -Fragment | Out-String)" }
         "/filterServices" { "&lt;a href='/'&gt;Main Menu&lt;/a&gt;&lt;form action='/filterServices'&gt;Filter:&lt;input Name='Name'&gt;&lt;/input&gt;&lt;/form&gt;$(Get-Service $Parameters["Name"] | select Status,Name,DisplayName | ConvertTo-Html -Fragment | Out-String)" }
-        
+
         default { @"
 &lt;h1&gt;My Simple Task Manager&lt;/h1&gt;
 &lt;a href="/showProcesses"&gt;&lt;h2&gt;Show Running Processes&lt;/h2&gt;&lt;/a&gt;
-&lt;a href="/showServices"&gt;&lt;h2&gt;Show Running Services&lt;/h2&gt;&lt;/a&gt;      
+&lt;a href="/showServices"&gt;&lt;h2&gt;Show Running Services&lt;/h2&gt;&lt;/a&gt;
 "@
          }
     }
@@ -166,14 +189,16 @@ Awesome Right!
 
 ### Full code for _Start-PoshWebGUI_
 
-\*NOTE: I do plan on putting this into a module fairly soon hopefully with help and examples. If you want to help out hit me up or fork [the repo on GitHub](https://github.com/Tiberriver256/New-PoshWebGUI).
+\*NOTE: I do plan on putting this into a module fairly soon hopefully with help
+and examples. If you want to help out hit me up or fork
+[the repo on GitHub](https://github.com/Tiberriver256/New-PoshWebGUI).
 
 ```powershell
 Function Start-PoshWebGUI ($ScriptBlock)
 {
     # We create a scriptblock that waits for the server to launch and then opens a web browser control
     $UserWindow = {
-            
+
             # Wait-ServerLaunch will continually repeatedly attempt to get a response from the URL before continuing
             function Wait-ServerLaunch
             {
@@ -185,7 +210,7 @@ Function Start-PoshWebGUI ($ScriptBlock)
                 }
                 catch
                 { start-sleep -Seconds 1; Wait-ServerLaunch }
- 
+
             }
 
             Wait-ServerLaunch
@@ -202,7 +227,7 @@ Function Start-PoshWebGUI ($ScriptBlock)
 '@
 
             #Read XAML
-            $reader=(New-Object System.Xml.XmlNodeReader $xaml) 
+            $reader=(New-Object System.Xml.XmlNodeReader $xaml)
             $Form=[Windows.Markup.XamlReader]::Load( $reader )
             #===========================================================================
             # Store Form Objects In PowerShell
@@ -218,12 +243,12 @@ Function Start-PoshWebGUI ($ScriptBlock)
             $url="http://localhost:8000/kill"
             (New-Object System.Net.WebClient).DownloadString($url);
     }
- 
+
     $RunspacePool = [RunspaceFactory]::CreateRunspacePool()
     $RunspacePool.ApartmentState = "STA"
     $RunspacePool.Open()
     $Jobs = @()
- 
+
 
        $Job = [powershell]::Create().AddScript($UserWindow).AddArgument($_)
        $Job.RunspacePool = $RunspacePool
@@ -279,7 +304,7 @@ Function Start-PoshWebGUI ($ScriptBlock)
                     break
 
         }
-    
+
         $Context.Request
         # Handling different URLs
 
@@ -287,14 +312,14 @@ Function Start-PoshWebGUI ($ScriptBlock)
 
         if($result -ne $null) {
             if($result -is [string]){
-                
+
                 Write-Verbose "A [string] object was returned. Writing it directly to the response stream."
 
             } else {
 
                 Write-Verbose "Converting PS Objects into JSON objects"
                 $result = $result | ConvertTo-Json
-                
+
             }
         }
 

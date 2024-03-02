@@ -1,8 +1,12 @@
 ---
 published: true
 layout: post
-title: "WPF WebBrowser / ObjectForScripting / Execute PowerShell... a possibly excellent app framework."
-description: Part 4 of 3 in a blog series about building PowerShell GUIs using HTML and javascript.
+title:
+  "WPF WebBrowser / ObjectForScripting / Execute PowerShell... a possibly
+  excellent app framework."
+description:
+  Part 4 of 3 in a blog series about building PowerShell GUIs using HTML and
+  javascript.
 modified: 2016-09-10
 tags:
   - PowerShell
@@ -25,20 +29,30 @@ categories:
     </ul>
 </article>
 
-Okay, so about 5 months ago I wrote a blog post on a potential method of executing PowerShell from a user interface built in HTML and javascript. It turns out that the series was one of the more popular ones I have posted and it consistently receives traffic.
+Okay, so about 5 months ago I wrote a blog post on a potential method of
+executing PowerShell from a user interface built in HTML and javascript. It
+turns out that the series was one of the more popular ones I have posted and it
+consistently receives traffic.
 
 ## The Problem
 
-I did not really love my other method. It was just the only method I had found. The problems were:
+I did not really love my other method. It was just the only method I had found.
+The problems were:
 
 - Complex to learn (build a server, build a client, learn HTTP methods)
-- Possible security concerns (even though we were only listening on localhost a user could potentially gain access to another user session and execute code as a different user)
+- Possible security concerns (even though we were only listening on localhost a
+  user could potentially gain access to another user session and execute code as
+  a different user)
 
 <!-- more -->
 
 ## A MUCH Better method
 
-So, this still is not cross-platform. I would still like to investigate ElectronJS and AppJS to see if integration with PowerShell would be easy to achieve and thus provide a method of making cross-platform apps using PowerShell, HTML and JavaScript but this will work for now on Windows devices and is pretty slick in my opinion.
+So, this still is not cross-platform. I would still like to investigate
+ElectronJS and AppJS to see if integration with PowerShell would be easy to
+achieve and thus provide a method of making cross-platform apps using
+PowerShell, HTML and JavaScript but this will work for now on Windows devices
+and is pretty slick in my opinion.
 
 ## Step 1 - Create a WPF web browser
 
@@ -65,7 +79,10 @@ $WebBrowser = $Form.FindName("WebBrowser")
 
 ## Step 2 - Create a C# class that is COMVisible for executing PowerShell
 
-Okay, so this part was a little scary to figure out but it shouldn't be too hard to figure out if you have been in the PowerShell space for awhile or tinkering with PowerShell v5 Classes. Basically we want something that will execute PowerShell code and that is ComVisible.
+Okay, so this part was a little scary to figure out but it shouldn't be too hard
+to figure out if you have been in the PowerShell space for awhile or tinkering
+with PowerShell v5 Classes. Basically we want something that will execute
+PowerShell code and that is ComVisible.
 
 ```powershell
 
@@ -159,11 +176,19 @@ The result:
 
 {% include image.html path="PowerShell-HTML.png" %}
 
-Sweet! Now we have a simple method of executing PowerShell from HTML that does not require a server or require knowledge of HTTP. This code executes synchronously just like a good old HTA would have with your vbscript so the GUI will lock up while the code is running. [If you want to play around with one that executes asynchronously and executes a javascript function with the results when the PowerShell script is finished running you can check out my gist here](https://gist.github.com/Tiberriver256/304dc314b0260cb1c24b9b4781b1a707). The c# code is a bit more complicated there though. I may blog through this at a later date and possibly package it up as a module.
+Sweet! Now we have a simple method of executing PowerShell from HTML that does
+not require a server or require knowledge of HTTP. This code executes
+synchronously just like a good old HTA would have with your vbscript so the GUI
+will lock up while the code is running.
+[If you want to play around with one that executes asynchronously and executes a javascript function with the results when the PowerShell script is finished running you can check out my gist here](https://gist.github.com/Tiberriver256/304dc314b0260cb1c24b9b4781b1a707).
+The c# code is a bit more complicated there though. I may blog through this at a
+later date and possibly package it up as a module.
 
-It might be nice to be able to wrap this up as something like **Invoke-PSHTA -FilePath C:\MyHTMLApp.html** right?
+It might be nice to be able to wrap this up as something like **Invoke-PSHTA
+-FilePath C:\MyHTMLApp.html** right?
 
-Let me know in the comments what you think of this method. I appreciate the read!
+Let me know in the comments what you think of this method. I appreciate the
+read!
 
 # More Reading
 

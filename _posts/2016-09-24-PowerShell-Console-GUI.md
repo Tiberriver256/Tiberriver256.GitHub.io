@@ -13,15 +13,15 @@ categories:
   - GUI
 ---
 
-I stumbled upon this [epic .net project by PhonicUK on
-Github](https://github.com/PhonicUK/CLRCLI) for "an event-driven windowing
-system using a line-art interface for use by command-line applications" and
-thought I would see if it worked in PowerShell. The results, I think are pretty
-cool!
+I stumbled upon this
+[epic .net project by PhonicUK on Github](https://github.com/PhonicUK/CLRCLI)
+for "an event-driven windowing system using a line-art interface for use by
+command-line applications" and thought I would see if it worked in PowerShell.
+The results, I think are pretty cool!
 
 The code to create this is really very similar to WinForms style of coding and
-can be generated very quickly. I will give a short walkthrough on how to create a
-GUI using this sweet library.
+can be generated very quickly. I will give a short walkthrough on how to create
+a GUI using this sweet library.
 
 # How to make the magic happen
 
@@ -33,7 +33,8 @@ GUI using this sweet library.
 2. Open the project in VS Community 15
 3. Build the solution
 
-This should generate the DLL we will need to reference in a bin/debug folder of the project.
+This should generate the DLL we will need to reference in a bin/debug folder of
+the project.
 
 ## Load the DLL into PowerShell
 
