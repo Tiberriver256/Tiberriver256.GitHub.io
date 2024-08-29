@@ -67,6 +67,6 @@ doint already so the following method looks pretty promising:
 
 ### PowerShell time!
 
-Following the above strategy I wrote up a quick PowerShell script (gist to keep up to date) that seems to get me everything I need:
+Following the above strategy I wrote up a quick PowerShell script that seems to get me everything I need:
 
 <script src="https://gist.github.com/Tiberriver256/99452a6bd254327acceb0405e34d2230.js?file=Get-BuildPipelineScopedChanges.ps1"></script>

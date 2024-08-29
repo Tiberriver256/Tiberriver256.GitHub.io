@@ -6,10 +6,7 @@ sitemap: false
   color-scheme: light dark;
 }
 
-#main,
-.entry-content,
-#post-index div,
-.social-share,
+div,
 nav,
 article {
   margin: 4rem auto;
