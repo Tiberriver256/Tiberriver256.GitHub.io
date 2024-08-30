@@ -67,7 +67,7 @@ doint already so the following method looks pretty promising:
 
 ### PowerShell time!
 
-Following the above strategy I wrote up a quick PowerShell script that seems to get me everything I need:
+Following the above strategy I [wrote up a quick PowerShell script](https://gist.github.com/Tiberriver256/99452a6bd254327acceb0405e34d2230) that seems to get me everything I need:
 
 ```powershell
 #Requires -PSEdition Core
