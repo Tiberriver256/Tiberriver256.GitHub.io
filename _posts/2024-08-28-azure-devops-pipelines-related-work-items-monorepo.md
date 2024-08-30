@@ -69,7 +69,7 @@ doint already so the following method looks pretty promising:
 
 Following the above strategy I wrote up a quick PowerShell script that seems to get me everything I need:
 
-```pwsh
+```powershell
 #Requires -PSEdition Core
 
 <#
