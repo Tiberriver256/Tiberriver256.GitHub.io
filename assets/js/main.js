@@ -2,19 +2,9 @@ document.addEventListener(
   "DOMContentLoaded",
   function () {
     loadCopyCodeBlockButton();
-    setGithubGistsToAutoMode();
   },
   false
 );
-
-function setGithubGistsToAutoMode() {
-  var gists = document.querySelectorAll(".gist-file");
-
-  gists.forEach(function (gist) {
-    gist.setAttribute("data-color-mode", "auto");
-    gist.setAttribute("data-light-theme", "auto");
-  });
-}
 
 function loadCopyCodeBlockButton() {
   var codeBlocks = document.querySelectorAll("pre.highlight");
