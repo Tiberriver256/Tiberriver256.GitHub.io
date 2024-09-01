@@ -4,55 +4,50 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
-  <!--<![endif]-->
-  <head>
-    {% include head.html %}
-  </head>
+<!--<![endif]-->
 
-  <body id="page">
-    {% include browser-upgrade.html %} {% include header.html %}
+<head>
+  {% include head.html %}
+</head>
 
-    <div id="main" role="main">
-      <article class="hentry">
-        <div class="entry-content">
-          {{ content }}
-          <footer class="entry-meta">
-            {% if page.modified %}<span
-              >Updated on <span class="entry-date date published updated"><time datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span></span
-            >
-            <span class="author vcard"><span class="fn">{{ site.owner.name }}</span></span
-            >{% endif %} {% if page.share != false %}{% include social-share.html %}{% endif %}
-          </footer>
-        </div>
-        <!-- /.entry-content -->
-        {% if page.comments != false %}
-        <script
-          src="https://giscus.app/client.js"
-          data-repo="Tiberriver256/Tiberriver256.GitHub.io"
-          data-repo-id="MDEwOlJlcG9zaXRvcnk0NjYyNTc5OA=="
-          data-category="General"
-          data-category-id="DIC_kwDOAsd0Bs4CSjl-"
-          data-mapping="title"
-          data-strict="1"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="preferred_color_scheme"
-          data-lang="en"
-          data-loading="lazy"
-          crossorigin="anonymous"
-          async
-        ></script>
-        {% endif %}
-      </article>
-    </div>
-    <!-- /#main -->
+<body id="page">
+  {% include browser-upgrade.html %} {% include header.html %}
 
-    {% include scripts.html %}
+  <div id="main" role="main">
+    <article class="hentry">
+      <div class="entry-content">
+        {{ content }}
+        <footer class="entry-meta">
+          {% if page.modified %}<span>Updated on <span class="entry-date date published updated"><time
+                datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span></span>
+          <span class="author vcard"><span class="fn">{{ site.owner.name }}</span></span>{% endif %} {% if page.share !=
+          false %}{% include social-share.html %}{% endif %}
+        </footer>
+      </div>
+      <!-- /.entry-content -->
+      {% if page.comments != false %}
+      <script src="https://giscus.app/client.js" data-repo="Tiberriver256/Tiberriver256.GitHub.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk0NjYyNTc5OA==" data-category="General" data-category-id="DIC_kwDOAsd0Bs4CSjl-"
+        data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
+        data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
+      {% endif %}
+    </article>
+  </div>
+  <!-- /#main -->
 
-    <div class="footer-wrapper">
-      <footer role="contentinfo">{% include footer.html %}</footer>
-    </div>
-    <!-- /.footer-wrapper -->
-  </body>
+  {% include scripts.html %}
+
+  <div class="footer-wrapper">
+    <footer role="contentinfo">
+      {% include footer.html %}
+      {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+      <a href="https://hits.seeyoufarm.com" style="border-bottom: none;">
+        <img
+          src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url={{ canonical | uri_escape }}" />
+      </a>
+    </footer>
+  </div>
+  <!-- /.footer-wrapper -->
+</body>
+
 </html>
