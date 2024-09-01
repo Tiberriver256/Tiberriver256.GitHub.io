@@ -54,7 +54,14 @@
     {% include scripts.html %}
 
     <div class="footer-wrapper">
-      <footer role="contentinfo">{% include footer.html %}</footer>
+      <footer role="contentinfo">
+        {% include footer.html %}
+        {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+        <a href="https://hits.seeyoufarm.com" style="border-bottom: none;">
+          <img
+            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url={{ canonical | uri_escape }}" />
+        </a>
+      </footer>
     </div>
     <!-- /.footer-wrapper -->
   </body>
