@@ -2,7 +2,9 @@
 sitemap: false
 ---
 
-@import url(gh-dark.css) * {
+@import url(gh-dark.css);
+
+* {
   color-scheme: light dark;
 }
 
@@ -133,6 +135,10 @@ pre.highlight:hover .copy {
   left: 60%;
   top: 60%;
   width: 0.7em;
+}
+
+pre {
+  overflow: auto;
 }
 
 pre, code {
