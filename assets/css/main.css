@@ -1,9 +1,8 @@
 ---
 sitemap: false
 ---
-@import url(gh-dark.css)
 
-* {
+@import url(gh-dark.css) * {
   color-scheme: light dark;
 }
 
@@ -62,7 +61,9 @@ sup {
   font-size: small;
 }
 
-figure img, figure video, img {
+figure img,
+figure video,
+img {
   max-width: 100%;
 }
 
@@ -106,7 +107,7 @@ pre.highlight:hover .copy {
 
 .icon::before,
 .icon::after {
-  content: '';
+  content: "";
   display: block;
   left: 50%;
   position: absolute;
@@ -134,3 +135,7 @@ pre.highlight:hover .copy {
   width: 0.7em;
 }
 
+pre, code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
