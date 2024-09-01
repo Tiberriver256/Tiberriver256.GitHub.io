@@ -12,7 +12,7 @@ div,
 nav,
 article {
   margin: 4rem auto;
-  max-width: 6in;
+  max-width: 8in;
   font: 110%/1.5 system-ui;
 }
 
@@ -142,6 +142,7 @@ pre {
 }
 
 pre, code {
+  font-size: 90%;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
 }
