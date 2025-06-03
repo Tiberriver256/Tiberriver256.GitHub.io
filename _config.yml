@@ -5,49 +5,35 @@ words_per_minute: 200
 logo: images/logo.svg
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
-url: 'https://tiberriver256.github.io'
-bareUrl: 'tiberriver256.github.io'
-ogImageBackground: '/images/Black.jpg'
+url: "https://tiberriver256.github.io"
+bareUrl: "tiberriver256.github.io"
+ogImageBackground: "/images/Black.jpg"
 
 menu:
-  - title: 'About'
-    url: '/about'
-  - title: 'Tags'
-    url: '/tags'
-  - title: 'Categories'
-    url: '/categories'
-  - title: 'RSS'
-    url: '/feed.xml'
+  - title: "About"
+    url: "/about"
+  - title: "Tags"
+    url: "/tags"
+  - title: "Categories"
+    url: "/categories"
+  - title: "RSS"
+    url: "/feed.xml"
 
 # Owner/author information
 owner:
   name: Micah Rairdon
-  site: https://tiberriver256.github.io
   gravatarmd5: f2cc976ebe94f2bdaa2ff21801312836
-  avatar: images/avatar.jpg
-  bio: 'Christian, husband, father, all around haver of fun related to IT. Appreciate the blog and want to donate? I will receive a small commission if you shop Amazon <a href="https://www.amazon.com/?&_encoding=UTF8&tag=tiberriver256-20&linkCode=ur2&linkId=cf4ad5a87e24578f3a0a274c39038146&camp=1789&creative=9325">using this link</a>. Thank you!'
-  email: 'Jun(Real Email: Micah.Rairdon [GMail])k@JunkMail.com'
+  email: "Jun(Real Email: Micah.Rairdon [GMail])k@JunkMail.com"
   # Social networking links used in footer. Update and remove as you like.
   # twitter: tiberriver256
   # facebook:
-  github: tiberriver256
   # stackexchange:
-  linkedin: tiberriver256
   # instagram:
+  linkedin: tiberriver256
   # flickr:
   # tumblr:
   # google plus id, include the '+', eg +AronBordin
   # google_plus:    +yourid
-
-social:
-  - title: 'github'
-    url: 'https://github.com/tiberriver256'
-  - title: 'linkedin'
-    url: 'https://br.linkedin.com/in/tiberriver256'
-  # - title: "youtube"
-  #   url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
-# Background image to be tiled on all pages
-background:
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: G-4DS8LE3MB2
@@ -79,27 +65,27 @@ kramdown:
 cloudinary_cloud: dhff6zdnc
 base64_encoded_logo_url: aHR0cHM6Ly90aWJlcnJpdmVyMjU2LmdpdGh1Yi5pby9pbWFnZXMvbG9nb19saWdodC5zdmc=
 
-include: ['.htaccess']
+include: [".htaccess"]
 exclude:
   [
-    'lib',
-    'config.rb',
-    'Capfile',
-    'config',
-    'Gemfile',
-    'Gemfile.lock',
-    'README.md',
-    'LICENSE',
-    'log',
-    'Rakefile',
-    'Rakefile.rb',
-    'tmp',
-    'less',
-    '*.sublime-project',
-    '*.sublime-workspace',
-    'test',
-    'spec',
-    'Gruntfile.js',
-    'package.json',
-    'node_modules',
+    "lib",
+    "config.rb",
+    "Capfile",
+    "config",
+    "Gemfile",
+    "Gemfile.lock",
+    "README.md",
+    "LICENSE",
+    "log",
+    "Rakefile",
+    "Rakefile.rb",
+    "tmp",
+    "less",
+    "*.sublime-project",
+    "*.sublime-workspace",
+    "test",
+    "spec",
+    "Gruntfile.js",
+    "package.json",
+    "node_modules",
   ]
