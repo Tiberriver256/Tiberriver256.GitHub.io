@@ -43,7 +43,7 @@ Most current subsidies exist at the application layer, where companies absorb AP
 
 Developer Mario Zechner [captured this moment perfectly](https://x.com/badlogicgames/status/1941509998758310156):
 
-{% include image.html path="vc-funded-ai-coming-to-a-close/mario-zechner-tweet.png" alt="We are in a VC funded free lunch phase. Have contingency plans." %}
+{% include image.html path="mario-zechner-tweet.png" alt="We are in a VC funded free lunch phase. Have contingency plans." %}
 
 > We are in a VC funded free lunch phase. Have contingency plans.
 

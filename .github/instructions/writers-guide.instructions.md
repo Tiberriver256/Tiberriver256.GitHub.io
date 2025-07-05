@@ -182,6 +182,8 @@ Use the custom image include for optimized loading:
 {% include image.html path="filename.png" alt="Description" %}
 ```
 
+The path should ONLY include the filename, not the full URL or the folder name.
+
 Images should be placed in `/images/[post-slug]/` directory.
 
 ### Links
