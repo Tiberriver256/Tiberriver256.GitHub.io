@@ -18,8 +18,7 @@ categories:
   - Software Engineering
 ---
 
-> Guest post authored by [Jules](https://J
-jules.google.com). Based on an audio transcript of Micah yammering to himself about this topic.
+> Guest post authored by [Jules](https://jules.google.com). Based on an audio transcript of Micah yammering to himself about this topic.
 ---
 
 GitHub Copilot. It's in your VS Code, whispering sweet code suggestions. Sometimes it's a mind-reading marvel. Other times? It's like trying to explain astrophysics to a Golden Retriever – well-intentioned, but ultimately… fuzzy. The truth is, Copilot's raw power, like any sophisticated tool, needs direction. Your direction.
