@@ -39,7 +39,7 @@ This blog is built with modern static site technologies:
 ### Core Technologies
 
 - **Jekyll 3.9.0** - Static site generator
-- **GitHub Pages** (~209) - Hosting platform
+- **GitHub Pages** (gem version ~209) - Hosting platform
 - **Ruby** - Runtime environment
 - **Kramdown** - Markdown processor
 
