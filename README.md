@@ -6,10 +6,10 @@ on PowerShell, web development, DevOps, AI, and various technology topics.
 ## About
 
 I'm **Micah Rairdon** ([@Tiberriver256](https://github.com/Tiberriver256)),
-a web development consultant passionate about PowerShell, software development,
-and building great user experiences. I currently work at
-[OST](https://www.ostusa.com/) in Grand Rapids, Michigan, where I help
-organizations solve complex technical challenges.
+a software architect passionate about PowerShell, software development,
+and building great user experiences. I currently work as a software architect
+for Midmark, where I help design and build scalable solutions for complex
+technical challenges.
 
 When I'm not coding or writing, I enjoy spending time with my wife and two boys.
 
