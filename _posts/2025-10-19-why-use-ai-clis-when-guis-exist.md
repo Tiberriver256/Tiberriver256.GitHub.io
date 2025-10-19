@@ -26,7 +26,7 @@ copilot -p "Write me three reports on Bob, Dave, and Larry"
 
 versus
 
-```bash
+```powershell
 "Bob", "Dave", "Larry" | foreach { copilot -p "Write me a report on $_" }
 ```
 
