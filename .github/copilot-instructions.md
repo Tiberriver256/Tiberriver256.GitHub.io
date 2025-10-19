@@ -9,7 +9,7 @@ This is a Jekyll-based blog hosted on GitHub Pages, using the Neo-HPSTR theme. T
 ## Technology Stack
 
 - **Jekyll 3.9.0** - Static site generator
-- **GitHub Pages** (~209) - Hosting platform
+- **GitHub Pages** (gem ~> 209) - Hosting platform
 - **Ruby** - Runtime environment
 - **Kramdown** - Markdown processor
 - **Neo-HPSTR Jekyll Theme** (customized)
@@ -95,8 +95,8 @@ This is a Jekyll-based blog hosted on GitHub Pages, using the Neo-HPSTR theme. T
 
 ## Configuration Files
 
-- **Main config**: `_config.yml` contains site settings, owner info, and Jekyll configuration
-- **Dependencies**: `Gemfile` specifies Jekyll 3.9.0 and github-pages ~209 for compatibility
+- **Main config**: `_config.yml` - Site settings, owner info, and Jekyll configuration
+- **Dependencies**: `Gemfile` - Specifies Jekyll 3.9.0 and github-pages ~> 209
 - **Permalink structure**: `/:categories/:title/`
 - **Pagination**: 5 posts per page
 
