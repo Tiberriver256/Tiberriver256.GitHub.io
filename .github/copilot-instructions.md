@@ -9,7 +9,7 @@ This is a Jekyll-based blog hosted on GitHub Pages, using the Neo-HPSTR theme. T
 ## Technology Stack
 
 - **Jekyll 3.9.0** - Static site generator
-- **GitHub Pages** (gem ~> 209) - Hosting platform
+- **GitHub Pages gem ~> 209** - Hosting platform
 - **Ruby** - Runtime environment
 - **Kramdown** - Markdown processor
 - **Neo-HPSTR Jekyll Theme** (customized)
