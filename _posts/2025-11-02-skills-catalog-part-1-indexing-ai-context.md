@@ -68,17 +68,22 @@ The detailed information loads **on demand**, not upfront.
 
 This pattern works across AI platforms because it relies on a simple principle: every platform has _some_ file that's always in context.
 
-**GitHub Copilot** automatically loads `.github/copilot-instructions.md` from your repository root in every conversation within that repository. This is documented and reliable.
+**The emerging standard**: `AGENTS.md` is becoming the universal instruction file adopted by 40,000+ projects and supported by OpenAI Codex, Cursor, Gemini CLI, Aider, Factory, and other tools. It's placed in your project root and discovered hierarchically up the directory tree.
 
-**Other AI platforms** have their own mechanisms for loading custom instructions. The specific file names and locations vary by platform, so consult your platform's documentation. The key is identifying which file your AI tool automatically includes in context.
+**Platform-specific files** still exist for tools that haven't adopted AGENTS.md:
+- **GitHub Copilot**: `.github/copilot-instructions.md`
+- **Claude Code**: `CLAUDE.md`
+- **Cursor**: `AGENTS.md` (primary) or `.cursorrules` (legacy)
+- **Codex CLI**: `AGENTS.md` (can be generated via `/init` command)
+- **Gemini CLI**: `AGENTS.md` (primary) or `GEMINI.md` (legacy)
 
 The pattern stays the same regardless of platform: one always-loaded file contains your skills table (or references it).
 
-### Vendor-Agnostic Implementation
+### Vendor-Agnostic Implementation with AGENTS.md
 
-The cleanest approach is to create a single `root-skills.md` file that all AI platforms reference. This keeps your skills catalog in one place regardless of which AI tools your team uses.
+The cleanest approach leverages the emerging `AGENTS.md` standard. Create it once, and tools that support the standard will automatically discover it.
 
-**Step 1**: Create `root-skills.md` in your repository root:
+**Step 1**: Create `AGENTS.md` in your repository root:
 
 ```markdown
 # Skills Catalog
@@ -100,23 +105,38 @@ When you encounter a task related to a skill:
 3. Use any scripts referenced in the skill file
 ```
 
-**Step 2**: Reference it from your platform's instruction file.
+**Step 2**: For tools that don't support AGENTS.md yet, create symlinks or copy the content.
 
 For **GitHub Copilot**, create `.github/copilot-instructions.md`:
 
 ```markdown
 # GitHub Copilot Instructions
 
-Always read and follow the skills catalog in `root-skills.md`.
+Always read and follow the skills catalog in `AGENTS.md`.
 ```
 
-For **other AI platforms**, check your platform's documentation for:
-- The file name and location for custom instructions
-- Whether the platform supports referencing external files
+For **Claude Code**, create a symlink (or copy) from `AGENTS.md`:
 
-Once you know your platform's instruction file, add a similar directive to read `root-skills.md`.
+```bash
+ln -s AGENTS.md CLAUDE.md
+```
 
-Now your skills catalog lives in one file. When you add a new skill, you update `root-skills.md` once, and any AI tool configured to read it sees the update.
+For **Cursor**, the tool already supports `AGENTS.md`, but you can also create `.cursorrules` as a symlink for backward compatibility:
+
+```bash
+ln -s AGENTS.md .cursorrules
+```
+
+**Migration tip**: If you have existing instruction files, consolidate them into `AGENTS.md` and create symlinks:
+
+```bash
+mv .github/copilot-instructions.md AGENTS.md
+ln -s AGENTS.md .github/copilot-instructions.md
+ln -s AGENTS.md CLAUDE.md
+ln -s AGENTS.md .cursorrules
+```
+
+Now your skills catalog lives in one standard location. When you add a new skill, you update `AGENTS.md` once, and all AI tools configured to read it see the update.
 
 ### Alternative: Platform-Specific Instructions
 
@@ -239,11 +259,12 @@ In **Part 3**, we'll see how to distribute a shared skills repository across you
 
 But for now, start simple:
 
-1. Create `root-skills.md` in your repository root (or `.github/copilot-instructions.md` if you prefer)
+1. Create `AGENTS.md` in your repository root (this is the emerging standard supported by Codex, Cursor, Gemini CLI, and others)
 2. Add a skills table with 2-3 domains you work with regularly
 3. Create one skill file with your team's conventions
-4. If using `root-skills.md`, add platform instruction files that reference it
-5. Watch as the AI starts discovering and applying your organizational knowledge
+4. For GitHub Copilot, create `.github/copilot-instructions.md` that references `AGENTS.md`
+5. For Claude Code, create a `CLAUDE.md` symlink to `AGENTS.md`
+6. Watch as the AI starts discovering and applying your organizational knowledge
 
 You're not teaching the AI everything upfront. You're teaching it where to look when it needs to know something.
 
