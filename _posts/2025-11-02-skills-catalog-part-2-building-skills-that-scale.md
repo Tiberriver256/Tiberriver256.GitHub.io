@@ -140,7 +140,7 @@ Now Copilot has two-level indexing like Claude's skill discovery:
 
 `.github/skills/azure-devops/pipelines.md` contains focused knowledge:
 
-```markdown
+````markdown
 # Azure DevOps Pipelines
 
 ## YAML Standards
@@ -172,7 +172,7 @@ pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1
 ```
 
 See `./scripts/get-related-work-items.ps1` for details.
-```
+````
 
 ### Directory Structure
 
@@ -216,7 +216,7 @@ The catalog pattern uses the same approach—reference scripts in skill files:
 
 **In `.github/skills/azure-devops/pipelines.md`**:
 
-```markdown
+````markdown
 ## Getting Related Work Items
 
 Azure DevOps's built-in feature doesn't support monorepos. Use:
@@ -224,7 +224,7 @@ Azure DevOps's built-in feature doesn't support monorepos. Use:
 ```bash
 pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1 -BuildId $BUILD_BUILDID
 ```
-```
+````
 
 **Script conventions** (same as Anthropic):
 
