@@ -8,10 +8,6 @@ tools:
   - edit
   - bash
   - search
-
-mcp-servers:
-  - name: github
-    tools: ["*"]
 ---
 
 # Code Reviewer Agent
