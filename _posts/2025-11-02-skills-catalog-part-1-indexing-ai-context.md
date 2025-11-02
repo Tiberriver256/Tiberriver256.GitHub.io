@@ -76,9 +76,73 @@ For **custom agents**, you define which files load automatically.
 
 The mechanics change, but the pattern stays the same: one always-loaded file contains your skills table.
 
-### GitHub Copilot Implementation
+### Vendor-Agnostic Implementation
 
-Here's a minimal `.github/copilot-instructions.md` to get started:
+The cleanest approach is to create a single `root-skills.md` file that all AI platforms reference. This keeps your skills catalog in one place regardless of which AI tools your team uses.
+
+**Step 1**: Create `root-skills.md` in your repository root:
+
+```markdown
+# Skills Catalog
+
+This repository uses a skills-based knowledge system. When working on a task, check this table to see what organizational knowledge is available.
+
+## Available Skills
+
+| Skill Name | Description | Path |
+|------------|-------------|------|
+| Azure DevOps Pipelines | Work with Azure DevOps YAML pipelines, triggers, variables, and monorepo support | `.github/skills/azure-devops-pipelines.md` |
+| PowerShell Standards | Our coding standards, approved modules, and common patterns for PowerShell scripts | `.github/skills/powershell-standards.md` |
+
+## How to Use Skills
+
+When you encounter a task related to a skill:
+1. Read the skill file at the listed path
+2. Follow any guidance, standards, or templates provided
+3. Use any scripts referenced in the skill file
+```
+
+**Step 2**: Reference it from each platform's instruction file.
+
+For **GitHub Copilot** (`.github/copilot-instructions.md`):
+
+```markdown
+# GitHub Copilot Instructions
+
+Always read and follow the skills catalog in `root-skills.md`.
+```
+
+For **Claude** (`.claude/agents.md` or similar):
+
+```markdown
+# Claude Instructions
+
+Always read and follow the skills catalog in `root-skills.md`.
+```
+
+For **Cursor** (`.cursorrules` or `.cursor/instructions.md`):
+
+```markdown
+# Cursor Instructions
+
+Always read and follow the skills catalog in `root-skills.md`.
+```
+
+For **Codeium** (`.codeium/instructions.md`):
+
+```markdown
+# Codeium Instructions
+
+Always read and follow the skills catalog in `root-skills.md`.
+```
+
+Now your skills catalog lives in one file, and all AI platforms discover it. When you add a new skill, you update `root-skills.md` once, and every AI tool sees it.
+
+### Alternative: Platform-Specific Instructions
+
+If you prefer to keep everything in each platform's native file without the extra indirection, you can embed the skills table directly:
+
+**GitHub Copilot** (`.github/copilot-instructions.md`):
 
 ```markdown
 # Repository Skills Catalog
@@ -100,7 +164,9 @@ When you encounter a task related to a skill:
 3. Use any scripts referenced in the skill file
 ```
 
-That's it. You now have a catalog.
+Both approaches work. The `root-skills.md` pattern keeps your catalog truly vendor-agnostic and easier to maintain. The embedded approach requires duplicating the table across platform files but keeps each platform self-contained.
+
+**Recommendation**: Start with `root-skills.md` for simplicity. You can always inline it later if needed.
 
 ## Why This Scales
 
@@ -193,10 +259,11 @@ In **Part 3**, we'll see how to distribute a shared skills repository across you
 
 But for now, start simple:
 
-1. Create `.github/copilot-instructions.md` in your repository
+1. Create `root-skills.md` in your repository root (or `.github/copilot-instructions.md` if you prefer)
 2. Add a skills table with 2-3 domains you work with regularly
 3. Create one skill file with your team's conventions
-4. Watch as the AI starts discovering and applying your organizational knowledge
+4. If using `root-skills.md`, add platform instruction files that reference it
+5. Watch as the AI starts discovering and applying your organizational knowledge
 
 You're not teaching the AI everything upfront. You're teaching it where to look when it needs to know something.
 
