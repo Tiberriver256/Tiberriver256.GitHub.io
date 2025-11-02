@@ -140,20 +140,19 @@ Now Copilot has two-level indexing like Claude's skill discovery:
 
 `.github/skills/azure-devops/pipelines.md` contains focused knowledge:
 
-**Example content:**
-
-```yaml
+```markdown
 # Azure DevOps Pipelines
 
 ## YAML Standards
 
 All pipelines must:
 - Use YAML (no classic pipelines)
-- Include trigger.paths for monorepos
+- Include `trigger.paths` for monorepos
 - Use named stages for multi-stage deployments
 
 ## Monorepo Trigger Pattern
 
+```yaml
 trigger:
   branches:
     include:
@@ -162,13 +161,17 @@ trigger:
     include:
       - services/api/*
       - shared/common/*
+```
 
 ## Getting Related Work Items
 
-Azure DevOps's built-in feature doesn't support monorepos. 
-Use: pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1
+Azure DevOps's built-in feature doesn't support monorepos. Use:
 
-See ./scripts/get-related-work-items.ps1 for details.
+```bash
+pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1
+```
+
+See `./scripts/get-related-work-items.ps1` for details.
 ```
 
 ### Directory Structure
@@ -216,8 +219,11 @@ The catalog pattern uses the same approach—reference scripts in skill files:
 ```markdown
 ## Getting Related Work Items
 
-Azure DevOps's built-in feature doesn't support monorepos. 
-Use: pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1 -BuildId $BUILD_BUILDID
+Azure DevOps's built-in feature doesn't support monorepos. Use:
+
+```bash
+pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1 -BuildId $BUILD_BUILDID
+```
 ```
 
 **Script conventions** (same as Anthropic):
@@ -265,6 +271,53 @@ Same philosophy as Anthropic—provide working automation, not just documentatio
 **Skills approach** (both Anthropic and catalog): AI uses tested scripts. Deterministic, reliable results.
 
 You're not hoping the AI writes correct PowerShell—you're providing PowerShell that already works.
+
+<#
+.SYNOPSIS
+    Retrieves commits and work items for a build pipeline with monorepo support.
+
+.DESCRIPTION
+    Azure DevOps's built-in "Related Work Items" feature doesn't filter by
+    pipeline trigger paths in monorepos. This script does.
+
+.PARAMETER BuildId
+    The ID of the build. Defaults to $ENV:BUILD_BUILDID in Azure Pipelines.
+
+.PARAMETER CollectionUri
+    Azure DevOps organization URI. Defaults to $ENV:SYSTEM_COLLECTIONURI.
+
+.EXAMPLE
+    ./get-related-work-items.ps1 -BuildId 12345
+
+.NOTES
+    Requires the powershell-yaml module for parsing YAML pipeline files.
+#>
+
+[CmdletBinding()]
+param (
+    [Parameter()]
+    [int]$BuildId = $ENV:BUILD_BUILDID,
+
+    [Parameter()]
+    [Uri]$CollectionUri = $ENV:SYSTEM_COLLECTIONURI,
+
+    [Parameter()]
+    [Guid]$ProjectId = $ENV:SYSTEM_TEAMPROJECTID,
+
+    [Parameter()]
+    $AuthorizationHeader = "Bearer $ENV:SYSTEM_ACCESSTOKEN"
+)
+
+# Script implementation...
+# (Full implementation omitted for brevity - see Part 1 for complete code)
+```
+
+Now, when the AI encounters a monorepo pipeline question, it:
+1. Loads the pipelines sub-skill
+2. Sees the script reference
+3. Suggests running the script or shows how to invoke it
+
+**You get deterministic, tested behavior instead of AI-generated code that might have bugs.**
 
 ## Why Scripts Beat Always-On Tools
 

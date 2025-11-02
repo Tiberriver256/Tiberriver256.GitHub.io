@@ -10,12 +10,7 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-vendor/bundle
-.bundle
-
-### NPM ###
-package-lock.json
 
 ### Vale ###
 /styles/*
-!/styles/Vocab
+!/styles/Vocab/
