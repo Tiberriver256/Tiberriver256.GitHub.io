@@ -8,10 +8,6 @@ tools:
   - view
   - create
   - bash
-
-mcp-servers:
-  - name: github
-    tools: ["*"]
 ---
 
 # Content Strategist Agent
