@@ -8,10 +8,6 @@ tools:
   - edit
   - bash
   - report_progress
-
-mcp-servers:
-  - name: github
-    tools: ["*"]
 ---
 
 # Publishing Workflow Manager Agent
