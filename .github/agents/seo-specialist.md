@@ -8,10 +8,6 @@ tools:
   - view
   - edit
   - bash
-
-mcp-servers:
-  - name: github
-    tools: ["*"]
 ---
 
 # SEO Specialist Agent
