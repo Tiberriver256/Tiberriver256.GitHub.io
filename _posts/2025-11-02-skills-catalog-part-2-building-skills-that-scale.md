@@ -1,8 +1,8 @@
 ---
 published: true
 layout: post
-title: "Building Skills That Scale: Nested Domains and Scripts"
-description: "Organize hundreds of AI skills using nested domains and on-demand scripts. Keep your context window lean while maintaining full power and flexibility."
+title: "Learning from Anthropic: Nested Skills and Scripts"
+description: "Anthropic structures complex skills with nested folders and scripts. Here's how to adapt those patterns for GitHub Copilot's catalog approach."
 modified: 2025-11-02
 tags:
   - AI
@@ -15,63 +15,103 @@ categories:
 
 **Part 2 of 3** in the Skills Catalog series ([Part 1](/ai-and-technology/skills-catalog-part-1-indexing-ai-context))
 
-In Part 1, we introduced the skills catalog pattern—a Dewey Decimal-style index for AI context. Now we tackle the real challenge: **organizing knowledge that scales to hundreds of skills without becoming a mess.**
+In Part 1, we saw how to adapt Anthropic's Skills concept for GitHub Copilot using a catalog pattern. Now let's dive deeper: **how do you organize knowledge that scales to hundreds of skills?**
 
-The key is two-fold:
-1. **Nested skills** that keep the top-level catalog clean while allowing deep specialization
-2. **Scripts as execution primitives** that load only when invoked, not upfront
+Anthropic's [official skills repository](https://github.com/anthropics/skills) shows sophisticated examples like [mcp-builder](https://github.com/anthropics/skills/tree/main/mcp-builder) and [algorithmic-art](https://github.com/anthropics/skills/tree/main/algorithmic-art). These demonstrate patterns we can learn from:
 
-Let's build it.
+1. **Nested structures** for complex domains
+2. **Scripts as executable knowledge** that load on demand
+3. **Supporting resources** (templates, configs)
 
-## The Depth Problem
+This post explores Anthropic's approach and shows how to adapt it for the catalog pattern.
 
-Your initial skills table might look like this:
+## How Anthropic Structures Complex Skills
 
-```markdown
-| Skill Name | Description | Path |
-|------------|-------------|------|
-| Azure DevOps | Everything about Azure DevOps | `.github/skills/azure-devops.md` |
+Let's look at a real example from Anthropic's repository: the [mcp-builder skill](https://github.com/anthropics/skills/tree/main/mcp-builder).
+
+### Directory Structure
+
+```
+mcp-builder/
+├── SKILL.md                    # Main skill description
+├── guides/
+│   ├── getting-started.md
+│   ├── server-patterns.md
+│   └── testing.md
+├── templates/
+│   ├── basic-server.py
+│   └── typescript-server/
+└── scripts/
+    ├── create-server.sh
+    └── test-server.sh
 ```
 
-But "everything about Azure DevOps" is huge:
-- Repositories (branches, PRs, policies)
-- Pipelines (YAML, triggers, variables, environments)
-- Work items (queries, custom fields, automation)
-- Boards (columns, swimlanes, sprints)
-- Artifacts (feeds, packages, retention)
+### The Pattern
 
-If you dump all that into one skill file, it becomes a 100KB document that defeats the purpose of selective loading. The AI has to wade through pipeline documentation when you're asking about work item queries.
+Anthropic organizes complex skills into:
 
-**Solution**: Nested skills.
+1. **SKILL.md**: Overview with `description` frontmatter for discovery
+2. **Guides**: Detailed sub-topic explanations
+3. **Templates**: Starting point code
+4. **Scripts**: Executable automation
 
-## Building Nested Domain Skills
+This keeps `SKILL.md` lean—it points to guides instead of containing everything. Claude can selectively load guides when needed.
 
-Think hierarchical, like organizing a library by subject, then sub-subject, then topic.
+### Another Example: Algorithmic Art
+
+The [algorithmic-art skill](https://github.com/anthropics/skills/tree/main/algorithmic-art) follows a similar pattern:
+
+```
+algorithmic-art/
+├── SKILL.md
+├── techniques/
+│   ├── generative-systems.md
+│   ├── noise-algorithms.md
+│   └── recursion-patterns.md
+└── examples/
+    ├── fractal-tree.js
+    └── perlin-landscape.py
+```
+
+Again: lean main file, detailed sub-documents, practical examples.
+
+## The Transferable Lesson
+
+What Anthropic teaches us: **Don't put everything in one file.**
+
+Even with auto-discovery, they nest. Why? Because:
+- **Focus**: Each file covers one sub-topic
+- **Selectivity**: AI can load just the relevant guide
+- **Maintainability**: Easier to update specific sections
+- **Scale**: Supports deep knowledge without bloat
+
+This pattern matters even more for the catalog approach, where we're manually maintaining the index.
+
+## Adapting Nested Skills to the Catalog
+
+Following Anthropic's example, here's how to adapt nested structures for the catalog pattern.
 
 ### Top-Level Catalog
 
-Your main `.github/copilot-instructions.md` stays focused on high-level domains:
+Your `.github/copilot-instructions.md` mirrors Anthropic's approach—stay high-level:
 
 ```markdown
 ## Available Skills
 
 | Skill Name | Description | Path |
 |------------|-------------|------|
-| Azure DevOps | Work with Azure DevOps repos, pipelines, work items, and boards | `.github/skills/azure-devops/index.md` |
-| PowerShell | PowerShell coding standards, modules, and patterns | `.github/skills/powershell/index.md` |
+| Azure DevOps | Work with Azure DevOps repos, pipelines, work items | `.github/skills/azure-devops/index.md` |
 | React | React component patterns and standards | `.github/skills/react/index.md` |
 ```
 
-Notice: each skill now points to an `index.md` inside a folder, not a standalone file.
+Each skill points to an `index.md` inside a folder (like Anthropic's `SKILL.md`).
 
-### Domain Index
+### Domain Index (Sub-Catalog)
 
-`.github/skills/azure-devops/index.md` becomes a sub-catalog:
+`.github/skills/azure-devops/index.md` becomes a second-level catalog:
 
 ```markdown
 # Azure DevOps Skill
-
-This skill covers Azure DevOps tools and workflows.
 
 ## Sub-Skills
 
@@ -79,43 +119,38 @@ This skill covers Azure DevOps tools and workflows.
 |-----------|-------------|------|
 | Repositories | Branch policies, PRs, code reviews | `./repos.md` |
 | Pipelines | YAML pipelines, triggers, monorepo support | `./pipelines.md` |
-| Work Items | Queries, custom fields, automation rules | `./work-items.md` |
+| Work Items | Queries, custom fields, automation | `./work-items.md` |
 
 ## Quick References
 
 - Organization: `https://dev.azure.com/yourorg`
 - Project: `YourProject`
-- Common repos: `platform`, `services`, `infrastructure`
 
 ## Scripts
 
-Scripts for Azure DevOps operations live in `./scripts/`:
-- `get-related-work-items.ps1` - Get work items for a pipeline run (monorepo-aware)
-- `create-pr.ps1` - Create a PR with standard template and reviewers
+- `scripts/get-related-work-items.ps1` - Get work items for pipeline run
+- `scripts/create-pr.ps1` - Create PR with template
 ```
 
-Now the AI has two levels of indexing:
+Now Copilot has two-level indexing like Claude's skill discovery:
 1. Main catalog → Azure DevOps skill exists
-2. Azure DevOps index → Pipelines sub-skill for monorepo questions
+2. Azure DevOps index → Pipelines sub-skill for pipeline questions
 
 ### Sub-Skill Files
 
-`.github/skills/azure-devops/pipelines.md` contains focused, actionable knowledge:
+`.github/skills/azure-devops/pipelines.md` contains focused knowledge:
 
 ```markdown
 # Azure DevOps Pipelines
 
-## YAML Pipeline Standards
+## YAML Standards
 
 All pipelines must:
 - Use YAML (no classic pipelines)
 - Include `trigger.paths` for monorepos
 - Use named stages for multi-stage deployments
-- Reference templates from the `pipeline-templates` repo
 
 ## Monorepo Trigger Pattern
-
-For monorepos, always filter triggers by path:
 
 ```yaml
 trigger:
@@ -130,73 +165,112 @@ trigger:
 
 ## Getting Related Work Items
 
-Azure DevOps's built-in "Related Work Items" feature doesn't support monorepos. Use our custom script instead:
+Azure DevOps's built-in feature doesn't support monorepos. Use:
 
 ```bash
-pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1 -BuildId $BUILD_BUILDID
+pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1
 ```
 
 See `./scripts/get-related-work-items.ps1` for details.
-
-## Pipeline Variables
-
-Standard variables we use:
-- `BuildConfiguration` - Debug or Release
-- `DeploymentEnvironment` - dev, staging, prod
-- `RunTests` - true/false
-
-## Templates
-
-Reusable templates live in our `pipeline-templates` repo:
-- `build-dotnet.yml` - Standard .NET build
-- `deploy-azure-app.yml` - Azure App Service deployment
-- `run-integration-tests.yml` - Integration test harness
 ```
 
-Clean. Focused. No more than you need for pipeline questions.
+### Directory Structure
 
-## Directory Structure
-
-Here's what a mature Azure DevOps skill looks like:
+Here's what it looks like (modeled on Anthropic's pattern):
 
 ```
 .github/skills/azure-devops/
-├── index.md                    # Sub-skills catalog
+├── index.md                    # Sub-skills catalog (like Anthropic's SKILL.md)
 ├── repos.md                    # Repository sub-skill
 ├── pipelines.md                # Pipelines sub-skill
 ├── work-items.md               # Work items sub-skill
-├── scripts/
+├── scripts/                    # Executable automation (like Anthropic)
 │   ├── get-related-work-items.ps1
 │   ├── create-pr.ps1
 │   └── query-work-items.ps1
-└── templates/
+└── templates/                  # Starting points (like Anthropic)
     ├── pr-template.md
     └── pipeline-template.yml
 ```
 
-Each `.md` file is 5-15KB. Totally manageable. The AI loads the index, identifies the relevant sub-skill, and dives into just that file.
+Each `.md` file is 5-15KB. Same pattern Anthropic uses, adapted for explicit catalog navigation.
 
-## Scripts: On-Demand Execution
+## Scripts: Learning from Anthropic
 
-Here's where it gets powerful. Scripts are knowledge that _does things_.
+Both Anthropic Skills and the catalog pattern support **scripts as executable knowledge**.
 
-Traditional approach (bad): Document how to get related work items for a pipeline run. Hope the AI generates correct code every time.
+### Anthropic's Approach
 
-**Skills approach (good)**: Provide a tested, working script. The AI invokes it.
+Look at the [mcp-builder skill](https://github.com/anthropics/skills/tree/main/mcp-builder). It includes:
 
-### Script Conventions
+- `scripts/create-server.sh` - Bootstrap a new MCP server
+- `scripts/test-server.sh` - Validate server implementation
 
-Scripts in skill folders follow these rules:
+These aren't documentation about _how_ to create a server—they're executable scripts that _do it_. Claude can invoke them directly.
 
-1. **Self-contained**: Include all dependencies, parameter descriptions
-2. **Documented**: Header comments explain purpose, parameters, examples
-3. **Tested**: These run in production; they must work
-4. **Referenced**: Skill `.md` files tell the AI when to use them
+**The philosophy**: Don't just describe processes. Provide tested, working automation.
 
-Example from `.github/skills/azure-devops/scripts/get-related-work-items.ps1`:
+### Adapting Scripts to the Catalog
+
+The catalog pattern uses the same approach—reference scripts in skill files:
+
+**In `.github/skills/azure-devops/pipelines.md`**:
+
+```markdown
+## Getting Related Work Items
+
+Azure DevOps's built-in feature doesn't support monorepos. Use:
+
+```bash
+pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1 -BuildId $BUILD_BUILDID
+```
+```
+
+**Script conventions** (same as Anthropic):
+
+1. **Self-contained**: Include all dependencies
+2. **Documented**: Header comments explain purpose, parameters
+3. **Tested**: Production-ready code
+4. **Referenced**: Skill files tell AI when to use them
+
+Example `.github/skills/azure-devops/scripts/get-related-work-items.ps1`:
 
 ```powershell
 #Requires -PSEdition Core
+
+<#
+.SYNOPSIS
+    Get commits and work items for a build pipeline with monorepo support.
+
+.DESCRIPTION
+    Azure DevOps's built-in "Related Work Items" doesn't filter by pipeline
+    trigger paths in monorepos. This script does.
+
+.PARAMETER BuildId
+    The ID of the build. Defaults to $ENV:BUILD_BUILDID.
+
+.EXAMPLE
+    ./get-related-work-items.ps1 -BuildId 12345
+#>
+
+[CmdletBinding()]
+param (
+    [Parameter()]
+    [int]$BuildId = $ENV:BUILD_BUILDID
+)
+
+# Script implementation...
+```
+
+Same philosophy as Anthropic—provide working automation, not just documentation.
+
+### Why Scripts Matter
+
+**Traditional approach**: AI generates code on the fly. Sometimes it works. Sometimes it has bugs.
+
+**Skills approach** (both Anthropic and catalog): AI uses tested scripts. Deterministic, reliable results.
+
+You're not hoping the AI writes correct PowerShell—you're providing PowerShell that already works.
 
 <#
 .SYNOPSIS
@@ -402,11 +476,22 @@ The AI should:
 3. Identify the Pipelines sub-skill
 4. Reference the script
 
-You've just built a nested skill with executable knowledge.
+You've just built a nested skill with executable knowledge, following Anthropic's patterns.
+
+## What We Learned from Anthropic
+
+Anthropic Skills taught us:
+
+1. **Keep main files lean**—nest details in sub-documents
+2. **Provide scripts**—executable knowledge beats documentation
+3. **Use consistent structures**—helps AI navigate faster
+4. **Support resources**—templates and examples matter
+
+The catalog pattern adapts these lessons for GitHub Copilot's explicit navigation model.
 
 ## The 100-Skill Vision
 
-With this structure, you can scale to 100+ skills:
+With this structure (inspired by Anthropic), you can scale to 100+ skills:
 
 - **10 domain skills** (Azure DevOps, AWS, Docker, React, etc.)
 - **5-10 sub-skills each** (50-100 sub-skills total)
@@ -418,23 +503,25 @@ Total knowledge base: 5-50MB of detailed docs and scripts
 
 **The AI accesses megabytes of knowledge through a 60KB index.**
 
-That's the power of "hint, then dive."
+That's the power of "hint, then dive"—whether you're using Anthropic's auto-discovery or the catalog adaptation.
 
 ## Next: Organizational Distribution
 
-You've built a skill. You've nested it. You've added scripts. It's working great in your repository.
+You've built nested skills with scripts. They work great in your repository.
 
-But what about your other 50 repositories? Do you copy-paste the `.github/skills/` folder into each one?
+But what about your other 50 repositories? Do you copy-paste the `.github/skills/` folder?
 
-**No.** In Part 3, we'll build a shared skills repository and use VS Code workspaces to inject those skills into any project with a few clicks. Your organizational knowledge becomes portable, versionable, and instantly available everywhere.
-
-We'll also walk through a complete end-to-end demo: creating a new skill, wiring a script, invoking an MCP server, and watching it all work inside GitHub Copilot.
+**No.** In Part 3, we'll build a shared skills repository and use VS Code workspaces to inject those skills into any project. Your organizational knowledge becomes portable, versionable, and available everywhere.
 
 For now, start nesting:
 
 1. Pick one skill from your catalog
-2. Break it into 2-3 sub-skills
+2. Break it into 2-3 sub-skills (like Anthropic's examples)
 3. Move one repetitive task into a script
 4. Reference the script in the skill file
 
-You're building a library, one indexed section at a time.
+You're building a library, one indexed section at a time—following Anthropic's beautiful patterns.
+
+---
+
+_Credit: This series adapts patterns from [Anthropic Skills](https://www.anthropic.com/news/skills). The nested structure and script conventions mirror their [official examples](https://github.com/anthropics/skills)._
