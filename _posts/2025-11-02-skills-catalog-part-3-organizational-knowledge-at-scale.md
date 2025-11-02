@@ -38,22 +38,7 @@ Browse, discover, and install community skills directly in Claude Code. Skills b
 
 ### Skills API
 
-Access skills programmatically:
-
-```javascript
-import { Claude } from '@anthropic-ai/sdk';
-
-const client = new Claude({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
-
-// Load skills for the conversation
-const response = await client.messages.create({
-  model: 'claude-3-sonnet',
-  messages: [{role: 'user', content: 'Use the mcp-builder skill...'}],
-  skills: ['mcp-builder'], // Skills loaded on demand
-});
-```
+The [Skills API](https://docs.claude.com/en/api/skills-guide) enables programmatic access to skills. You can upload custom skills and reference them in your API calls, making organizational knowledge available to any Claude-powered application.
 
 ### Claude.ai
 
