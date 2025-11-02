@@ -68,13 +68,11 @@ The detailed information loads **on demand**, not upfront.
 
 This pattern works across AI platforms because it relies on a simple principle: every platform has _some_ file that's always in context.
 
-For **GitHub Copilot**, that file is `.github/copilot-instructions.md`. Create it in your repository root, and Copilot automatically includes it in every conversation within that repository.
+**GitHub Copilot** automatically loads `.github/copilot-instructions.md` from your repository root in every conversation within that repository. This is documented and reliable.
 
-For **Claude** with Code, you might use `.claude/instructions.md` or similar.
+**Other AI platforms** have their own mechanisms for loading custom instructions. The specific file names and locations vary by platform, so consult your platform's documentation. The key is identifying which file your AI tool automatically includes in context.
 
-For **custom agents**, you define which files load automatically.
-
-The mechanics change, but the pattern stays the same: one always-loaded file contains your skills table.
+The pattern stays the same regardless of platform: one always-loaded file contains your skills table (or references it).
 
 ### Vendor-Agnostic Implementation
 
@@ -102,9 +100,9 @@ When you encounter a task related to a skill:
 3. Use any scripts referenced in the skill file
 ```
 
-**Step 2**: Reference it from each platform's instruction file.
+**Step 2**: Reference it from your platform's instruction file.
 
-For **GitHub Copilot** (`.github/copilot-instructions.md`):
+For **GitHub Copilot**, create `.github/copilot-instructions.md`:
 
 ```markdown
 # GitHub Copilot Instructions
@@ -112,31 +110,13 @@ For **GitHub Copilot** (`.github/copilot-instructions.md`):
 Always read and follow the skills catalog in `root-skills.md`.
 ```
 
-For **Claude** (`.claude/agents.md` or similar):
+For **other AI platforms**, check your platform's documentation for:
+- The file name and location for custom instructions
+- Whether the platform supports referencing external files
 
-```markdown
-# Claude Instructions
+Once you know your platform's instruction file, add a similar directive to read `root-skills.md`.
 
-Always read and follow the skills catalog in `root-skills.md`.
-```
-
-For **Cursor** (`.cursorrules` or `.cursor/instructions.md`):
-
-```markdown
-# Cursor Instructions
-
-Always read and follow the skills catalog in `root-skills.md`.
-```
-
-For **Codeium** (`.codeium/instructions.md`):
-
-```markdown
-# Codeium Instructions
-
-Always read and follow the skills catalog in `root-skills.md`.
-```
-
-Now your skills catalog lives in one file, and all AI platforms discover it. When you add a new skill, you update `root-skills.md` once, and every AI tool sees it.
+Now your skills catalog lives in one file. When you add a new skill, you update `root-skills.md` once, and any AI tool configured to read it sees the update.
 
 ### Alternative: Platform-Specific Instructions
 
