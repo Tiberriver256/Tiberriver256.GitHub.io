@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: "Building Skills That Scale: Nested Domains and Scripts"
-description: "Learn to organize hundreds of skills with nested domains and scripts that load on demand, keeping your AI context lean while maintaining power."
+description: "Organize hundreds of AI skills using nested domains and on-demand scripts. Keep your context window lean while maintaining full power and flexibility."
 modified: 2025-11-02
 tags:
   - AI

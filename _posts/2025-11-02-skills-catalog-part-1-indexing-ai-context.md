@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: "The Catalog Model: Indexing AI Context Like a Library"
-description: "Stop shoving your entire library into context. Learn how to build a Dewey Decimal-style index that lets AI discover and load knowledge on demand."
+description: "Stop shoving your entire library into context. Learn to build a Dewey Decimal-style index that lets AI discover and load organizational knowledge on demand."
 modified: 2025-11-02
 tags:
   - AI

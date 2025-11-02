@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: "Organizational Knowledge at Scale: Distribution and Demo"
-description: "Share skills across your entire organization with VS Code workspaces. Complete end-to-end demo of building and deploying organizational knowledge."
+description: "Share AI skills across your entire organization using VS Code workspaces. Complete end-to-end demo of building and deploying organizational knowledge."
 modified: 2025-11-02
 tags:
   - AI
