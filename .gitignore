@@ -13,4 +13,4 @@ _site/
 
 ### Vale ###
 /styles/*
-!/styles/Vocab/
+!/styles/Vocab/vendor/bundle
