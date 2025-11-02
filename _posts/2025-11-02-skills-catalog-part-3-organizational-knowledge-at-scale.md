@@ -21,7 +21,9 @@ Now the question: **How do you share this across your 50 repositories without co
 
 The answer: **A shared skills repository plus VS Code workspaces.**
 
-This final part shows you how to centralize organizational knowledge in one place and inject it into any project with a couple of clicks. Then we'll walk through a complete end-to-end demo—from adding a new skill to watching it work in GitHub Copilot.
+**The key insight**: VS Code automatically merges `.github/copilot-instructions.md` files from all workspace folders. This means you don't need to wire anything up—just add the workspace folder and the skills become available.
+
+This final part shows you how to centralize organizational knowledge in one place and make it available to any project with a simple workspace configuration. Then we'll walk through a complete end-to-end demo—from adding a new skill to watching it work in GitHub Copilot.
 
 ## The Portability Challenge
 
@@ -53,38 +55,36 @@ Create a new repository called `org-skills` (or whatever you prefer):
 ```
 org-skills/
 ├── README.md
-├── skills/
-│   ├── azure-devops/
-│   │   ├── index.md
-│   │   ├── pipelines.md
-│   │   ├── repos.md
-│   │   ├── work-items.md
-│   │   └── scripts/
-│   │       ├── get-related-work-items.ps1
-│   │       └── create-pr.ps1
-│   ├── aws/
-│   │   ├── index.md
-│   │   ├── ec2.md
-│   │   ├── s3.md
-│   │   └── scripts/
-│   ├── docker/
-│   │   ├── index.md
-│   │   ├── compose.md
-│   │   └── templates/
-│   ├── powershell/
-│   │   ├── index.md
-│   │   ├── standards.md
-│   │   └── modules.md
-│   └── react/
-│       ├── index.md
-│       ├── components.md
-│       └── patterns.md
-├── templates/
+├── .github/
 │   ├── copilot-instructions.md
-│   └── skill-template.md
-└── .github/
-    └── workflows/
-        └── validate-skills.yml
+│   └── workflows/
+│       └── validate-skills.yml
+└── skills/
+    ├── azure-devops/
+    │   ├── index.md
+    │   ├── pipelines.md
+    │   ├── repos.md
+    │   ├── work-items.md
+    │   └── scripts/
+    │       ├── get-related-work-items.ps1
+    │       └── create-pr.ps1
+    ├── aws/
+    │   ├── index.md
+    │   ├── ec2.md
+    │   ├── s3.md
+    │   └── scripts/
+    ├── docker/
+    │   ├── index.md
+    │   ├── compose.md
+    │   └── templates/
+    ├── powershell/
+    │   ├── index.md
+    │   ├── standards.md
+    │   └── modules.md
+    └── react/
+        ├── index.md
+        ├── components.md
+        └── patterns.md
 ```
 
 This repository becomes your **single source of truth** for organizational knowledge.
@@ -97,9 +97,13 @@ This repository becomes your **single source of truth** for organizational knowl
 4. **Discoverability**: New team members clone one repo and see all organizational knowledge
 5. **Consistency**: Everyone uses the same versions of scripts and standards
 
-## VS Code Workspaces: The Injection Mechanism
+## VS Code Workspaces: The Magic Distribution Mechanism
 
-VS Code workspaces let you combine multiple folders into one workspace. This is your distribution mechanism.
+Here's the key insight: **VS Code automatically merges `.github/copilot-instructions.md` files from all folders in a workspace.**
+
+This means you don't need templates. You don't need to wire anything up. You just need:
+1. A skills table in the shared repo's `.github/copilot-instructions.md`
+2. Add that repo as a workspace folder
 
 ### How It Works
 
@@ -131,38 +135,33 @@ This workspace includes:
 1. The current repository (`.`)
 2. The org-skills repository (`../org-skills`)
 
-When you open this workspace in VS Code, both folders are visible. More importantly, **GitHub Copilot sees both folders**.
+When you open this workspace in VS Code, both folders are visible. More importantly, **GitHub Copilot automatically reads `.github/copilot-instructions.md` from both folders and merges them.**
 
-### Wiring Skills to Copilot
+### The Shared Repo's Copilot Instructions
 
-Now update `.github/copilot-instructions.md` in your app repository:
+In your `org-skills` repository, create **`.github/copilot-instructions.md`**:
 
 ```markdown
-# Project Instructions
+# Organizational Skills
 
-This repository uses organizational skills from the `org-skills` workspace folder.
+This repository contains organizational knowledge and standards.
 
 ## Available Skills
 
 | Skill Name | Description | Path |
 |------------|-------------|------|
-| Azure DevOps | Work with Azure DevOps repos, pipelines, work items | `org-skills/skills/azure-devops/index.md` |
-| AWS | AWS services and patterns | `org-skills/skills/aws/index.md` |
-| Docker | Container standards and compose patterns | `org-skills/skills/docker/index.md` |
-| PowerShell | PowerShell coding standards | `org-skills/skills/powershell/index.md` |
-| React | React component patterns | `org-skills/skills/react/index.md` |
-
-## How to Use Skills
-
-When working on a task:
-1. Check the skills table above for relevant organizational knowledge
-2. Read the skill file at the listed path
-3. Follow standards, use scripts, and reference templates
+| Azure DevOps | Work with Azure DevOps repos, pipelines, work items | `skills/azure-devops/index.md` |
+| AWS | AWS services and patterns | `skills/aws/index.md` |
+| Docker | Container standards and compose patterns | `skills/docker/index.md` |
+| PowerShell | PowerShell coding standards | `skills/powershell/index.md` |
+| React | React component patterns | `skills/react/index.md` |
 ```
 
-The paths reference `org-skills/skills/...` instead of `.github/skills/...`. When the AI reads the file path, it finds the content in the `org-skills` workspace folder.
+Notice the paths are relative to the org-skills repository (`skills/...`), not absolute paths.
 
-**You've just injected organizational knowledge without copying a single file.**
+**That's it.** No wiring needed in your project repositories. VS Code merges the instructions automatically when the workspace is opened.
+
+**You've just injected organizational knowledge without copying a single file or creating any templates.**
 
 ## Bootstrapping New Projects
 
@@ -176,28 +175,33 @@ git clone https://github.com/your-org/my-new-app.git
 git clone https://github.com/your-org/org-skills.git
 ```
 
-2. **Create the workspace file** in `my-new-app`:
+2. **Create a workspace file** in `my-new-app`:
 
 ```bash
 cd my-new-app
-cp ../org-skills/templates/my-app.code-workspace .
-# Edit to rename workspace appropriately
+cat > my-new-app.code-workspace << 'EOF'
+{
+  "folders": [
+    {
+      "name": "my-new-app",
+      "path": "."
+    },
+    {
+      "name": "org-skills",
+      "path": "../org-skills"
+    }
+  ]
+}
+EOF
 ```
 
-3. **Copy the Copilot instructions template**:
-
-```bash
-mkdir -p .github
-cp ../org-skills/templates/copilot-instructions.md .github/copilot-instructions.md
-```
-
-4. **Open the workspace**:
+3. **Open the workspace**:
 
 ```bash
 code my-new-app.code-workspace
 ```
 
-**Done.** Your new project now has access to all organizational skills.
+**Done.** Your new project now has access to all organizational skills. VS Code automatically merges the `.github/copilot-instructions.md` from both folders.
 
 ## Updating Skills Everywhere
 
@@ -216,18 +220,22 @@ All workspaces that reference `org-skills` now see the updates. No syncing requi
 
 ## Combining Repo-Specific and Org-Wide Knowledge
 
-You can layer knowledge:
+Because VS Code merges `.github/copilot-instructions.md` from all workspace folders, you naturally get layered knowledge:
 
-**`.github/copilot-instructions.md`** references org skills:
+**`org-skills/.github/copilot-instructions.md`** provides org-wide skills:
 
 ```markdown
 ## Organizational Skills
 
 | Skill Name | Path |
 |------------|------|
-| Azure DevOps | `org-skills/skills/azure-devops/index.md` |
-| PowerShell | `org-skills/skills/powershell/index.md` |
+| Azure DevOps | `skills/azure-devops/index.md` |
+| PowerShell | `skills/powershell/index.md` |
+```
 
+**`my-app/.github/copilot-instructions.md`** adds project-specific context:
+
+```markdown
 ## Project-Specific Knowledge
 
 This app uses:
@@ -236,7 +244,7 @@ This app uses:
 - Frontend: React 18 with Vite
 ```
 
-**`.github/instructions/api.instructions.md`** adds path-specific guidance:
+**`my-app/.github/instructions/api.instructions.md`** adds path-specific guidance:
 
 ```markdown
 ---
@@ -244,18 +252,18 @@ applyTo: "src/api/**"
 ---
 
 When working with API code:
-- Follow REST conventions in `org-skills/skills/api-design/rest.md`
+- Follow REST conventions in the organizational API design skill
 - Use FluentValidation for request validation
 - All endpoints return `ApiResponse<T>` wrapper
 - See `docs/api-standards.md` for this project's specific patterns
 ```
 
-You get:
+VS Code merges all of these automatically, so the AI sees:
 - **Org-wide standards** from the skills repo
 - **Project-specific context** from the app repo
 - **Path-specific rules** from instruction files
 
-The AI combines all layers to understand both general and specific context.
+No manual wiring required.
 
 ## End-to-End Demo: Adding a New Skill
 
@@ -410,24 +418,24 @@ chmod +x skills/github-actions/scripts/validate-workflow.sh
 
 ### Step 5: Add to Main Catalog
 
-Update your org-skills catalog template (**`templates/copilot-instructions.md`**):
+Update your org-skills catalog in **`.github/copilot-instructions.md`**:
 
 ```markdown
-| GitHub Actions | Workflow standards and validation | `org-skills/skills/github-actions/index.md` |
+| GitHub Actions | Workflow standards and validation | `skills/github-actions/index.md` |
 ```
 
 ### Step 6: Commit and Push
 
 ```bash
 git add skills/github-actions
-git add templates/copilot-instructions.md
+git add .github/copilot-instructions.md
 git commit -m "Add GitHub Actions skill with workflow validation"
 git push
 ```
 
 ### Step 7: Pull into Project
 
-In any project that uses the workspace:
+In any project that uses the workspace, pull the latest org-skills:
 
 ```bash
 cd ~/projects/my-app
@@ -436,7 +444,7 @@ git pull
 cd ../my-app
 ```
 
-Update `.github/copilot-instructions.md` if needed to reference the new skill.
+The updated skills are now available. No need to update your project's copilot instructions—VS Code automatically merges them from the org-skills workspace folder.
 
 ### Step 8: Test in Copilot
 
@@ -451,9 +459,9 @@ Open GitHub Copilot chat and ask:
 > "What are our standards for GitHub Actions workflows?"
 
 **Expected behavior**:
-1. Copilot scans `.github/copilot-instructions.md`
-2. Finds "GitHub Actions" in the skills table
-3. Loads `org-skills/skills/github-actions/index.md`
+1. Copilot reads merged `.github/copilot-instructions.md` from both workspace folders
+2. Finds "GitHub Actions" in the skills table from org-skills
+3. Loads `skills/github-actions/index.md` from org-skills folder
 4. Reads `workflows.md` for details
 5. Responds with your organizational standards
 
@@ -587,7 +595,7 @@ When adding a new skill to `org-skills`:
 - [ ] Add scripts with proper documentation headers
 - [ ] Make scripts executable (`chmod +x`)
 - [ ] Reference scripts in the index or sub-skill files
-- [ ] Update `templates/copilot-instructions.md` with new skill row
+- [ ] Update `.github/copilot-instructions.md` with new skill row
 - [ ] Commit with clear message describing the skill
 - [ ] Create PR for review
 - [ ] After merge, notify teams to pull latest `org-skills`
@@ -612,8 +620,8 @@ For large organizations:
 3. **Copilot instructions reference both**:
 
 ```markdown
-| Azure DevOps | ... | `devops-skills/skills/azure-devops/index.md` |
-| React | ... | `engineering-skills/skills/react/index.md` |
+| Azure DevOps | ... | `skills/azure-devops/index.md` |
+| React | ... | `skills/react/index.md` |
 ```
 
 Teams pull only the skills repos relevant to their work.
@@ -662,9 +670,9 @@ You now have a system for scaling AI context to **hundreds of skills** across **
 ## Getting Started Today
 
 1. **Create `org-skills` repository** in your organization
-2. **Add 2-3 skills** from frequently-asked-about domains
-3. **Create workspace files** for your top 2-3 projects
-4. **Update Copilot instructions** to reference org-skills
+2. **Add `.github/copilot-instructions.md`** with a skills table
+3. **Add 2-3 skills** from frequently-asked-about domains
+4. **Create workspace files** for your top 2-3 projects
 5. **Test with your team**: Ask Copilot questions about those domains
 
 Start small. Grow organically. Let the flywheel spin.
