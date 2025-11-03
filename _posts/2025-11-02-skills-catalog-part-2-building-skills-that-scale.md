@@ -236,42 +236,6 @@ pwsh .github/skills/azure-devops/scripts/get-related-work-items.ps1 -BuildId $BU
 Example `.github/skills/azure-devops/scripts/get-related-work-items.ps1`:
 
 ```powershell
-#Requires -PSEdition Core
-
-<#
-.SYNOPSIS
-    Get commits and work items for a build pipeline with monorepo support.
-
-.DESCRIPTION
-    Azure DevOps's built-in "Related Work Items" doesn't filter by pipeline
-    trigger paths in monorepos. This script does.
-
-.PARAMETER BuildId
-    The ID of the build. Defaults to $ENV:BUILD_BUILDID.
-
-.EXAMPLE
-    ./get-related-work-items.ps1 -BuildId 12345
-#>
-
-[CmdletBinding()]
-param (
-    [Parameter()]
-    [int]$BuildId = $ENV:BUILD_BUILDID
-)
-
-# Script implementation...
-```
-
-Same philosophy as Anthropic—provide working automation, not just documentation.
-
-### Why Scripts Matter
-
-**Traditional approach**: AI generates code on the fly. Sometimes it works. Sometimes it has bugs.
-
-**Skills approach** (both Anthropic and catalog): AI uses tested scripts. Deterministic, reliable results.
-
-You're not hoping the AI writes correct PowerShell—you're providing PowerShell that already works.
-
 <#
 .SYNOPSIS
     Retrieves commits and work items for a build pipeline with monorepo support.
@@ -308,9 +272,18 @@ param (
     $AuthorizationHeader = "Bearer $ENV:SYSTEM_ACCESSTOKEN"
 )
 
-# Script implementation...
-# (Full implementation omitted for brevity - see Part 1 for complete code)
+# (Full implementation omitted for brevity)
 ```
+
+Same philosophy as Anthropic—provide working automation, not just documentation.
+
+### Why Scripts Matter
+
+**Traditional approach**: AI generates code on the fly. Sometimes it works. Sometimes it has bugs.
+
+**Skills approach** (both Anthropic and catalog): AI uses tested scripts. Deterministic, reliable results.
+
+You're not hoping the AI writes correct PowerShell—you're providing PowerShell that already works.
 
 Now, when the AI encounters a monorepo pipeline question, it:
 1. Loads the pipelines sub-skill
