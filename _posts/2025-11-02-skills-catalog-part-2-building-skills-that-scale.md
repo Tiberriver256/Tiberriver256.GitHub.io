@@ -13,7 +13,7 @@ categories:
   - AI and Technology
 ---
 
-**Part 2 of 3** in the Skills Catalog series ([Part 1](/ai-and-technology/skills-catalog-part-1-indexing-ai-context) | [Part 3](/ai-and-technology/skills-catalog-part-3-organizational-knowledge-at-scale))
+**Part 2 of 3** in the Skills Catalog series ([Part 1](/ai%20and%20technology/skills-catalog-part-1-indexing-ai-context) | [Part 3](/ai%20and%20technology/skills-catalog-part-3-organizational-knowledge-at-scale))
 
 Part 1 covered the catalog pattern. Now: **how do you organize knowledge that scales to hundreds of skills?**
 

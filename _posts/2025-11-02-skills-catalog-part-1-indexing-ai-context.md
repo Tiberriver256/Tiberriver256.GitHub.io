@@ -12,7 +12,7 @@ categories:
   - AI and Technology
 ---
 
-**Part 1 of 3** in the Skills Catalog series ([Part 2](/ai-and-technology/skills-catalog-part-2-building-skills-that-scale) | [Part 3](/ai-and-technology/skills-catalog-part-3-organizational-knowledge-at-scale))
+**Part 1 of 3** in the Skills Catalog series ([Part 2](/ai%20and%20technology/skills-catalog-part-2-building-skills-that-scale) | [Part 3](/ai%20and%20technology/skills-catalog-part-3-organizational-knowledge-at-scale))
 
 Anthropic just announced [Skills](https://www.anthropic.com/news/skills)—modular, discoverable knowledge for Claude. Each skill is a `SKILL.md` file with metadata. Claude discovers them through the `description` field. No central catalog, no manual wiring.
 
