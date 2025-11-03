@@ -13,7 +13,7 @@ categories:
   - AI and Technology
 ---
 
-**Part 3 of 3** in the Skills Catalog series ([Part 1](/ai-and-technology/skills-catalog-part-1-indexing-ai-context) | [Part 2](/ai-and-technology/skills-catalog-part-2-building-skills-that-scale))
+**Part 3 of 3** in the Skills Catalog series ([Part 1](/ai%20and%20technology/skills-catalog-part-1-indexing-ai-context) | [Part 2](/ai%20and%20technology/skills-catalog-part-2-building-skills-that-scale))
 
 You've built a skills catalog. Nested domains. Scripts that execute on demand.
 
