@@ -34,7 +34,7 @@ for the sonnet 4.5 part of the experiment.
 
 If you want to reproduce the results, save the script below as `context_window_experiment.py` and run `uv run context_window_experiment.py`.
 
-<details>
+<details markdown="1">
 <summary>Experiment script (uv run)</summary>
 
 ```python
