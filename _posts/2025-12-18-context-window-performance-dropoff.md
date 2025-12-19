@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Do Newer Models Hold Up as Context Fills?"
 description: "Results from a small test of context-window fill effects on newer and older models."
