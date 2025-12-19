@@ -611,33 +611,54 @@ Below are the SVG outputs for each model at each context fill level. The respons
 
 ### gpt-5.1-codex-max
 
-| Context % | Output                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------- |
-| 0         | {% include image.html path="gpt-5.1-codex-max-0pct.svg" alt="gpt-5.1-codex-max SVG output at 0 percent context" %}   |
-| 25        | {% include image.html path="gpt-5.1-codex-max-25pct.svg" alt="gpt-5.1-codex-max SVG output at 25 percent context" %} |
-| 50        | {% include image.html path="gpt-5.1-codex-max-50pct.svg" alt="gpt-5.1-codex-max SVG output at 50 percent context" %} |
-| 75        | {% include image.html path="gpt-5.1-codex-max-75pct.svg" alt="gpt-5.1-codex-max SVG output at 75 percent context" %} |
-| 98        | {% include image.html path="gpt-5.1-codex-max-98pct.svg" alt="gpt-5.1-codex-max SVG output at 98 percent context" %} |
+**0% context:**
+{% include image.html path="gpt-5.1-codex-max-0pct.svg" alt="gpt-5.1-codex-max SVG output at 0 percent context" %}
+
+**25% context:**
+{% include image.html path="gpt-5.1-codex-max-25pct.svg" alt="gpt-5.1-codex-max SVG output at 25 percent context" %}
+
+**50% context:**
+{% include image.html path="gpt-5.1-codex-max-50pct.svg" alt="gpt-5.1-codex-max SVG output at 50 percent context" %}
+
+**75% context:**
+{% include image.html path="gpt-5.1-codex-max-75pct.svg" alt="gpt-5.1-codex-max SVG output at 75 percent context" %}
+
+**98% context:**
+{% include image.html path="gpt-5.1-codex-max-98pct.svg" alt="gpt-5.1-codex-max SVG output at 98 percent context" %}
 
 ### gpt-5.2-codex
 
-| Context % | Output                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------ |
-| 0         | {% include image.html path="gpt-5.2-codex-0pct.svg" alt="gpt-5.2-codex SVG output at 0 percent context" %}   |
-| 25        | {% include image.html path="gpt-5.2-codex-25pct.svg" alt="gpt-5.2-codex SVG output at 25 percent context" %} |
-| 50        | {% include image.html path="gpt-5.2-codex-50pct.svg" alt="gpt-5.2-codex SVG output at 50 percent context" %} |
-| 75        | {% include image.html path="gpt-5.2-codex-75pct.svg" alt="gpt-5.2-codex SVG output at 75 percent context" %} |
-| 98        | {% include image.html path="gpt-5.2-codex-98pct.svg" alt="gpt-5.2-codex SVG output at 98 percent context" %} |
+**0% context:**
+{% include image.html path="gpt-5.2-codex-0pct.svg" alt="gpt-5.2-codex SVG output at 0 percent context" %}
+
+**25% context:**
+{% include image.html path="gpt-5.2-codex-25pct.svg" alt="gpt-5.2-codex SVG output at 25 percent context" %}
+
+**50% context:**
+{% include image.html path="gpt-5.2-codex-50pct.svg" alt="gpt-5.2-codex SVG output at 50 percent context" %}
+
+**75% context:**
+{% include image.html path="gpt-5.2-codex-75pct.svg" alt="gpt-5.2-codex SVG output at 75 percent context" %}
+
+**98% context:**
+{% include image.html path="gpt-5.2-codex-98pct.svg" alt="gpt-5.2-codex SVG output at 98 percent context" %}
 
 ### claude-sonnet-4.5 (Copilot CLI)
 
-| Context % | Output                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------- |
-| 0         | {% include image.html path="claude-sonnet-4.5-0pct.svg" alt="claude-sonnet-4.5 SVG output at 0 percent context" %}   |
-| 25        | {% include image.html path="claude-sonnet-4.5-25pct.svg" alt="claude-sonnet-4.5 SVG output at 25 percent context" %} |
-| 50        | No SVG output (response asked for file access)                                                                       |
-| 75        | {% include image.html path="claude-sonnet-4.5-75pct.svg" alt="claude-sonnet-4.5 SVG output at 75 percent context" %} |
-| 98        | {% include image.html path="claude-sonnet-4.5-98pct.svg" alt="claude-sonnet-4.5 SVG output at 98 percent context" %} |
+**0% context:**
+{% include image.html path="claude-sonnet-4.5-0pct.svg" alt="claude-sonnet-4.5 SVG output at 0 percent context" %}
+
+**25% context:**
+{% include image.html path="claude-sonnet-4.5-25pct.svg" alt="claude-sonnet-4.5 SVG output at 25 percent context" %}
+
+**50% context:**
+No SVG output (response asked for file access)
+
+**75% context:**
+{% include image.html path="claude-sonnet-4.5-75pct.svg" alt="claude-sonnet-4.5 SVG output at 75 percent context" %}
+
+**98% context:**
+{% include image.html path="claude-sonnet-4.5-98pct.svg" alt="claude-sonnet-4.5 SVG output at 98 percent context" %}
 
 ## Takeaway
 
