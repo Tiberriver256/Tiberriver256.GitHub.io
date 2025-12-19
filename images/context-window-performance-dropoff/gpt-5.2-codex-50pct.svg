@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f6f2e8"/>
+  <ellipse cx="200" cy="250" rx="150" ry="18" fill="#e0d6c2"/>
+
+  <!-- Bicycle -->
+  <circle cx="120" cy="230" r="45" fill="none" stroke="#2f2f2f" stroke-width="4"/>
+  <circle cx="300" cy="230" r="45" fill="none" stroke="#2f2f2f" stroke-width="4"/>
+  <circle cx="120" cy="230" r="6" fill="#2f2f2f"/>
+  <circle cx="300" cy="230" r="6" fill="#2f2f2f"/>
+  <line x1="120" y1="230" x2="200" y2="200" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="200" y1="200" x2="260" y2="230" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="200" y1="200" x2="200" y2="150" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="200" y1="150" x2="250" y2="150" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="250" y1="150" x2="270" y2="170" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="200" y1="200" x2="160" y2="170" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="160" y1="170" x2="120" y2="230" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="260" y1="230" x2="300" y2="230" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="120" y1="230" x2="120" y2="200" stroke="#2f2f2f" stroke-width="4"/>
+  <circle cx="120" cy="200" r="7" fill="none" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="120" y1="200" x2="100" y2="185" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="100" y1="185" x2="95" y2="195" stroke="#2f2f2f" stroke-width="4"/>
+  <line x1="100" y1="185" x2="110" y2="175" stroke="#2f2f2f" stroke-width="4"/>
+  <rect x="190" y="140" width="30" height="8" fill="#2f2f2f"/>
+  <rect x="240" y="145" width="30" height="6" fill="#2f2f2f"/>
+
+  <!-- Pelican -->
+  <ellipse cx="200" cy="170" rx="55" ry="40" fill="#ffffff" stroke="#2f2f2f" stroke-width="3"/>
+  <ellipse cx="180" cy="190" rx="35" ry="28" fill="#f3e6cc"/>
+  <circle cx="225" cy="130" r="24" fill="#ffffff" stroke="#2f2f2f" stroke-width="3"/>
+  <circle cx="232" cy="126" r="4" fill="#2f2f2f"/>
+  <path d="M245 130 Q300 125 330 145 Q300 155 245 150 Z" fill="#f2a24b" stroke="#2f2f2f" stroke-width="3"/>
+  <path d="M245 150 Q295 165 315 185 Q285 190 240 170 Z" fill="#f7c77a" stroke="#2f2f2f" stroke-width="3"/>
+  <path d="M170 155 Q130 145 115 120 Q145 120 180 135 Z" fill="#ffffff" stroke="#2f2f2f" stroke-width="3"/>
+
+  <!-- Legs on pedals -->
+  <path d="M190 205 Q175 215 160 230" fill="none" stroke="#2f2f2f" stroke-width="4"/>
+  <path d="M215 205 Q230 215 245 230" fill="none" stroke="#2f2f2f" stroke-width="4"/>
+  <ellipse cx="160" cy="230" rx="10" ry="6" fill="#2f2f2f"/>
+  <ellipse cx="245" cy="230" rx="10" ry="6" fill="#2f2f2f"/>
+
+  <!-- Pelican on seat -->
+  <path d="M195 210 Q200 230 210 240" fill="none" stroke="#2f2f2f" stroke-width="3"/>
+  <rect x="178" y="208" width="44" height="8" fill="#2f2f2f"/>
+
+  <!-- Small details -->
+  <path d="M210 120 Q215 110 225 108" fill="none" stroke="#2f2f2f" stroke-width="2"/>
+</svg>

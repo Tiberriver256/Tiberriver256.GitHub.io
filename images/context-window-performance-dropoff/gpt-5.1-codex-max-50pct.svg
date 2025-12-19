@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f4f7fb"/>
+  <!-- Bicycle -->
+  <g stroke="#2c3e50" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="120" cy="220" r="45"/>
+    <circle cx="270" cy="220" r="45"/>
+    <path d="M120 220 L180 180 L260 220 L200 220 Z"/>
+    <path d="M180 180 L190 140 L250 140"/>
+    <circle cx="200" cy="220" r="8" fill="#2c3e50"/>
+    <line x1="200" y1="220" x2="190" y2="240"/>
+    <line x1="200" y1="220" x2="215" y2="240"/>
+    <circle cx="250" cy="140" r="7" fill="#2c3e50"/>
+  </g>
+  <!-- Pelican -->
+  <g stroke="#2c3e50" stroke-width="2" fill="none" stroke-linejoin="round">
+    <ellipse cx="190" cy="150" rx="60" ry="40" fill="#fefefe"/>
+    <path d="M140 140 Q120 120 130 100 Q160 100 175 120" fill="#fefefe"/>
+    <path d="M130 102 L110 110 L140 118 Z" fill="#f4c95d"/>
+    <circle cx="150" cy="118" r="6" fill="#2c3e50"/>
+    <circle cx="152" cy="116" r="2" fill="#fefefe"/>
+    <path d="M200 140 Q220 160 235 155 Q210 155 195 145" fill="#e8eef5"/>
+    <path d="M210 186 L195 215" stroke="#e88c3d"/>
+    <path d="M225 186 L210 215" stroke="#e88c3d"/>
+    <circle cx="195" cy="215" r="6" fill="#2c3e50"/>
+    <circle cx="210" cy="215" r="6" fill="#2c3e50"/>
+    <path d="M235 155 Q260 150 275 125 Q270 110 250 110 Q245 130 235 142 Z" fill="#fefefe"/>
+  </g>
+  <!-- Handlebar and seat for pelican -->
+  <path d="M250 140 L270 130 L275 125" stroke="#2c3e50" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M180 180 L170 170" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
+</svg>
