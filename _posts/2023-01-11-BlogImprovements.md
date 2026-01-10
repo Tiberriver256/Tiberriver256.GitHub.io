@@ -28,7 +28,7 @@ Here's the changes that I made:
 1. Went with a super minimal CSS template based off of
    [https://thejollyteapot.com/](https://thejollyteapot.com/)
 2. Stripped out all my fancy pants menus and social sharing
-3. Replaced analytics with [Plausible.io](https://plausible.io)
+3. Replaced Google Analytics with [Plausible.io](https://plausible.io)
 4. Replaced highlight.js with Jekyll rouge
 
 ### Minimal CSS
@@ -70,10 +70,11 @@ theme. I decided to just remove most of them. I might add a link to my Github
 and LinkedIn profile later but really... I think I'll just keep it a text link
 no need to get super fancy.
 
-### Replaced analytics with Plausible.io
+### Replaced Google Analytics with Plausible.io
 
-I'm loving Plausible.io so far. It does exactly what I need it to and the
-include snippet is only 1KB!
+I'm loving Plausible.io so far. It's does a whole lot less than Google
+Analytics... but... it does exactly what I need it to and the include snippet is
+only 1KB!
 
 ### Replaced highlight.js with rouge
 
