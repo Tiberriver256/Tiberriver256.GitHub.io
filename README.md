@@ -56,7 +56,6 @@ This blog is built with modern static site technologies:
 - **Automatic OG Image Generation** - Dynamic social media preview images using
   [Cloudinary](https://cloudinary.com/)
 - **Giscus Comments** - GitHub-based commenting system
-- **Google Analytics** - Visitor tracking and insights
 - **RSS Feed** - Subscribe at `/feed.xml`
 - **Search Functionality** - JSON-based search across all posts
 - **SEO Optimized** - Meta tags, structured data, and sitemap

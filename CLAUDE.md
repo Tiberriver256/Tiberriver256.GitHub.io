@@ -32,7 +32,6 @@ This is a Jekyll-based blog hosted on GitHub Pages, using the Neo-HPSTR theme. T
 - **Giscus comments**: Integrated GitHub-based commenting system
 - **Search functionality**: JSON-based search via `search.json`
 - **RSS feed**: Generated at `/feed.xml`
-- **Google Analytics**: Configured with tracking ID G-4DS8LE3MB2
 
 ### Configuration
 - **Main config**: `_config.yml` contains site settings, owner info, and Jekyll configuration
