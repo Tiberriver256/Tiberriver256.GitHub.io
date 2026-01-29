@@ -300,7 +300,22 @@ filter: start at the top of each section, move down only when the draft resists.
 - **Write to one reader, not a demographic blur.** Direct “you” can be a godsend
   in instructional prose.&#x20;
 
-## 6  Quick “Red-Flag” List
+
+## 6  Human Voice — Avoid the AI Tell
+
+Vale's `Humanize` rules will flag obvious patterns, but the deeper fix is habit:
+
+1. **One anecdote per post.** A story where you failed, learned, or were surprised.
+   ("Last week I clicked approve on a script that deleted a staging database...")
+2. **Hedging is human.** "I think," "in my experience," "I've seen" — these signal
+   a real person with limited perspective, not an oracle.
+3. **Break a list.** If you have 4+ bullet points, convert one section to prose.
+4. **Vary rhythm.** Short sentence. Then a longer one that meanders a bit before
+   landing. Monotonous cadence reads robotic.
+5. **Name names.** Specific tools, projects, or people you worked with.
+   Generalities ("many teams do X") feel templated.
+
+## 7  Quick “Red-Flag” List
 
 | Flabby                | Tight                             |
 | --------------------- | --------------------------------- |
@@ -309,7 +324,7 @@ filter: start at the top of each section, move down only when the draft resists.
 | very / really / quite | — (pick a stronger verb)          |
 | free up, finalize     | free, finish                      |
 
-## 7  One-Minute Final Checklist
+## 8  One-Minute Final Checklist
 
 1. Purpose clear in first 60 words?
 2. Single controlling idea tracked start→finish?
