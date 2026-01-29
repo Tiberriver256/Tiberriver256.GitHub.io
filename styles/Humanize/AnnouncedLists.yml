@@ -1,0 +1,11 @@
+extends: existence
+message: "Announcing list counts feels robotic. Consider removing '%s'."
+level: suggestion
+scope: sentence
+tokens:
+  - 'has \d+ parts'
+  - 'has \d+ steps'
+  - 'here are \d+ '
+  - 'there are \d+ '
+  - 'involves \d+ (steps|parts|stages)'
+  - 'consists of \d+ '

@@ -1,0 +1,7 @@
+extends: occurrence
+message: "No 'I' found—consider adding personal voice."
+level: suggestion
+scope: raw
+ignorecase: false
+token: '\bI\b'
+min: 1

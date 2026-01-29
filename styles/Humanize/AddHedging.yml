@@ -1,0 +1,7 @@
+extends: occurrence
+message: "Consider adding hedging phrases ('I think', 'in my experience') for personal voice."
+level: suggestion
+scope: raw
+ignorecase: true
+token: '\b(I think|I believe|in my experience|I''ve found|I''ve seen|from what I''ve seen)\b'
+min: 1

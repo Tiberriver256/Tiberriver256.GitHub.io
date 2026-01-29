@@ -1,0 +1,15 @@
+extends: substitution
+message: "'%s' is corporate jargon. Consider '%s' or rewriting."
+level: suggestion
+ignorecase: true
+swap:
+  what good looks like: an example
+  at the end of the day: ultimately
+  move the needle: make progress
+  circle back: revisit
+  deep dive: analysis
+  low-hanging fruit: easy wins
+  synergy: collaboration
+  leverage: use
+  actionable: useful
+  best practices: good habits

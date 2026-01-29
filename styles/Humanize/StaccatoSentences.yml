@@ -1,0 +1,8 @@
+extends: existence
+message: "Short emphatic fragment. Too many of these feels AI-generated."
+level: suggestion
+scope: sentence
+tokens:
+  - "^That's the (trap|point|key|trick|problem|issue|thing)\\.$"
+  - "^This is (the trap|the point|the key|why)\\.$"
+  - "^Here's (the thing|why|the deal)\\.$"

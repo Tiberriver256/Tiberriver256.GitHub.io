@@ -1,0 +1,6 @@
+extends: occurrence
+message: "Heavy list usage detected. Consider converting some lists to prose."
+level: suggestion
+scope: text
+token: '^(\d+\.|[-*])\s'
+max: 15
