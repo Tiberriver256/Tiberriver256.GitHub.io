@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run Vale (Google style) on staged Markdown files.
+#
+# Bypass options:
+#   - git commit --no-verify
+#   - SKIP_VALE=1 git commit ...
+
+if [[ "${SKIP_VALE:-}" == "1" ]]; then
+  exit 0
+fi
+
+mapfile -t files < <(
+  git diff --cached --name-only --diff-filter=ACMR \
+    | grep -E '\.(md|markdown)$' \
+    || true
+)
+
+if [[ ${#files[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+# Try common local install location.
+export PATH="$HOME/.local/bin:$PATH"
+
+if ! command -v vale >/dev/null 2>&1; then
+  cat <<'MSG' >&2
+Vale is not installed, so the docs style check was skipped.
+
+Install Vale: https://vale.sh/docs/vale-cli/installation/
+Then run once in this repo:
+  vale sync
+
+(You can also bypass this hook with --no-verify or SKIP_VALE=1.)
+MSG
+  exit 0
+fi
+
+# Ensure packages are available locally. They live under ./styles (ignored by git,
+# except for ./styles/Vocab).
+if [[ ! -d "styles/Google" || ! -d "styles/Readability" ]]; then
+  echo "Vale packages not found under ./styles; running 'vale sync'..." >&2
+  vale sync
+fi
+
+# Keep the hook practical: fail on warnings/errors, not suggestions.
+vale --minAlertLevel=warning "${files[@]}"

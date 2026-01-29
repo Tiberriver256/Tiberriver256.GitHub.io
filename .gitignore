@@ -18,4 +18,6 @@ package-lock.json
 
 ### Vale ###
 /styles/*
-!/styles/Vocab/
+!/styles/config/
+!/styles/config/vocabularies/
+!/styles/config/vocabularies/**

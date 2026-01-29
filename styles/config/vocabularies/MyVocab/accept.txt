@@ -1,0 +1,11 @@
+# Add words here that Vale should always accept.
+# One entry per line.
+
+Willison
+untrusted
+repo
+repos
+sandboxing
+exfiltration
+Codespaces
+allowlist
