@@ -65,6 +65,9 @@ I stick to my hours... sometimes this means I get extra stuff done because I
 finished earlier than I thought I would... sometimes this means I miss on
 commitments.
 
+I ask my team to stick to their hours... don't overwork yourself. Don't cut out
+on the rest of your team. Just go stable.
+
 Every time, though, it means my hours are stable and predictable.
 
 ## The Benefits
@@ -80,3 +83,12 @@ Every time, though, it means my hours are stable and predictable.
 
 > **Side Note:** I still work crazy hours sometimes... but... that's a different
 > problem 😝
+
+## Common Questions
+
+- **How many hours?** - That's up to your team... whatever you collectively
+  agree makes the most sense for you guys to be productive.
+- **Do you really follow this strictly?** - Not really... it's more of a target
+  than a strict rule. Sometimes you have to pull overtime. Sometimes you should
+  get out early. Those tend to be great team conversations though and shouldn't
+  be left up to the individual to put on themselves.
