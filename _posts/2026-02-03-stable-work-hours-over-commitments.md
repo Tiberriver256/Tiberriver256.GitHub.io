@@ -2,7 +2,9 @@
 published: true
 layout: post
 title: "Why I Prefer Stable Hours Over 'Get Your Work Done' in Software Dev"
-description: "In software dev, commitment-based schedules create unpredictable workloads. I prefer stable hours over the guilt cycle of estimation."
+description:
+  "In software dev, commitment-based schedules create unpredictable workloads. I
+  prefer stable hours over the guilt cycle of estimation."
 modified: 2026-02-03
 tags:
   - Productivity
@@ -11,42 +13,57 @@ categories:
   - Career
 ---
 
-I like stable, predictable work hours. There, I said it.
+I like stable, predictable work hours.
 
 {% include image.html path="stable-hours-graph.png" alt="Graph showing a flat green line representing consistent daily work hours - what I prefer" %}
 
-I used to promise a feature by Friday, work until 2 AM Thursday night to make it happen, then show up late Monday feeling like a hero. The next sprint? I'd estimate everything at triple the time because I was terrified of another all-nighter. My wife started asking if I actually had a job with set hours or if I was just making it up as I went.
-
-When you hook your worth to "commitments" or "getting your work done," your schedule becomes chaos.
+I learned that when you try to hook your self-worth to "commitments" or "getting
+your work done" in an environment like software development where work is so
+difficult to estimate your schedule can quickly become chaos.
 
 {% include image.html path="unpredictable-hours-graph.png" alt="Graph showing a wavy red line with peaks and valleys representing unpredictable daily work hours - what I want to avoid" %}
 
 ## The Commitment Trap
 
-When your worth depends on meeting commitments, you get stuck in an ugly cycle. You overwork when estimates miss—and they will miss, because this is software. Missed a deadline? Grind nights and weekends to "prove yourself." 
+When my worth depended on meeting commitments, I tended to get stuck in an ugly
+cycle. I overworked when estimates missed—and they always miss, because this is
+software. Missed a deadline? Grind nights and weekends to "prove myself."
 
-Finish early (rare, but it happens)? You sneak out early or coast because you earned it after all those 60-hour weeks, right? It feels like justified compensation.
+Finish early (rare, but it happens)? I sneak out early or coast because I earned
+it after all those 60-hour weeks, right? It feels like justified compensation.
 
-Maybe this makes sense on a factory line with predictable quotas. But in software? Your commitments are based on your ability to predict the unpredictable.
+Maybe this makes sense on a factory line with predictable quotas. But in
+software? My commitments are based on my ability to predict the unpredictable.
 
 ## We're All Terrible at Estimating Software
 
-We're awful at it. I've read the books—Steve McConnell, the Pragmatic Programmers, all of them. The reasons why fill entire shelves. But the result is simple: you kill yourself hitting aggressive estimates, burn out, then sandbag everything for the next six months because you're terrified of feeling that pain again.
+We're awful at it. I highly recommend reading Software Estimation: Demystifying
+The Black Art by Steve McConnell where he goes to great lengths to prove to his
+readers exactly how bad we are. He of course then proceeeds to give you useful
+techniques on how you can get better... but still... the problem remains.
 
-I've done this. You've probably done this. Neither pattern does you any favors, and it definitely doesn't help your team.
+We tend to either overestimate or underestimate and by a large margin. The more
+common of the two is unfortunately underestimating the size which means you'll
+more commonly (if you're like the rest of us humans) be working overtime rather
+than getting out early.
 
 ## A Better Approach: Stable Hours, Improving Flow
 
-Stop asking "Did you meet your commitments?" Start asking "Are we getting better at our work over time?"
+So what do I do now?
 
-Focus on stable, agreed-upon hours. Whatever you and your team decide makes sense for actual productivity—not hero hours, not "prove yourself" hours. Then improve your flow, your processes, your code quality. Get better at the craft.
+I stick to my hours... sometimes this means I get extra stuff done because I finished earlier than I thought I would... sometimes this means I miss on commitments. 
 
-When something turns out easier than expected, don't knock off early to "balance the books." Use that momentum. Get ahead on the next hard thing. That success feeds the company, protects your paycheck, and doesn't leave you resentful when the inevitable estimation disaster hits next month.
+Every time, though, it means my hours are stable and predictable.
 
-## The Real Benefit
 
-Stability. Being able to tell my family when I'll actually be home. Not carrying around guilt that "I didn't finish the thing I promised, so I must not be good at my job."
+## The Benefits
 
-Software is wickedly hard to predict. There's no quota sheet to check at the end of the day. Work stable hours that keep you sane and productive, get better at your craft over time, and—here's the hard part—let go of the rest.
+* **Stability** - Being able to tell my family when I'll actually be home. Not carrying
+around guilt that "I didn't finish the thing I promised, so I must not be good
+at my job."
+* **Failure** - Failure isn't always bad... it's an opportunity to learn and improve. When I or my team fail to meet commitments within a reasonable timeframe we can talk about what went wrong and what we can do better next time. Overworking to hit a deadline short-circuited that value for me for a long time.
 
-The developers who last in this industry aren't the ones who can pull all-nighters on command. They're the ones who stay consistent.
+
+
+> **Side Note:** I still work crazy hours sometimes... but... that's a different
+> problem 😝
