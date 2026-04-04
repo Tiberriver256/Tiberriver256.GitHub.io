@@ -304,7 +304,7 @@ That makes you the <span class="toc-em">constraint</span>. That's not an insult,
       s += `<text x="${pos.rev}" y="${Y-30}" text-anchor="middle" font-size="9" class="label">constraint ↓</text>`;
       s += `<text x="${pos.rev}" y="${Y-18}" text-anchor="middle" font-size="11" font-weight="700">you</text>`;
       s += `<circle cx="${pos.rev}" cy="${Y}" r="4" fill="currentColor"/>`;
-      s += `<text x="${pos.done}" y="${Y-18}" text-anchor="middle" font-size="10" class="label">merged ✓</text>`;
+      s += `<text x="${pos.done}" y="${Y-22}" text-anchor="middle" font-size="10" class="label">merged ✓</text>`;
       return s;
     }
     const staticSVG = drawStatic();
