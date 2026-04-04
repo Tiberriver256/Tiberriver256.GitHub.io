@@ -1,15 +1,16 @@
 ---
 published: true
 layout: post
-title: "Theory of Constraints: Exploiting the Constraint"
-description: "An interactive demo showing how CI automation protects your bottleneck's capacity"
+title: "You Are the Bottleneck"
+description: "AI coding agents write fast. You review slow. Step one: stop wasting your review cycles on lint."
 modified: 2026-04-04
 tags:
   - Theory of Constraints
+  - AI
   - DevOps
   - CI/CD
 categories:
-  - DevOps
+  - AI and Technology
 ---
 
 <style>
@@ -49,22 +50,30 @@ categories:
 </style>
 <noscript><style>.toc-section { opacity: 1; transform: none; }</style></noscript>
 
-This is your **tech lead**. They review every PR before it gets merged.
+*Part 1 of a series on AI coding agents and throughput.*
+
+---
+
+This dot is you.
 
 <div class="toc-section" data-anim>
 <div class="toc-scene">
-<svg viewBox="0 0 460 70" aria-label="Tech lead represented as a single dot">
+<svg viewBox="0 0 460 70" aria-label="You — the constraint — represented as a single dot">
 <circle cx="230" cy="30" r="8" fill="currentColor"/>
-<text x="230" y="55" text-anchor="middle" font-size="11" class="label">tech lead</text>
+<text x="230" y="55" text-anchor="middle" font-size="11" class="label">you</text>
 </svg>
 </div>
 
-They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ships without going through them.
+You review code that AI agents write for you. Nothing ships until you say so.
+
+That makes you the <span class="toc-em">constraint</span>. Not an insult — just physics. The system can't move faster than you can read.
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>Here come 10 PRs</h2>
+<h2>Your agents just dropped off 10 PRs</h2>
+
+<p>They're fast! Good for them.</p>
 
 <div class="toc-scene">
 <svg viewBox="0 0 460 70" aria-label="Ten PRs represented as numbered dots">
@@ -84,7 +93,7 @@ They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ship
 
 <div class="toc-section" data-anim>
 
-<h2>9 out of 10 have problems</h2>
+<h2>Uh oh</h2>
 
 <div class="toc-scene">
 <svg viewBox="0 0 460 80" aria-label="Nine bad PRs shown in red, one good PR in default color">
@@ -101,16 +110,16 @@ They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ship
 </svg>
 </div>
 
-<p>And of those 9 bad ones...</p>
+<p>9 out of 10 have problems. But wait...</p>
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>7 are trivial junk</h2>
+<h2>Most of those problems are <em>dumb</em></h2>
 
-<p>Missing semicolons. Bad indentation. Wrong quotes.</p>
+<p>Wrong indentation. Missing semicolons. Forgot to run the formatter.</p>
 
-<p>Only <strong>2</strong> have real problems that need a human brain.</p>
+<p>Only <strong>2</strong> have actual bugs — the kind that need your brain.</p>
 
 <div class="toc-scene">
 <svg viewBox="0 0 460 80" aria-label="Seven trivial issues in yellow, two real bugs in red, one clean">
@@ -132,16 +141,16 @@ They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ship
 
 <div class="toc-section" data-anim>
 
-<h2>Without CI: all 10 hit the tech lead</h2>
+<h2>Without CI: all 10 land on your desk</h2>
 
-<p>Try it. Send some PRs through:</p>
+<p>Go ahead, send some through:</p>
 
 <div class="toc-pipeline" id="pipeline-no-ci"></div>
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>The math without CI</h2>
+<h2>So here's what just happened</h2>
 
 <div class="toc-math">
 <div>10 first reviews</div>
@@ -149,16 +158,16 @@ They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ship
 <div class="total">= up to 19 reviews</div>
 </div>
 
-<p>And 7 of those bounces were for stuff like <code>missing semicolons</code>.</p>
+<p>And 7 of those round-trips? For stuff a computer could catch in 2 seconds.</p>
 
-<p><em>Your most expensive reviewer... playing the role of a linter.</em></p>
+<p><em>You — the scarce resource, the only person who can hit merge — spent your afternoon being a spellchecker.</em></p>
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>What if we add robots in front?</h2>
+<h2>What if we put some cheap robots in front?</h2>
 
-<p>Put two cheap, fast, tireless checkers <span class="toc-em">before</span> the tech lead:</p>
+<p>Linter. Formatter. Nothing fancy. These have existed forever.</p>
 
 <div class="toc-scene">
 <svg viewBox="0 0 460 70" aria-label="Pipeline showing linter and formatter before tech lead">
@@ -166,25 +175,25 @@ They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ship
 <line x1="115" y1="30" x2="175" y2="30"/>
 <circle cx="190" cy="30" r="6" class="accent"/><text x="190" y="55" text-anchor="middle" font-size="10" class="label">formatter</text>
 <line x1="205" y1="30" x2="275" y2="30"/>
-<circle cx="290" cy="30" r="8" fill="currentColor"/><text x="290" y="10" text-anchor="middle" font-size="9" class="label">constraint ↓</text><text x="290" y="55" text-anchor="middle" font-size="11" font-weight="700">tech lead</text>
+<circle cx="290" cy="30" r="8" fill="currentColor"/><text x="290" y="10" text-anchor="middle" font-size="9" class="label">constraint ↓</text><text x="290" y="55" text-anchor="middle" font-size="11" font-weight="700">you</text>
 </svg>
 </div>
 
-<p>They check every PR <strong>before</strong> it reaches the constraint.</p>
+<p>They check every PR <em>before</em> it reaches you. Dumb stuff? Bounced. Instantly. You never see it.</p>
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>With CI: same 10 PRs</h2>
+<h2>Same 10 PRs. This time with robots.</h2>
 
-<p>Send them through and watch the difference:</p>
+<p>Try it:</p>
 
 <div class="toc-pipeline" id="pipeline-with-ci"></div>
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>The new math</h2>
+<h2>Look at that</h2>
 
 <div class="toc-math">
 <div>3 first reviews</div>
@@ -194,25 +203,44 @@ They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ship
 
 <span class="toc-big">19 → 5</span>
 
-<p>Same person. Same hours. Same salary.</p>
-
-<p>You didn't hire anyone. You just <span class="toc-em">stopped wasting their time</span>.</p>
+<p>Same you. Same hours. Same brain. Just... less garbage in front of it.</p>
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>This is called "exploiting" the constraint</h2>
+<h2>There's a name for this</h2>
+
+<p>In Theory of Constraints, it's called <span class="toc-em">exploiting</span> the constraint.</p>
 
 <div class="toc-def">
-<div><strong>Elevating</strong> = add capacity <span style="opacity:0.6">(hire another tech lead)</span></div>
-<div><strong>Exploiting</strong> = protect existing capacity <span style="opacity:0.6">(automate the junk)</span></div>
+<div><strong>Elevating</strong> = add capacity <span style="opacity:0.6">(clone yourself)</span></div>
+<div><strong>Exploiting</strong> = protect existing capacity <span style="opacity:0.6">(stop feeding junk to the bottleneck)</span></div>
 </div>
 
-<p>The linter doesn't make the tech lead faster. It ensures every minute of the constraint is spent on work that <span class="toc-em">actually needs the constraint</span>.</p>
+<p>The linter didn't make you faster. It made sure that when you <em>do</em> review something, it's worth reviewing.</p>
 
-<p>You don't want your rocket scientists sweeping floors and changing light bulbs.</p>
+<p>And honestly? This part is kind of boring. Linters have existed for decades. If your agents are submitting PRs that fail lint, go fix that. We'll wait.</p>
 
-<p class="toc-note">The constraint's throughput is the system's throughput. Don't waste it on work a machine can do.</p>
+<p>Okay. Here's where it gets interesting.</p>
+</div>
+
+<div class="toc-section" data-anim>
+
+<h2>The thing everyone tries next doesn't work</h2>
+
+<p>The pitch goes like this: <em>"Run 5 agents in parallel! 10x output!"</em></p>
+
+<p>So now your agents produce 50 PRs a day instead of 5.</p>
+
+<p>You still review... 5 a day.</p>
+
+<p>Parallelization didn't increase <strong>throughput</strong>. It increased <strong>inventory</strong> — the pile of PRs sitting there, waiting for you, going stale.</p>
+
+<p>More writers doesn't help when the reader is the bottleneck.</p>
+
+<p><em>That's what Part 2 is about.</em></p>
+
+<p class="toc-note">This series: (1) stop feeding junk to the bottleneck ← you are here · (2) why parallelization is a trap · (3) what actually moves the needle</p>
 </div>
 
 <script>
@@ -274,7 +302,7 @@ They're the bottleneck. The <span class="toc-em">constraint</span>. Nothing ship
         s += `<circle cx="${pos.fmt}" cy="${Y}" r="4" class="accent"/>`;
       }
       s += `<text x="${pos.rev}" y="${Y-24}" text-anchor="middle" font-size="9" class="label">constraint ↓</text>`;
-      s += `<text x="${pos.rev}" y="${Y-12}" text-anchor="middle" font-size="11" font-weight="700">tech lead</text>`;
+      s += `<text x="${pos.rev}" y="${Y-12}" text-anchor="middle" font-size="11" font-weight="700">you</text>`;
       s += `<circle cx="${pos.rev}" cy="${Y}" r="4" fill="currentColor"/>`;
       s += `<text x="${pos.done}" y="${Y-12}" text-anchor="middle" font-size="10" class="label">merged ✓</text>`;
       return s;
