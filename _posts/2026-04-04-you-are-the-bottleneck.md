@@ -66,7 +66,7 @@ This dot is you.
 
 You review code that AI agents write for you. Nothing ships until you say so.
 
-That makes you the <span class="toc-em">constraint</span>. Not an insult — just physics. The system can't move faster than you can read.
+That makes you the <span class="toc-em">constraint</span>. That's not an insult, because the bottleneck is always a person. The system can't move faster than you can read.
 </div>
 
 <div class="toc-section" data-anim>
@@ -117,7 +117,7 @@ That makes you the <span class="toc-em">constraint</span>. Not an insult — jus
 
 <h2>Most of those problems are <em>dumb</em></h2>
 
-<p>Wrong indentation. Missing semicolons. Forgot to run the formatter.</p>
+<p>Wrong indentation, missing semicolons, someone forgot to run the formatter.</p>
 
 <p>Only <strong>2</strong> have actual bugs — the kind that need your brain.</p>
 
@@ -167,7 +167,7 @@ That makes you the <span class="toc-em">constraint</span>. Not an insult — jus
 
 <h2>What if we put some cheap robots in front?</h2>
 
-<p>Linter. Formatter. Nothing fancy. These have existed forever.</p>
+<p>A linter and a formatter. Nothing fancy, and these have existed forever.</p>
 
 <div class="toc-scene">
 <svg viewBox="0 0 460 70" aria-label="Pipeline showing linter and formatter before tech lead">
@@ -179,7 +179,7 @@ That makes you the <span class="toc-em">constraint</span>. Not an insult — jus
 </svg>
 </div>
 
-<p>They check every PR <em>before</em> it reaches you. Dumb stuff? Bounced. Instantly. You never see it.</p>
+<p>They check every PR <em>before</em> it reaches you, so the dumb stuff gets bounced instantly. You never see it.</p>
 </div>
 
 <div class="toc-section" data-anim>
@@ -203,7 +203,7 @@ That makes you the <span class="toc-em">constraint</span>. Not an insult — jus
 
 <span class="toc-big">19 → 5</span>
 
-<p>Same you. Same hours. Same brain. Just... less garbage in front of it.</p>
+<p>You're the same person with the same hours and the same brain. The only difference is less garbage in front of it.</p>
 </div>
 
 <div class="toc-section" data-anim>
@@ -234,7 +234,7 @@ That makes you the <span class="toc-em">constraint</span>. Not an insult — jus
 
 <p>You still review... 5 a day.</p>
 
-<p>Parallelization didn't increase <strong>throughput</strong>. It increased <strong>inventory</strong> — the pile of PRs sitting there, waiting for you, going stale.</p>
+<p>Parallelization didn't increase <strong>throughput</strong>. It increased <strong>inventory</strong>, which means a growing pile of PRs sitting there, waiting for you, going stale.</p>
 
 <p>More writers doesn't help when the reader is the bottleneck.</p>
 
