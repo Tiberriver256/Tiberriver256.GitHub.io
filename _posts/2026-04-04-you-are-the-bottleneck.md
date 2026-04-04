@@ -266,7 +266,7 @@ That makes you the <span class="toc-em">constraint</span>. That's not an insult,
   // Pipeline simulation
   function createPipeline(mount, hasCI) {
     const types = ["lint","ok","fmt","lint","logic","fmt","lint","lint","fmt","logic"];
-    const W = 460, Y = 40;
+    const W = 460, Y = 50;
     const pos = hasCI
       ? { start: 20, lint: 100, fmt: 180, rev: 300, done: 420 }
       : { start: 30, rev: 200, done: 380 };
@@ -276,7 +276,7 @@ That makes you the <span class="toc-em">constraint</span>. That's not an insult,
 
     const uid = 'pl-' + Math.random().toString(36).slice(2, 8);
     mount.innerHTML = `
-      <div class="toc-scene"><svg id="${uid}-svg" viewBox="0 0 ${W} 110"></svg></div>
+      <div class="toc-scene"><svg id="${uid}-svg" viewBox="0 0 ${W} 120"></svg></div>
       <div class="toc-pipeline-stats">
         <span>merged <strong id="${uid}-merged">0</strong></span>
         <span>bounced <strong id="${uid}-bounced">0</strong></span>
@@ -296,15 +296,15 @@ That makes you the <span class="toc-em">constraint</span>. That's not an insult,
       s += `<line x1="15" y1="${Y+30}" x2="${W-15}" y2="${Y+30}" stroke-dasharray="4 4"/>`;
       s += `<text x="${W/2}" y="${Y+50}" text-anchor="middle" font-size="9" class="label">↩ bounced back</text>`;
       if (hasCI) {
-        s += `<text x="${pos.lint}" y="${Y-16}" text-anchor="middle" font-size="10" class="label">linter</text>`;
+        s += `<text x="${pos.lint}" y="${Y-22}" text-anchor="middle" font-size="10" class="label">linter</text>`;
         s += `<circle cx="${pos.lint}" cy="${Y}" r="4" class="accent"/>`;
-        s += `<text x="${pos.fmt}" y="${Y-16}" text-anchor="middle" font-size="10" class="label">formatter</text>`;
+        s += `<text x="${pos.fmt}" y="${Y-22}" text-anchor="middle" font-size="10" class="label">formatter</text>`;
         s += `<circle cx="${pos.fmt}" cy="${Y}" r="4" class="accent"/>`;
       }
-      s += `<text x="${pos.rev}" y="${Y-24}" text-anchor="middle" font-size="9" class="label">constraint ↓</text>`;
-      s += `<text x="${pos.rev}" y="${Y-12}" text-anchor="middle" font-size="11" font-weight="700">you</text>`;
+      s += `<text x="${pos.rev}" y="${Y-30}" text-anchor="middle" font-size="9" class="label">constraint ↓</text>`;
+      s += `<text x="${pos.rev}" y="${Y-18}" text-anchor="middle" font-size="11" font-weight="700">you</text>`;
       s += `<circle cx="${pos.rev}" cy="${Y}" r="4" fill="currentColor"/>`;
-      s += `<text x="${pos.done}" y="${Y-12}" text-anchor="middle" font-size="10" class="label">merged ✓</text>`;
+      s += `<text x="${pos.done}" y="${Y-18}" text-anchor="middle" font-size="10" class="label">merged ✓</text>`;
       return s;
     }
     const staticSVG = drawStatic();
