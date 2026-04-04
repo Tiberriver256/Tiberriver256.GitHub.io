@@ -1,8 +1,8 @@
 ---
 published: true
 layout: post
-title: "You Are the Bottleneck"
-description: "AI coding agents write fast. You review slow. Step one: stop wasting your review cycles on lint."
+title: "Stop Reviewing Lint (AI Agents & Theory of Constraints)"
+description: "Your AI agents generate more code than you can review. The first move: stop wasting your scarce review cycles on stuff a linter catches."
 modified: 2026-04-04
 tags:
   - Theory of Constraints
@@ -50,13 +50,43 @@ categories:
 </style>
 <noscript><style>.toc-section { opacity: 1; transform: none; }</style></noscript>
 
-*Part 1 of a series on AI coding agents and throughput.*
+*Part of a series on getting more done with AI coding agents, using the [5 Focusing Steps](https://en.wikipedia.org/wiki/Theory_of_constraints#The_five_focusing_steps) from Theory of Constraints.*
 
 ---
 
-This dot is you.
+Here's the situation. You have AI coding agents. They write code for you. You want to ship more of it, faster.
+
+The obvious move: make the agents faster. Run more of them in parallel.
+
+That move is wrong. A 40-year-old idea from manufacturing explains why.
 
 <div class="toc-section" data-anim>
+
+<h2>A recipe from a factory floor</h2>
+
+Theory of Constraints says every system has exactly one bottleneck. Improve anything *other* than that bottleneck and you're wasting time.
+
+It gives you five steps. In order.
+
+<div class="toc-def">
+<div><strong>1. Identify</strong> the constraint</div>
+<div><strong>2. Exploit</strong> — squeeze every drop from existing capacity</div>
+<div><strong>3. Subordinate</strong> — align everything else around it</div>
+<div><strong>4. Elevate</strong> — add real capacity</div>
+<div><strong>5. Repeat</strong></div>
+</div>
+
+It's a simple recipe, but hard to follow because people always want to skip to step 4.
+
+This series walks all five, applied to AI coding agents. Let's start at the top.
+</div>
+
+<div class="toc-section" data-anim>
+
+<h2>Step 1: Find the constraint</h2>
+
+This dot is you.
+
 <div class="toc-scene">
 <svg viewBox="0 0 460 70" aria-label="You — the constraint — represented as a single dot">
 <circle cx="230" cy="30" r="8" fill="currentColor"/>
@@ -64,9 +94,22 @@ This dot is you.
 </svg>
 </div>
 
-You review code that AI agents write for you. Nothing ships until you say so.
+You review code that AI agents write. Nothing ships until you say so.
 
-That makes you the <span class="toc-em">constraint</span>. That's not an insult, because the bottleneck is always a person. The system can't move faster than you can read.
+That makes you the <span class="toc-em">constraint</span>, because the system moves at the speed you can read.
+
+In every AI-assisted dev team I've seen, the human reviewer is the bottleneck. Your agents produce more code in an hour than you can review in a day. You will always have more input than you can handle.
+
+Step 1: done.
+</div>
+
+<div class="toc-section" data-anim>
+
+<h2>Step 2: Exploit the constraint</h2>
+
+<span class="toc-em">Exploit</span> sounds aggressive. It just means: make sure the bottleneck never wastes a cycle. You must be busy doing high-value work. Don't fiddle with tooling. Don't waste your time on nitpicky things. Automate as much as you can.
+
+What's eating your review time right now? Let's find out.
 </div>
 
 <div class="toc-section" data-anim>
@@ -208,39 +251,34 @@ That makes you the <span class="toc-em">constraint</span>. That's not an insult,
 
 <div class="toc-section" data-anim>
 
-<h2>There's a name for this</h2>
-
-<p>In Theory of Constraints, it's called <span class="toc-em">exploiting</span> the constraint.</p>
-
-<div class="toc-def">
-<div><strong>Elevating</strong> = add capacity <span style="opacity:0.6">(clone yourself)</span></div>
-<div><strong>Exploiting</strong> = protect existing capacity <span style="opacity:0.6">(stop feeding junk to the bottleneck)</span></div>
-</div>
+<h2>That's Step 2</h2>
 
 <p>The linter didn't make you faster. It made sure that when you <em>do</em> review something, it's worth reviewing.</p>
 
-<p>And honestly? This part is kind of boring. Linters have existed for decades. If your agents are submitting PRs that fail lint, go fix that. We'll wait.</p>
+<p>This is boring on purpose. Linters have existed for decades. If your agents submit PRs that fail lint, go set up CI. We'll wait.</p>
 
-<p>Okay. Here's where it gets interesting.</p>
+<p>The boring stuff matters because it's <em>cheap</em>. You don't need a workflow rewrite or new tools, just a CI pipeline that catches problems a computer solves in 2 seconds.</p>
 </div>
 
 <div class="toc-section" data-anim>
 
-<h2>The thing everyone tries next doesn't work</h2>
+<h2>What everyone tries next</h2>
 
-<p>The pitch goes like this: <em>"Run 5 agents in parallel! 10x output!"</em></p>
+<p>The pitch: <em>"Run 5 agents in parallel! 10x throughput!"</em></p>
 
-<p>So now your agents produce 50 PRs a day instead of 5.</p>
+<p>Your agents now produce 50 PRs a day.</p>
 
-<p>You still review... 5 a day.</p>
+<p>You still review 5.</p>
 
-<p>Parallelization didn't increase <strong>throughput</strong>. It increased <strong>inventory</strong>, which means a growing pile of PRs sitting there, waiting for you, going stale.</p>
+<p>The other 45 sit there, going stale and accumulating merge conflicts.</p>
 
-<p>More writers doesn't help when the reader is the bottleneck.</p>
+<p>That didn't increase <strong>throughput</strong>. It increased <strong>inventory</strong> — work piling up in front of the constraint, rotting.</p>
 
-<p><em>That's what Part 2 is about.</em></p>
+<p>Step 3 of Theory of Constraints has a name for the rule you just broke: <span class="toc-em">Subordinate</span>. Don't let non-constraints produce faster than the constraint can consume.</p>
 
-<p class="toc-note">This series: (1) stop feeding junk to the bottleneck ← you are here · (2) why parallelization is a trap · (3) what actually moves the needle</p>
+<p><em>That's a future post.</em></p>
+
+<p class="toc-note">This series applies the 5 Focusing Steps to AI coding agents. We're in Step 2 — Exploit. Linters are just the start.</p>
 </div>
 
 <script>
